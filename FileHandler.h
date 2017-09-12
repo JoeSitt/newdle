@@ -9,7 +9,6 @@
 #define FILEHANDLER_H
 
 #include "FileHandler.cpp"
-
 #include <string.h>
 #include <stdio.h>
 #include <iostream>
@@ -63,11 +62,10 @@ class FileHandler
 	private:
 		std::string fileName;
 
-		// get events
+		void getEvents();
 
-		// get attendees
+		void getAttendees();
 
-		//
 };
 
 #include "FileHandler.hpp"

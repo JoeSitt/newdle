@@ -34,3 +34,11 @@ void FileHandler::parseXML() const{
 
   return true;
 }
+
+void FileHandler::getEvents(){
+
+}
+
+void FileHandler::getAttendees(){
+  
+}

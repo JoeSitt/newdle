@@ -8,7 +8,7 @@
 #ifndef FILEHANDLER_H
 #define FILEHANDLER_H
 
-#include "FileHandler.h"
+#include "FileHandler.cpp"
 
 #include <string.h>
 #include <stdio.h>

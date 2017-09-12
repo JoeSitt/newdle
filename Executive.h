@@ -37,6 +37,8 @@ class Executive
 	*   @return none.
 	*/
 	void attendeeMode();
+private:
+	
 };
 
 #include "Executive.cpp"

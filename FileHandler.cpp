@@ -7,30 +7,30 @@
 
 #include "FileHandler.h"
 
-FileHandler(){
+FileHandler::FileHandler(){
 
 }
 
-FileHandler(char* fileIn){
+FileHandler::FileHandler(char* fileIn){
 
 }
 
-bool checkFile(){
+bool FileHandler::checkFile(){
 
   return true;
 }
 
-bool readFile(){
+bool FileHandler::readFile(){
 
   return true;
 }
 
-bool saveFile(){
+bool FileHandler::saveFile(){
 
   return true;
 }
 
-void parseXML() const{
-  
+void FileHandler::parseXML() const{
+
   return true;
 }

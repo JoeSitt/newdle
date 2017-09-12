@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<event>
-  <name>Party</name>
-  <time>Sunday Sun Oct 9 06:00 2017 - Sunday Sun Oct 9 12:00 2017</time>
-  <attendees>
-    <person>
-      <name>Jeff</name>
-      <time>Sunday Sun Oct 9 08:00 2017 - Sunday Sun Oct 9 09:00 2017</time>
-      <time>Sunday Sun Oct 9 010:00 2017 - Sunday Sun Oct 9 12:00 2017</time>
-    </person>
-    <person>
-      <name>Rick</name>
-      <time>Sunday Sun Oct 9 08:00 2017 - Sunday Sun Oct 9 09:00 2017</time>
-    </person>
-  </attendees>
+<event name="Party" starTime="Oct 9 06:00 2017" stopTime="Oct 9 12:00 2017">
+  <attendee name="Jeff">
+      <availability>
+        <time startTime="Oct 9 08:00 2017" stopTime="Oct 9 09:00 2017"></time>
+        <time startTime="Oct 9 010:00 2017" stopTime="Oct 9 12:00 2017"></time>
+      </availability>
+  </attendee>
+  <attendee name="Sally">
+    <availability>
+      <time startTime="Oct 9 08:00 2017" stopTime="Oct 9 09:00 2017"></time>
+  </attendee>
 </event>

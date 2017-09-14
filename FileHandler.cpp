@@ -18,7 +18,9 @@ FileHandler::~FileHandler(){
 bool FileHandler::openFile(){
   if(checkFile()){
     parseXML();
+    return true;
   }
+  return false;
 }
 
 bool FileHandler::saveFile(vector<string>){
@@ -35,19 +37,21 @@ void FileHandler::addAttendee(vector<string>){
 }
 
 bool FileHandler::checkFile(){
-  if (ifstream("schedule.xml"))
+  //
+  if (!ifstream("schedule.xml"))
   {
-       cout << "File already exists" << endl;
-      //  To do: if file is newly created add default text
-       return true;
+    ofstream file("schedule.xml");
+    if (!file)
+    {
+      //  File could not be created
+      return false;
+    }
+    ofstream myfile;
+    myfile.open ("schedule.xml");
+    myfile << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n<Calendar>\n</Calendar>";
+    myfile.close();
   }
-  ofstream file("schedule.xml");
-  if (!file)
-  {
-       cout << "File could not be created" << endl;
-       return false;
-  }
-  return false;
+  return true;
 }
 
 void FileHandler::parseXML(){
@@ -66,29 +70,35 @@ void FileHandler::parseXML(){
 		event_node;
 		event_node = event_node->next_sibling())
 	{
-	    printf("Event name: %s\nEvent start time: %s\nEvent end time: %s\n",
-	    	event_node->first_attribute("name")->value(),
-				event_node->first_attribute("starTime")->value(),
-	    	event_node->first_attribute("stopTime")->value());
-            // Interate over the attendees
-	    for(xml_node<> * attendee_node = event_node->first_node("Attendee");
-				attendee_node;
-				attendee_node = attendee_node->next_sibling()
-			)
-	    {
-				printf("\nAttendee Name: %s\n",
-		    	attendee_node->first_attribute("name")->value());
+		string event_name = event_node->first_attribute("name")->value();
+		string event_startTime = event_node->first_attribute("starTime")->value();
+		string event_stopTime = event_node->first_attribute("stopTime")->value();
 
-					for(xml_node<> * attendeeTime_node = attendee_node->first_node("Time");
-						attendeeTime_node;
-						attendeeTime_node = attendeeTime_node->next_sibling()
-					)
-			    {
-						printf("Attendee start time: %s\nAttendee end time: %s\n",
-							attendeeTime_node->first_attribute("startTime")->value(),
-							attendeeTime_node->first_attribute("stopTime")->value());
-			    }
-	    }
-	    cout << endl;
+    // To do: call addEvent
+    // addEvent(event_name,event_startTime,event_stopTime);
+
+		cout << "Event name: " + event_name + "\nEvent start time: " + event_startTime + "\nEvent end time: " + event_stopTime +"\n";
+		// Interate over the attendees
+		for(xml_node<> * attendee_node = event_node->first_node("Attendee");
+			attendee_node;
+			attendee_node = attendee_node->next_sibling())
+		{
+			string attendee_name = attendee_node->first_attribute("name")->value();
+			cout << "\nAttendee Name: " + attendee_name + "\n";
+
+			for(xml_node<> * attendeeTime_node = attendee_node->first_node("Time");
+				attendeeTime_node;
+				attendeeTime_node = attendeeTime_node->next_sibling())
+			{
+        
+        // To do: call addAttendee
+        // addAttendee(event_name,attendee_name,attendee_startTime,attendee_stopTime);
+
+				string attendee_startTime = attendeeTime_node->first_attribute("startTime")->value();
+				string attendee_stopTime = attendeeTime_node->first_attribute("stopTime")->value();
+				cout << "Attendee start time: " + attendee_startTime + "\nAttendee end time: " + attendee_stopTime + "\n";
+			}
+		}
+		cout << endl;
 	}
 }

@@ -9,6 +9,7 @@
 #define FILEHANDLER_H
 
 #include "FileHandler.cpp"
+#include "Event.h"
 #include <string.h>
 #include <stdio.h>
 #include <iostream>
@@ -49,7 +50,7 @@ class FileHandler
     bool saveFile(vector<string>);
 
 	private:
-		void addEvent(vector<string>);
+		void newEvent(vector<string>);
 
 		void addAttendee(vector<string>);
 

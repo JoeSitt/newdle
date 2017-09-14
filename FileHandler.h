@@ -49,8 +49,6 @@ class FileHandler
     bool saveFile(vector<string>);
 
 	private:
-		std::string fileName;
-
 		void addEvent(vector<string>);
 
 		void addAttendee(vector<string>);

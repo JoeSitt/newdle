@@ -51,9 +51,9 @@ class FileHandler
 	private:
 		std::string fileName;
 
-		void addEvents(vector<string>);
+		void addEvent(vector<string>);
 
-		void addAttendees(vector<string>);
+		void addAttendee(vector<string>);
 
 		bool checkFile();
 

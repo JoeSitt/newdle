@@ -26,11 +26,11 @@ bool FileHandler::saveFile(vector<string>){
 }
 
 
-void FileHandler::addEvents(vector<string>){
+void FileHandler::addEvent(vector<string>){
 
 }
 
-void FileHandler::addAttendees(vector<string>){
+void FileHandler::addAttendee(vector<string>){
 
 }
 

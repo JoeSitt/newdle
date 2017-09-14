@@ -10,7 +10,9 @@
 
 #include <iostream>
 #include <vector>
-#include "Event"
+#include <string>
+#include "Event.h"
+#include "Valid.h"
 //more includes when files added
 
 class Executive
@@ -42,11 +44,11 @@ private:
 	*   @return none.
 	*/
 	void attendeeMode();
-	/** @pre event name, start time, end time, creator's name.
+	/** @pre event name, date, start time, end time, creator's name.
 	*   @post new event in calendar vector created.
 	*   @return true if created, false if error occured.
 	*/
-	bool addEvent(eventName,startTime,endTime,eventCreator);
+	bool addEvent(std::string eventName, std::string date, std::string startTime,std::string endTime,std::string eventCreator);
 	/** @pre event name, time.
 	*   @post all attendees for that time slot displayed.
 	*   @return true if event/time valid, false if invalid.
@@ -57,6 +59,11 @@ private:
 	*   @return true if added, false if input not valid.
 	*/
 	bool addAttendee(eventName,time,attendee);
+	/** @pre none.
+	*   @post displays events.
+	*   @return none.
+	*/
+	void getEventList();
 	std::vector<Event> calendar;
 };
 

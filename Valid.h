@@ -85,4 +85,5 @@ class Valid {
 		@post 
 		*/
 		bool isValidDay(int month, bool leapYear, int day);
-}
+};
+#endif

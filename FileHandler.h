@@ -15,6 +15,9 @@
 #include <fstream>
 #include <vector>
 #include "rapidxml-1.13/rapidxml.hpp"
+#include <sys/stat.h>
+#include <unistd.h>
+#include <string>
 
 using namespace rapidxml;
 using namespace std;
@@ -32,39 +35,29 @@ class FileHandler
 		// @param
 		// @Pre
 		// @Post
-    FileHandler(char* fileIn);
-
-		// @param
-		// @Pre
-		// @Post
 		~FileHandler();
 
-		// @param
-		// @Pre
-		// @Post
-		bool checkFile();
 
 		// @param
 		// @Pre
 		// @Post
-    bool readFile();
+    bool openFile();
 
 		// @param
 		// @Pre
 		// @Post
-    bool saveFile();
-
-		// @param
-		// @Pre
-		// @Post
-    void parseXML() const;
+    bool saveFile(vector<string>);
 
 	private:
 		std::string fileName;
 
-		void getEvents();
+		void addEvents(vector<string>);
 
-		void getAttendees();
+		void addAttendees(vector<string>);
+
+		bool checkFile();
+
+		void parseXML();
 
 };
 

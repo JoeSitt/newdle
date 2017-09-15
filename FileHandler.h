@@ -47,7 +47,7 @@ class FileHandler
 		// @param
 		// @Pre
 		// @Post
-    bool saveFile(vector<string>);
+    bool saveFile(Event);
 
 	private:
 		void newEvent(vector<string>);

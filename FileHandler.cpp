@@ -23,7 +23,7 @@ bool FileHandler::openFile(){
   return false;
 }
 
-bool FileHandler::saveFile(vector<string>){
+bool FileHandler::saveFile(Event calendar){
 
 }
 
@@ -90,7 +90,7 @@ void FileHandler::parseXML(){
 				attendeeTime_node;
 				attendeeTime_node = attendeeTime_node->next_sibling())
 			{
-        
+
         // To do: call addAttendee
         // addAttendee(event_name,attendee_name,attendee_startTime,attendee_stopTime);
 

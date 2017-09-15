@@ -23,8 +23,39 @@ bool FileHandler::openFile(){
   return false;
 }
 
+// to do: finish attendee iteration printing
 bool FileHandler::saveFile(Event calendar){
+  ofstream myfile;
+  myfile.open ("schedule.xml");
+  myfile << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n<Calendar>\n\t";
 
+  for each event
+  {
+    string event_name = calendar.getEventName();
+    string event_startTime = calendar.getEventStartTime();
+    string event_stopTime = calendar.getEventStopTime();
+
+    myfile << "<Event name=\""
+      + event_name + "\" starTime=\""
+      + event_startTime + " stopTime=\""
+      + event_stopTime + "\">";
+
+  // Interate over the attendees
+    for each Attendee
+    {
+      string attendee_name = attendee_node->first_attribute("name")->value();
+      cout << "\nAttendee Name: " + attendee_name + "\n";
+
+      for each attendee_time_slot
+      {
+        string attendee_startTime = attendeeTime_node->first_attribute("startTime")->value();
+        string attendee_stopTime = attendeeTime_node->first_attribute("stopTime")->value();
+        cout << "Attendee start time: " + attendee_startTime + "\nAttendee end time: " + attendee_stopTime + "\n";
+      }
+    }
+  }
+    myfile << "</Calendar>";
+  myfile.close();
 }
 
 
@@ -37,7 +68,7 @@ void FileHandler::addAttendee(vector<string>){
 }
 
 bool FileHandler::checkFile(){
-  //
+  // Check if file exists. Create it and load with default text if it does not.
   if (!ifstream("schedule.xml"))
   {
     ofstream file("schedule.xml");

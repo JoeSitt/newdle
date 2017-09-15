@@ -1,6 +1,13 @@
+/**
+*	@file Executive.cpp
+*	@author Ferocious Hammerheads
+*	@date
+*	@brief Executive functions
+*/
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 #include "Executive.h"
 #include "Event.h"
 #include "Valid.h"
@@ -9,6 +16,7 @@
 Executive::Executive()
 {
   //creates vector of events
+  calendar = new std::vector<Event>();
   //calls filehandler to remake calendar from file
 }
 Executive::~Executive()
@@ -55,16 +63,12 @@ void Executive::adminMode()
     if(adminChoice == 1)//sends user to correct action
     {
       //create event
-      std::string eventName = "";
-      std::string eventName = "";
-      std::string eventName = "";
-      std::string eventName = "";
-      std::string eventName = "";
-      std::cout << "";
+      addEvent();
     }
     else if(adminChoice == 2)
     {
       //check attendees of event
+      checkAttendance();
     }
     else if(adminChoice == 3)
     {
@@ -79,30 +83,134 @@ void Executive::adminMode()
 }
 void Executive::attendeeMode()
 {
+  bool looper = true;
+  do {
+    getEventList();//shows list of events
+    looper = true;
+    int eventChoice = 0;
+    //Prompts which event to select
+    std::cout << "Enter the number for the event you would like to attend(0 to exit):\n";
+    std::cin >> eventChoice;
+    if(eventChoice > calendar.size() || eventChoice < 0)
+    {
+      std::cout << "There is no event with that number, please try again:\n";
+    }
+    else if(eventChoice == 0)
+    {
+      std::cout << "Exiting Atendee Mode:\n";
+      looper = false;
+    }
+    else
+    {
+      std::string arriveTime;
+      std::string leaveTime;
+      std::string attendeeName;
+      bool looper2 = false;
+      do {
+        looper2 = false;
+        std::cout << calendar[eventChoice].getEventName() << " takes place between " << calendar[eventChoice].getStartTime() << " and " << calendar[eventChoice].getEndTime();
+        std::cout << ". What time will you arrive?(Intervals are 30 mins, please use military time)\n";
+        std::cin >> arriveTime;
+        if(arriveTime < calendar[eventChoice].getStartTime() || arriveTime >  calendar[eventChoice].getEndTime() || !Valid.isValidTime(arriveTime))
+        {
+          std::cout << "Invalid arrival time, please try a different time:\n";
+          looper2 = true;
+        }
+      } while(looper2 == true);
+      do {
+        looper2 = false;
+        std::cout << "What time would you like to leave?(Intervals are 30 mins, please use military time)\n";
+        std::cin >> leaveTime;
+        if(leaveTime < calendar[eventChoice].getStartTime() || leaveTime >  calendar[eventChoice].getEndTime() || !Valid.isValidTimeSlots(arriveTime,leaveTime))
+        {
+          std::cout << "Invalid leaving time, please try a different time:\n";
+          looper2 = true;
+        }
+      } while(looper2 == true);
+      std::cout << "What is the name you would like to RSVP with?\n";
+      std::cin >> attendeeName;
+      calendar[eventChoice].addAttendee(attendeeName, arriveTime, leaveTime);
+      std::cout << "You have been added as an attendee to the event.\n";
+    }
+  } while(looper == true);
+}
+bool Executive::addEvent()
+{
+  std::string eventName = "";
+  std::string date = "";
+  std::string startTime = "";
+  std::string endTime = "";
+  std::string eventCreator = "";
+  bool looper = false;
+  do { //takes in and checks event name
+    looper = false;
+    std::cout << "What would you like to name the event?\n";
+    std::cin >> eventName;
+    if(!Valid.isValidName(eventName))
+    {
+      looper = true;
+      std::cout << "Event name already taken, please try a different name:\n";
+    }
+  } while(looper == true);
+  do {//takes in and checks date
+    std::string temp = "";
+    looper = false;
+    std::cout << "What month would you like the event?(format as the three letter abreviation in all caps)\n";
+    std::cin >> date;
+    transform(date.begin(), date.end(), date.begin(), toupper);
+    std::cout << "What day of the month would you like the event?(format as two digits)\n";
+    date = " " + date + std::cin >> temp + " ";
+    std::cout << "What year would you like the event?(format as four digits)\n";
+    date = " " + date + std::cin >> temp + " ";
+    if(!Valid.isValidDate(date))
+    {
+      looper = true;
+      std::cout << "Invalid date, please try another one:\n";
+    }
+  } while(looper == true);
+  do {//takes in and checks start time
+    looper = false;
+    std::cout << "What time would you like the event to start?(format as military time. Exeample, 2:00PM would be 1400)\n";
+    std::cin >> startTime;
+    if(!Valid.isValidTime(startTime))
+    {
+      looper = true;
+      std::cout << "Invalid start time, please try another time:\n";
+    }
+  } while(looper == true);
+  do{//takes in and checks end time
+    looper = false;
+    std::cout << "What time would you like the event to end?\n";
+    std::cin >> endTime;
+    if(!Valid.isValidTimeSlot(startTime,endTime))
+    {
+      looper = true;
+      std::cout << "Invalid end time, please try another time:\n";
+    }
+  } while(looper == true);
+  std::cout << "What is your name so we can add you as an attendee?\n";
+  std::cin >> eventCreator;
+  calendar.emplace_back(eventName, eventCreator, startTime, endTime, date);
+}
+bool Executive::checkAttendance()
+{
   getEventList();
-  //shows list of events
-  //Prompts which event to select
-  //ask what time they are available
-  //adds user to event
-  //loops till they want to exit
-}
-bool Executive::addEvent(std::string eventName, std::string date, std::string startTime,std::string endTime,std::string eventCreator)
-{
-  Valid.isValidDate(date);
-  //sends info to error checker class
-  //if came back true, add event to calendar vector return true
-  //if false, return false
-}
-bool Executive::checkAttendance(eventName,time)
-{
-  //send info to error checker class
+  bool looper = false;
+  std::string nameCheck;
+  do {//takes in and checks event name
+    looper = false;
+    std::cout << "Which event would you like to check the attendance for?\n";
+    std::cin >> nameCheck;
+    if(Valid.isValidName(nameCheck))
+    {
+      looper = false;
+      std::cout << "That event is not currently in our calendar, please try another event:\n";
+    }
+  } while(looper == true);
+  do {//take in and check time
+
+  } while();
   //if true, display attendees. return true
-  //if false, return false
-}
-bool Executive::addAttendee(eventName,time,attendee)
-{
-  //send info to error checker class
-  //if true, add attendee to event time return true
   //if false, return false
 }
 void Executive::getEventList();

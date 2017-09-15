@@ -44,21 +44,16 @@ private:
 	*   @return none.
 	*/
 	void attendeeMode();
-	/** @pre event name, date, start time, end time, creator's name.
+	/** @pre none.
 	*   @post new event in calendar vector created.
 	*   @return true if created, false if error occured.
 	*/
-	bool addEvent(std::string eventName, std::string date, std::string startTime,std::string endTime,std::string eventCreator);
+	bool addEvent();
 	/** @pre event name, time.
 	*   @post all attendees for that time slot displayed.
 	*   @return true if event/time valid, false if invalid.
 	*/
-	bool checkAttendance(eventName,time);
-	/** @pre event name, time available, attendee name.
-	*   @post User added to event time.
-	*   @return true if added, false if input not valid.
-	*/
-	bool addAttendee(eventName,time,attendee);
+	bool checkAttendance();
 	/** @pre none.
 	*   @post displays events.
 	*   @return none.

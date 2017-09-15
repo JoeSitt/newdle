@@ -17,10 +17,10 @@ class Valid {
 		
 		/*
 		@pre 
-		@param date as MMDDYYYY, day as first letter capitilized or lowercase
-		@post returns true if the combo of date(day month year) and day is correct
+		@param date as MMM DD YYYY, MMM should be all capitilized
+		@post returns true if the combo of date is correct
 		*/
-		bool isValidDate(std::string date, std::string day);
+		bool isValidDate(std::string date);
 		
 		/*
 		@pre 
@@ -51,26 +51,8 @@ class Valid {
 		int changeTo12Hour(int time);
 		
 	private:
-		/*
-		@pre 
-		@param
-		@post 
-		*/
-		string validDays[];
-		
-		/*
-		@pre 
-		@param
-		@post 
-		*/
-		bool isValidYear(int year);
-		
-		/*
-		@pre 
-		@param
-		@post 
-		*/
-		bool isValidMonth(int month);
+
+		//string validDays[];
 		
 		/*
 		@pre 
@@ -84,6 +66,6 @@ class Valid {
 		@param
 		@post 
 		*/
-		bool isValidDay(int month, bool leapYear, int day);
+		bool isValidDay(int month, int day, int year);
 };
 #endif

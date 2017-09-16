@@ -3,6 +3,9 @@
 #define VALID_H
 #include <string>
 #include <fstream>
+#include <iostream>
+#include <stdlib.h>
+#include <cctype>
 
 using namespace std;
 
@@ -13,6 +16,7 @@ class Valid {
 		@param
 		@post creates a Valid class
 		*/
+		Valid(int x);
 		Valid();
 		
 		/*
@@ -53,7 +57,7 @@ class Valid {
 	private:
 
 		//string validDays[];
-		
+		int my_x;
 		/*
 		@pre 
 		@param

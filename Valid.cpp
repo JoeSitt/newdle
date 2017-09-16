@@ -5,83 +5,77 @@
 #include <fstream>
 #include <iostream>
 #include <stdlib.h>
-#include <ctype.h>
+#include <cctype>
 
 using namespace std;
 
-Valid::Valid() {
+Valid::Valid(){}
+
+Valid::Valid(int x) {
 	/*
 	TODO:
 	create starting stuff
 	*/
+	my_x = x;
 }
 
 bool Valid::isValidDate(std::string date) {
-	/*
-	TODO:
-	write method
-	*/
 	if(date.size() != 11) {
 		return false;
 	}
 	else {
 		std::string m_month = date.substr(0,3);
-		std::string m_day = date.substr(4,2);
+		string m_day = date.substr(4,2);
 		std::string m_year = date.substr(7);
 		int mi_day;
 		int mi_year;
 		int mi_month;
-		if(isdigit(m_day) && isdigit(m_year)) {  
-			mi_day = atoi (m_day);
-			mi_year = atoi (m_year);
-			switch(m_month) {
-				case "JAN":
-					mi_month = 1;
-					break;
-				case "FEB":
-					mi_month = 2;
-					break;
-				case "MAR":
-					mi_month = 3;
-					break;
-				case "APR":
-					mi_month = 4;
-					break;
-				case "MAY":
-					mi_month = 5;
-					break;
-				case "JUN":
-					mi_month = 6;
-					break;
-				case "JUL":
-					mi_month = 7;
-					break;
-				case "AUG":
-					mi_month = 8;
-					break;
-				case "SEP":
-					mi_month = 9;
-					break;
-				case "OCT":
-					mi_month = 10;
-					break;
-				case "NOV":
-					mi_month = 11;
-					break;
-				case "DEC":
-					mi_month = 12;
-					break;
-				default:
-					return false;
-					break;
-			}
-			return isValidDay(mi_month, mi_day, mi_year);
+		/* TODO:
+			need to put a check around stoi function calls to make sure each character is a digit
+		*/  
+		mi_day = stoi (m_day);
+		mi_year = stoi (m_year);
+		if(m_month == "JAN") {
+			mi_month = 1;
+		}
+		else if(m_month == "FEB") {
+			mi_month = 2;
+		}
+		else if(m_month == "MAR") {
+			mi_month = 3;
+		}
+		else if(m_month == "APR") {
+			mi_month = 4;
+		}
+		else if(m_month == "MAY") {
+			mi_month = 5;
+		}
+		else if(m_month == "JUN") {
+			mi_month = 6;
+		}
+		else if(m_month == "JUL") {
+			mi_month = 7;
+		}
+		else if(m_month == "AUG") {
+			mi_month = 8;
+		}
+		else if(m_month == "SEP") {
+			mi_month = 9;
+		}
+		else if(m_month == "OCT") {
+			mi_month = 10;
+		}
+		else if(m_month == "NOV") {
+			mi_month = 11;
+		}
+		else if(m_month == "DEC") {
+			mi_month = 12;
 		}
 		else {
 			return false;
 		}
+		return isValidDay(mi_month, mi_day, mi_year);
 	}
-	//
 	return false;
 }
 
@@ -119,19 +113,52 @@ int Valid::changeTo12Hour(int time) {
 	return 0;
 }
 
-
+/*
+Code used from one of my former APCS assignments ~Kate
+Web page to double check algorithm: https://www.accuracyproject.org/leapyears.html
+*/
 bool Valid::isLeapYear(int year) {
-	/*
-	TODO:
-	write method
-	*/
+	if(year >= 1582 && year <=9999) {
+		if(year % 4 == 0) {
+			if((year % 100 == 0) && (year % 400 != 0)) {
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
+		else {
+			return false;
+		}
+	}
 	return false;
 }
 
 bool Valid::isValidDay(int month, int day, int year) {
+	int min_day = 1;
+	int max_day;
 	/*
-	TODO:
-	write method
+	calculates the max number of days in a month
 	*/
+	if(month == 2) {
+		if(isLeapYear(year)) {
+			max_day = 29;
+		}
+		else {
+			max_day = 28;
+		}
+	}
+	else if(month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+		max_day = 31;
+	}
+	else {
+		max_day = 30;
+	}
+	/*
+	is the day valid given the month and the year
+	*/
+	if(min_day <= day && day <= max_day) {
+		return true;
+	}
 	return false;
 }

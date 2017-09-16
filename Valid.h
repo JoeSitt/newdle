@@ -16,7 +16,6 @@ class Valid {
 		@param
 		@post creates a Valid class
 		*/
-		Valid(int x);
 		Valid();
 		
 		/*
@@ -52,12 +51,10 @@ class Valid {
 		@param time as #### in 24 hour
 		@post returns #### in 12 hour
 		*/
-		int changeTo12Hour(int time);
+		std::string changeTo12Hour(std::string time);
 		
 	private:
 
-		//string validDays[];
-		int my_x;
 		/*
 		@pre 
 		@param

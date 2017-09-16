@@ -11,14 +11,6 @@ using namespace std;
 
 Valid::Valid(){}
 
-Valid::Valid(int x) {
-	/*
-	TODO:
-	create starting stuff
-	*/
-	my_x = x;
-}
-
 bool Valid::isValidDate(std::string date) {
 	if(date.size() != 11) {
 		return false;
@@ -85,10 +77,6 @@ bool Valid::isValidDate(std::string date) {
 }
 
 bool Valid::isValidTime(std::string start) {
-	/*
-	TODO:
-	write method
-	*/
 	if(start.size() == 4) {
 		if(start.at(0) == '0') {
 			return (isdigit(start.at(1)) && check0030(start));
@@ -107,11 +95,11 @@ bool Valid::isValidTime(std::string start) {
 
 
 bool Valid::isValidTimeSlots(std::string start, std::string end) {
-	/*
-	TODO:
-	write method
-	call isValidTime for end
-	*/
+	if(isValidTime(end)) {
+		if(start < end) {
+			return true;
+		}
+	}
 	return false;
 }
 
@@ -123,7 +111,7 @@ bool Valid::isEvent(std::string eventName) {
 	return false;
 }
 
-int Valid::changeTo12Hour(int time) {
+std::string Valid::changeTo12Hour(std::string time) {
 	/*
 	TODO:
 	write method

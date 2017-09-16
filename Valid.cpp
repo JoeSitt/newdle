@@ -25,7 +25,7 @@ bool Valid::isValidDate(std::string date) {
 	}
 	else {
 		std::string m_month = date.substr(0,3);
-		string m_day = date.substr(4,2);
+		std::string m_day = date.substr(4,2);
 		std::string m_year = date.substr(7);
 		int mi_day;
 		int mi_year;
@@ -33,48 +33,56 @@ bool Valid::isValidDate(std::string date) {
 		/* TODO:
 			need to put a check around stoi function calls to make sure each character is a digit
 		*/  
-		mi_day = stoi (m_day);
-		mi_year = stoi (m_year);
-		if(m_month == "JAN") {
-			mi_month = 1;
+		char dayC1 = m_day.at(0);
+		char dayC2 = m_day.at(1);
+		char yearC1 = m_year.at(0);
+		char yearC2 = m_year.at(1);
+		char yearC3 = m_year.at(2);
+		char yearC4 = m_year.at(3);
+		if(isdigit(dayC1) && isdigit(dayC2) && isdigit(yearC1) && isdigit(yearC2) && isdigit(yearC3) && isdigit(yearC4)) {
+			mi_day = stoi (m_day);
+			mi_year = stoi (m_year);
+			if(m_month == "JAN") {
+				mi_month = 1;
+			}
+			else if(m_month == "FEB") {
+				mi_month = 2;
+			}
+			else if(m_month == "MAR") {
+				mi_month = 3;
+			}
+			else if(m_month == "APR") {
+				mi_month = 4;
+			}
+			else if(m_month == "MAY") {
+				mi_month = 5;
+			}
+			else if(m_month == "JUN") {
+				mi_month = 6;
+			}
+			else if(m_month == "JUL") {
+				mi_month = 7;
+			}
+			else if(m_month == "AUG") {
+				mi_month = 8;
+			}
+			else if(m_month == "SEP") {
+				mi_month = 9;
+			}
+			else if(m_month == "OCT") {
+				mi_month = 10;
+			}
+			else if(m_month == "NOV") {
+				mi_month = 11;
+			}
+			else if(m_month == "DEC") {
+				mi_month = 12;
+			}
+			else {
+				return false;
+			}
+			return isValidDay(mi_month, mi_day, mi_year);
 		}
-		else if(m_month == "FEB") {
-			mi_month = 2;
-		}
-		else if(m_month == "MAR") {
-			mi_month = 3;
-		}
-		else if(m_month == "APR") {
-			mi_month = 4;
-		}
-		else if(m_month == "MAY") {
-			mi_month = 5;
-		}
-		else if(m_month == "JUN") {
-			mi_month = 6;
-		}
-		else if(m_month == "JUL") {
-			mi_month = 7;
-		}
-		else if(m_month == "AUG") {
-			mi_month = 8;
-		}
-		else if(m_month == "SEP") {
-			mi_month = 9;
-		}
-		else if(m_month == "OCT") {
-			mi_month = 10;
-		}
-		else if(m_month == "NOV") {
-			mi_month = 11;
-		}
-		else if(m_month == "DEC") {
-			mi_month = 12;
-		}
-		else {
-			return false;
-		}
-		return isValidDay(mi_month, mi_day, mi_year);
 	}
 	return false;
 }

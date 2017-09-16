@@ -50,6 +50,8 @@ class FileHandler
     bool saveFile(Event);
 
 	private:
+		// vector<*Event> calendar;
+
 		void newEvent(vector<string>);
 
 		void addAttendee(vector<string>);

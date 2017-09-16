@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <Calendar>
-  <Event name="Party" starTime="OCT 9 600 2017" stopTime="OCT 9 1200 2017">
+  <Event eventName="Party" eventCreator="" startTime="600" endTime="1200" date="OCT 9 2017">
     <Attendee name="Jeff">
       <Time startTime="OCT 9 800 2017" stopTime="OCT 9 900 2017"></Time>
       <Time startTime="OCT 9 1000 2017" stopTime="OCT 9 1200 2017"></Time>

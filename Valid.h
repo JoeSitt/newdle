@@ -32,6 +32,8 @@ class Valid {
 		*/
 		bool isValidTime(std::string start);
 		
+		bool isValidTime12Hour(std::string start);
+		
 		/*
 		@pre 
 		@param start as TTTT, end as TTTT both in 24 hour
@@ -39,12 +41,7 @@ class Valid {
 		*/
 		bool isValidTimeSlots(std::string start, std::string end);
 		
-		/*
-		@pre 
-		@param eventName as a string
-		@post returns true if the event is a valid existing event
-		*/
-		bool isEvent(std::string eventName);
+		bool isValidTimeSlots12Hour(std::string start, std::string end);
 		
 		/*
 		@pre 
@@ -52,6 +49,8 @@ class Valid {
 		@post returns #### in 12 hour
 		*/
 		std::string changeTo12Hour(std::string time);
+		
+		std::string changeTo24Hour(std::string time);
 		
 	private:
 

@@ -93,6 +93,10 @@ bool Valid::isValidTime(std::string start) {
 	return false;
 }
 
+bool Valid::isValidTime12Hour(std::string start) {
+	
+}
+
 /*
 assumes variable start is valid
 */
@@ -107,20 +111,68 @@ bool Valid::isValidTimeSlots(std::string start, std::string end) {
 	return false;
 }
 
-bool Valid::isEvent(std::string eventName) {
-	/*
-	TODO:
-	write method
+bool Valid::isValidTimeSlots12Hour(std::string start, std::string end) {
+	/* TODO
+	write the method
 	*/
-	return false;
 }
 
+/*
+assumes variable time is valid
+*/
 std::string Valid::changeTo12Hour(std::string time) {
-	/*
-	TODO:
-	write method
+	std::string returner = "";
+	int i_time = stoi(time);
+	if((i_time >= 0) && (i_time <= 2330)) {
+		if(i_time == 0) {
+			return "12:00AM";
+		}
+		else if(i_time == 30) {
+			return "12:30AM";
+		}
+		else if(i_time < 1000) {
+			returner += time.at(1);
+			returner += ':';
+			returner += time.substr(2);
+			returner += "AM";
+			return returner;
+		}
+		else if(i_time < 1200) {
+			returner += time.substr(0,2);
+			returner += ':';
+			returner += time.substr(2);
+			returner += "AM";
+			return returner;
+		}
+		else if(i_time == 1200) {
+			return "12:00PM";
+		}
+		else if(i_time == 1230) {
+			return "12:30PM";
+		}
+		else if(i_time > 1230) {
+			int i_hourTime = (i_time / 100) - 12;
+			returner += to_string(i_hourTime);
+			returner += ':';
+			if(i_time % 100 == 0) {
+				returner += "00PM";
+				return returner;
+			}
+			else {
+				returner += "30PM";
+				return returner;
+			}
+		}
+	}
+	return "0";
+}
+
+
+std::string Valid::changeTo24Hour(std::string time) {
+	/* TODO
+	write the method
 	*/
-	return 0;
+	return "0";
 }
 
 /*

@@ -93,10 +93,14 @@ bool Valid::isValidTime(std::string start) {
 	return false;
 }
 
-
+/*
+assumes variable start is valid
+*/
 bool Valid::isValidTimeSlots(std::string start, std::string end) {
 	if(isValidTime(end)) {
-		if(start < end) {
+		int i_start = stoi(start);
+		int i_end = stoi(end);
+		if(i_start < i_end) {
 			return true;
 		}
 	}

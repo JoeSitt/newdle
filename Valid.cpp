@@ -30,9 +30,6 @@ bool Valid::isValidDate(std::string date) {
 		int mi_day;
 		int mi_year;
 		int mi_month;
-		/* TODO:
-			need to put a check around stoi function calls to make sure each character is a digit
-		*/  
 		char dayC1 = m_day.at(0);
 		char dayC2 = m_day.at(1);
 		char yearC1 = m_year.at(0);
@@ -92,6 +89,19 @@ bool Valid::isValidTime(std::string start) {
 	TODO:
 	write method
 	*/
+	if(start.size() == 4) {
+		if(start.at(0) == '0') {
+			return (isdigit(start.at(1)) && check0030(start));
+		}
+		else if(start.at(0) == '1') {
+			return (isdigit(start.at(1)) && check0030(start));
+		}
+		else if(start.at(0) == '2') {
+			if(start.at(1) == '0' || start.at(1) == '1' || start.at(1) == '2' || start.at(1) == '3') {
+				return check0030(start);
+			}
+		}
+	}
 	return false;
 }
 
@@ -166,6 +176,13 @@ bool Valid::isValidDay(int month, int day, int year) {
 	is the day valid given the month and the year
 	*/
 	if(min_day <= day && day <= max_day) {
+		return true;
+	}
+	return false;
+}
+
+bool Valid::check0030(std::string time) {
+	if(time.substr(2) == "00" || time.substr(2) == "30") {
 		return true;
 	}
 	return false;

@@ -71,5 +71,12 @@ class Valid {
 		@post 
 		*/
 		bool isValidDay(int month, int day, int year);
+		
+		/*
+		@pre 
+		@param
+		@post 
+		*/
+		bool check0030(std::string time);
 };
 #endif

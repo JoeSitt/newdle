@@ -48,12 +48,12 @@ private:
 	*   @post new event in calendar vector created.
 	*   @return true if created, false if error occured.
 	*/
-	bool addEvent();
+	void addEvent();
 	/** @pre event name, time.
 	*   @post all attendees for that time slot displayed.
 	*   @return true if event/time valid, false if invalid.
 	*/
-	bool checkAttendance();
+	void checkAttendance();
 	/** @pre none.
 	*   @post displays events.
 	*   @return none.

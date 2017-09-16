@@ -42,23 +42,17 @@ class FileHandler
 		// @param
 		// @Pre
 		// @Post
-    bool openFile();
+    bool openFile(vector<*Event> &calendar_param);
 
 		// @param
 		// @Pre
 		// @Post
-    bool saveFile(Event);
+    bool saveFile(vector<*Event> &calendar_param);
 
 	private:
-		// vector<*Event> calendar;
-
-		void newEvent(vector<string>);
-
-		void addAttendee(vector<string>);
-
 		bool checkFile();
 
-		void parseXML();
+		void parseXML(vector<*Event> &calendar_param);
 
 };
 

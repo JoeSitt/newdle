@@ -9,12 +9,15 @@ using namespace std;
 class TimeSlot
 {
   public:
-    TimeSlot();
+    TimeSlot(string creator);
     ~TimeSlot();
+    int GET_number_of_attendees();
+    void addPerson(string name);
 
 
   private:
-    vector<string> t_attendees;
+    vector<string> *t_attendees;
+    int t_number_of_attendees;
 
 
 

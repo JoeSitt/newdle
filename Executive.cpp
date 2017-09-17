@@ -199,7 +199,7 @@ void Executive::attendeeMode()
         }
       } while(looper2 == true);
       std::cout << "What is the name you would like to RSVP with?\n";
-      std::cin >> attendeeName;
+      std::getline (std::cin,attendeeName);
       calendar[eventChoice - 1].addAttendee(attendeeName, arriveTime, leaveTime);
       std::cout << "You have been added as an attendee to the event.\n";
     }
@@ -216,7 +216,7 @@ void Executive::addEvent()
   std::string eventCreator = "";
   bool looper = false;
   std::cout << "What would you like to name the event?\n";
-  std::cin >> eventName;
+  std::getline (std::cin,eventName);
   do {//takes in and checks date
     std::string temp = "";
     looper = false;
@@ -295,7 +295,7 @@ void Executive::addEvent()
     }
   } while(looper == true);
   std::cout << "What is your name so we can add you as an attendee?\n";
-  std::cin >> eventCreator;
+  std::getline (std::cin,eventCreator);
   calendar.emplace_back(eventName, eventCreator, startTime, endTime, date);
   std::cout << "Event has been created.\n";
 }

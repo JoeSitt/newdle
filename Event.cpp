@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <math>
+#include <math.h>
 using namespace std;
 
 #include "Event.h"

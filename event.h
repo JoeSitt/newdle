@@ -14,6 +14,13 @@ class Event
     Event(string name, string creator, string start_time, string end_time, string date);
     ~Event();
     void addAttendee(string name, string arrival_time, string leave_time);
+    string getEventName();
+    string getEventCreator();
+    string getEventStartTime();
+    string getEventEndTime();
+    string getEventDate();
+    int getAttendance(string start_time);
+
     vector<*TimeSlot> *e_timeslots;
 
 
@@ -25,11 +32,11 @@ class Event
     int e_end_time;
     int e_number_of_attendees;
     int convert_time(string atime);
-    int digi_start;
-    int digi_end;
-    int number_of_timeslots;
+    int e_digi_start;
+    int e_digi_end;
+    int e_number_of_timeslots;
 };
 
-#include event.hpp
+#include "event.hpp"
 
 #endif

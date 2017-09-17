@@ -9,7 +9,7 @@ TimeSlot::TimeSlot(string creator) : t_number_of_attendees(1)
   t_attendees->push_back(creator);
 }
 
-TimeSlot::GET_number_of_attendees()
+TimeSlot::getNumberOfAttendees()
 {
   return (t_number_of_attendees);
 }

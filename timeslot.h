@@ -11,7 +11,7 @@ class TimeSlot
   public:
     TimeSlot(string creator);
     ~TimeSlot();
-    int GET_number_of_attendees();
+    int getNumberOfAttendees();
     void addPerson(string name);
 
 
@@ -19,6 +19,8 @@ class TimeSlot
     vector<string> *t_attendees;
     int t_number_of_attendees;
 
+};
 
+#include "timeslot.hpp"
 
-}
+#endif

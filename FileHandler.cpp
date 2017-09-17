@@ -24,47 +24,43 @@ bool FileHandler::openFile(vector<*Event> &calendar_param){
   return false;
 }
 
-// to do: finish attendee iteration printing
+// TODO finish attendee iteration printing
 bool FileHandler::saveFile(vector<*Event> &calendar_param){
-  // ofstream myfile;
-  // myfile.open ("schedule.xml");
-  // myfile << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n<Calendar>\n";
-  // // for each event
-  // // {
-  //   // string event_name = calendar.getEventName();
-  //   // string event_startTime = calendar.getEventStartTime();
-  //   // string event_stopTime = calendar.getEventStopTime();
-  //   string event_name = "Party";
-  //   string event_startTime = "OCT 9 600 2017";
-  //   string event_stopTime = "OCT 9 1200 2017";
-  //
-  //   myfile << "\t<Event name=\""
-  //     + event_name + "\" starTime=\""
-  //     + event_startTime + "\" stopTime=\""
-  //     + event_stopTime + "\">\n";
-  //
-  // // Interate over the attendees
-  //   // for each Attendee
-  //   // {
-  //   //   string attendee_name = attendee_node->first_attribute("name")->value();
-  //   string attendee_name = "Jeff";
-  //   myfile << "\t\t<Attendee name=\"" + attendee_name + "\">\n";
-  //   //   cout << "\nAttendee Name: " + attendee_name + "\n";
-  //   //
-  //   //   for each attendee_time_slot
-  //   //   {
-  //   //     string attendee_startTime = attendeeTime_node->first_attribute("startTime")->value();
-  //   //     string attendee_stopTime = attendeeTime_node->first_attribute("stopTime")->value();
-  //       string attendee_startTime = "OCT 9 800 2017";
-  //       string attendee_stopTime = "OCT 9 900 2017";
-  //       myfile << "\t\t\t<Time startTime=\"" + attendee_startTime + "\" stopTime=\"" + attendee_stopTime + "\"></Time>\n";
-  //   //   }
-  //   myfile << "\t\t</Attendee>";
-  //   // }
-  //   myfile << "\n\t</Event>\n";
-  // // }
-  //   myfile << "</Calendar>";
-  // myfile.close();
+  ofstream myfile;
+  myfile.open ("schedule.xml");
+  myfile << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n<Calendar>\n";
+  for(int i = 0; i<calendar_param.size(); i++){
+    string eventName = calendar_param.getEventName();
+    string eventCreator = calendar_param.getEventCreator();
+    string event_startTime = calendar_param.getEventStartTime();
+    string event_endTime = calendar_param.getEventEndTime();
+    string date = calendar_param.getEventDate();
+
+    myfile << "\t<Event eventName=\"" + eventName + "\" "
+    + "eventCreator=\"" + eventCreator + "\" "
+    + "starTime=\"" + event_startTime + "\" "
+    + "endTime=\"" + event_endTime +"\" "
+    + "date=\"" + date + "\">\n ";
+
+  // Interate over the attendees
+  // TODO get number of unique attendees
+    for(each Attendee){
+      string name = "Jeff";
+      myfile << "\t\t<Attendee name=\"" + name + "\">\n";
+      // TODO get number of seperate time slots per unique attendee
+      for(each attendee_time_slot)
+      {
+        string attendee_startTime = attendeeTime_node->first_attribute("startTime")->value();
+        string attendee_stopTime = attendeeTime_node->first_attribute("stopTime")->value();
+        myfile << "\t\t\t<Time startTime=\"" + attendee_startTime + "\" stopTime=\"" + attendee_stopTime + "\"></Time>\n";
+      }
+    myfile << "\t\t</Attendee>";
+    }
+    myfile << "\n\t</Event>\n";
+  }
+  myfile << "</Calendar>";
+  myfile.close();
+  return true;
 }
 
 bool FileHandler::checkFile(){

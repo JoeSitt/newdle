@@ -2,11 +2,11 @@
 <Calendar>
   <Event eventName="Party" eventCreator="" startTime="600" endTime="1200" date="OCT 9 2017">
     <Attendee name="Jeff">
-      <Time startTime="OCT 9 800 2017" stopTime="OCT 9 900 2017"></Time>
-      <Time startTime="OCT 9 1000 2017" stopTime="OCT 9 1200 2017"></Time>
+      <Time startTime="800" stopTime="900"></Time>
+      <Time startTime="1000" stopTime="1200"></Time>
     </Attendee>
     <Attendee name="Sally">
-      <Time startTime="OCT 9 800 2017" stopTime="OCT 9 900 2017"></Time>
+      <Time startTime="800" stopTime="900"></Time>
     </Attendee>
   </Event>
 </Calander>

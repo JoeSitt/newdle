@@ -13,6 +13,7 @@
 #include <string>
 #include "Event.h"
 #include "Valid.h"
+#include "FileHandler.h"
 //more includes when files added
 
 class Executive
@@ -59,7 +60,10 @@ private:
 	*   @return none.
 	*/
 	void getEventList();
-	std::vector<Event> calendar;
+	bool 12HourMode;
+	std::vector<Event*> calendar;
+	FileHandler fileHandle;
+	Valid valid;
 };
 
 #include "Executive.cpp"

@@ -8,16 +8,19 @@
 #ifndef FILEHANDLER_H
 #define FILEHANDLER_H
 
-#include "FileHandler.cpp"
 #include <string.h>
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include "rapidxml-1.13/rapidxml.hpp"
 #include <sys/stat.h>
 #include <unistd.h>
 #include <string>
+
+#include "FileHandler.cpp"
+#include "Event.h"
+#include "rapidxml-1.13/rapidxml.hpp"
+
 
 using namespace rapidxml;
 using namespace std;
@@ -41,26 +44,18 @@ class FileHandler
 		// @param
 		// @Pre
 		// @Post
-    bool openFile();
+    bool openFile(vector<*Event> &calendar_param);
 
 		// @param
 		// @Pre
 		// @Post
-    bool saveFile(vector<string>);
+    bool saveFile(vector<*Event> &calendar_param);
 
 	private:
-		std::string fileName;
-
-		void addEvent(vector<string>);
-
-		void addAttendee(vector<string>);
-
 		bool checkFile();
 
-		void parseXML();
+		void parseXML(vector<*Event> &calendar_param);
 
 };
-
-#include "FileHandler.hpp"
 
 #endif

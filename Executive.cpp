@@ -70,7 +70,7 @@ void Executive::run()
     else if(mode == 3)
     {
       std::cout << "Thank you for using Newdle!\n";
-      looper = false
+      looper = false;
     }
     else //checks if input is valid, if not asks for new input
     {
@@ -227,7 +227,7 @@ void Executive::addEvent()
     looper = false;
     std::cout << "What month would you like the event?(format as the three letter abreviation in all caps)\n";
     std::cin >> date;
-    transform(date.begin(), date.end(), date.begin(), toupper);
+    transform(date.begin(), date.end(), date.begin(), ::toupper);
     std::cout << "What day of the month would you like the event?(format as two digits)\n";
     date = " " + date + std::cin >> temp + " ";
     std::cout << "What year would you like the event?(format as four digits)\n";

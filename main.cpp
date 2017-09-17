@@ -1,11 +1,17 @@
-// 'Hello World!' program
+/**
+*	@file main.cpp
+*	@author Ferocious Hammerheads
+*	@date
+*	@brief Main file that calls Executive
+*/
 
 #include <iostream>
+#include "Executive.h"
+// #include "Valid.h"
 
 int main()
 {
-  std::cout << "Hello World!" << std::endl;
-  std::cout << "Hello!\n";
-  std::cout << "TEST TEST\n";
+  Executive exec;
+  exec.run();
   return 0;
 }

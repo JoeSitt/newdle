@@ -11,6 +11,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 //#include "Event.h"
 #include "Valid.h"
 //#include "FileHandler.h"
@@ -60,11 +61,11 @@ private:
 	*   @return none.
 	*/
 	void getEventList();
-	bool 12HourMode;
+	bool twelveHourMode;
 	//std::vector<Event*> calendar;
 	//FileHandler fileHandle;
-	Valid valid;
+	Valid* talid;
 };
 
-#include "Executive.cpp"
+// #include "Executive.cpp"
 #endif

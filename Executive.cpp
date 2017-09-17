@@ -141,21 +141,34 @@ void Executive::attendeeMode()
         looper2 = false;
         if(12HourMode == true)
         {
-          std::cout << calendar[eventChoice - 1].getEventName() << " takes place between " << valid.changeTo12Hour(calendar[eventChoice - 1].getStartTime()) << " and " << valid.changeTo12Hour(calendar[eventChoice - 1].getEndTime());
+          std::cout << calendar[eventChoice - 1].getEventName() << " takes place between " << valid.changeTo12Hour(calendar[eventChoice - 1].getEventStartTime()) << " and " << valid.changeTo12Hour(calendar[eventChoice - 1].getEndTime());
           std::cout << ". What time will you arrive?(Intervals are 30 mins, please use this format: 8:30PM )\n";
           std::cin >> arriveTime;
-          arriveTime = valid.changeTo24Hour(arriveTime);
+          if(valid.isValidTime12Hour(arriveTime))
+          {
+            arriveTime = valid.changeTo24Hour(arriveTime);
+            if(arriveTime < calendar[eventChoice - 1].getEventStartTime() || arriveTime >  calendar[eventChoice - 1].getEndTime() || !valid.isValidTime(arriveTime))
+            {
+              std::cout << "Invalid arrival time, please try a different time:\n";
+              looper2 = true;
+            }
+          }
+          else
+          {
+            std::cout << "Invalid arrival time, please try a different time:\n";
+            looper2 = true;
+          }
         }
         else
         {
-          std::cout << calendar[eventChoice - 1].getEventName() << " takes place between " << calendar[eventChoice - 1].getStartTime() << " and " << calendar[eventChoice - 1].getEndTime();
+          std::cout << calendar[eventChoice - 1].getEventName() << " takes place between " << calendar[eventChoice - 1].getEventStartTime() << " and " << calendar[eventChoice - 1].getEndTime();
           std::cout << ". What time will you arrive?(Intervals are 30 mins, please use military time)\n";
           std::cin >> arriveTime;
-        }
-        if(arriveTime < calendar[eventChoice - 1].getStartTime() || arriveTime >  calendar[eventChoice - 1].getEndTime() || !valid.isValidTime(arriveTime))
-        {
-          std::cout << "Invalid arrival time, please try a different time:\n";
-          looper2 = true;
+          if(arriveTime < calendar[eventChoice - 1].getEventStartTime() || arriveTime >  calendar[eventChoice - 1].getEndTime() || !valid.isValidTime(arriveTime))
+          {
+            std::cout << "Invalid arrival time, please try a different time:\n";
+            looper2 = true;
+          }
         }
       } while(looper2 == true);
       do {
@@ -164,17 +177,30 @@ void Executive::attendeeMode()
         {
           std::cout << "What time would you like to leave?(Intervals are 30 mins, please use this format: 8:30PM )\n";
           std::cin >> leaveTime;
-          leaveTime = valid.changeTo24Hour(leaveTime);
+          if(valid.isValidTimeSlots12Hour(valid.changeTo24Hour(arriveTime), leaveTime))
+          {
+            leaveTime = valid.changeTo24Hour(leaveTime);
+            if(leaveTime < calendar[eventChoice - 1].getEventStartTime() || leaveTime >  calendar[eventChoice - 1].getEndTime() || !valid.isValidTimeSlots(arriveTime,leaveTime))
+            {
+              std::cout << "Invalid leaving time, please try a different time:\n";
+              looper2 = true;
+            }
+          }
+          else
+          {
+            std::cout << "Invalid leaving time, please try a different time:\n";
+            looper2 = true;
+          }
         }
         else
         {
           std::cout << "What time would you like to leave?(Intervals are 30 mins, please use military time)\n";
           std::cin >> leaveTime;
-        }
-        if(leaveTime < calendar[eventChoice - 1].getStartTime() || leaveTime >  calendar[eventChoice - 1].getEndTime() || !valid.isValidTimeSlots(arriveTime,leaveTime))
-        {
-          std::cout << "Invalid leaving time, please try a different time:\n";
-          looper2 = true;
+          if(leaveTime < calendar[eventChoice - 1].getEventStartTime() || leaveTime >  calendar[eventChoice - 1].getEndTime() || !valid.isValidTimeSlots(arriveTime,leaveTime))
+          {
+            std::cout << "Invalid leaving time, please try a different time:\n";
+            looper2 = true;
+          }
         }
       } while(looper2 == true);
       std::cout << "What is the name you would like to RSVP with?\n";
@@ -218,17 +244,30 @@ void Executive::addEvent()
     {
       std::cout << "What time would you like the event to start?(format as 12 hour time. Exeample, 2:00PM)\n";
       std::cin >> startTime;
-      startTime = valid.changeTo24Hour(startTime);
+      if(valid.isValidTime12Hour(startTime))
+      {
+        startTime = valid.changeTo24Hour(startTime);
+        if(!valid.isValidTime(startTime))
+        {
+          looper = true;
+          std::cout << "Invalid start time, please try another time:\n";
+        }
+      }
+      else
+      {
+        std::cout << "Invalid start time, please try another time:\n";
+        looper = true;
+      }
     }
     else
     {
       std::cout << "What time would you like the event to start?(format as military time. Exeample, 2:00PM would be 1400)\n";
       std::cin >> startTime;
-    }
-    if(!valid.isValidTime(startTime))
-    {
-      looper = true;
-      std::cout << "Invalid start time, please try another time:\n";
+      if(!valid.isValidTime(startTime))
+      {
+        looper = true;
+        std::cout << "Invalid start time, please try another time:\n";
+      }
     }
   } while(looper == true);
   do{//takes in and checks end time
@@ -237,17 +276,25 @@ void Executive::addEvent()
     {
       std::cout << "What time would you like the event to end?(format as 12 hour time. Exeample, 2:00PM)\n";
       std::cin >> endTime;
-      endTime = valid.changeTo24Hour(endTime);
+      if(valid.isValidTime12Hour(valid.changeTo12Hour(startTime),endTime))
+      {
+        endTime = valid.changeTo24Hour(endTime);
+      }
+      else
+      {
+        std::cout << "Invalid end time, please try another time:\n";
+        looper = true;
+      }
     }
     else
     {
       std::cout << "What time would you like the event to end?(format as military time. Exeample, 2:00PM would be 1400)\n";
       std::cin >> endTime;
-    }
-    if(!valid.isValidTimeSlot(startTime,endTime))
-    {
-      looper = true;
-      std::cout << "Invalid end time, please try another time:\n";
+      if(!valid.isValidTimeSlot(startTime,endTime))
+      {
+        looper = true;
+        std::cout << "Invalid end time, please try another time:\n";
+      }
     }
   } while(looper == true);
   std::cout << "What is your name so we can add you as an attendee?\n";
@@ -282,21 +329,34 @@ void Executive::checkAttendance()
       do {//take in and check time
         if(12HourMode == true)
         {
-          std::cout << calendar[eventChoice - 1].getEventName() << " takes place between " << valid.changeTo12Hour(calendar[eventChoice - 1].getStartTime()) << " and " << valid.changeTo12Hour(calendar[eventChoice - 1].getEndTime());
+          std::cout << calendar[eventChoice - 1].getEventName() << " takes place between " << valid.changeTo12Hour(calendar[eventChoice - 1].getEventStartTime()) << " and " << valid.changeTo12Hour(calendar[eventChoice - 1].getEndTime());
           std::cout << ". What time would you like to check the attendance for?(Intervals are 30 mins, please format as 12 hour time. Exeample, 2:00PM)\n";
           std::cin >> checkTime;
-          checkTime = valid.changeTo12Hour(checkTime);
+          if(valid.isValidTime12Hour(checkTime))
+          {
+            checkTime = valid.changeTo12Hour(checkTime);
+            if(checkTime < calendar[eventChoice - 1].getEventStartTime() || checkTime >  calendar[eventChoice - 1].getEndTime() || !valid.isValidTime(checkTime))
+            {
+              std::cout << "Invalid time, please try a different time:\n";
+              looper2 = true;
+            }
+          }
+          else
+          {
+            std::cout << "Invalid time, please try a different time:\n";
+            looper2 = true;
+          }
         }
         else
         {
-          std::cout << calendar[eventChoice - 1].getEventName() << " takes place between " << calendar[eventChoice - 1].getStartTime() << " and " << calendar[eventChoice - 1].getEndTime();
+          std::cout << calendar[eventChoice - 1].getEventName() << " takes place between " << calendar[eventChoice - 1].getEventStartTime() << " and " << calendar[eventChoice - 1].getEndTime();
           std::cout << ". What time would you like to check the attendance for?(Intervals are 30 mins, please use military time)\n";
           std::cin >> checkTime;
-        }
-        if(checkTime < calendar[eventChoice - 1].getStartTime() || checkTime >  calendar[eventChoice - 1].getEndTime() || !valid.isValidTime(checkTime))
-        {
-          std::cout << "Invalid time, please try a different time:\n";
-          looper2 = true;
+          if(checkTime < calendar[eventChoice - 1].getEventStartTime() || checkTime >  calendar[eventChoice - 1].getEndTime() || !valid.isValidTime(checkTime))
+          {
+            std::cout << "Invalid time, please try a different time:\n";
+            looper2 = true;
+          }
         }
       } while(looper2 == true);
       std::cout << calendar[eventChoice - 1].getAttendance(checkTime) << " people are attending at the given time.\n";
@@ -310,6 +370,6 @@ void Executive::getEventList()
   //displays event list
   for(int i = 0; i < calendar.size(); i++)
   {
-    std::cout << i+1 << ") " << calendar[i].getEventName() << "\n";
+    std::cout << i+1 << ") " << calendar[i].getEventName() << "  on " << calendar[i].getEventDate() << "\n";
   }
 }

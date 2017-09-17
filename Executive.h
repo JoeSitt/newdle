@@ -12,10 +12,9 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-//#include "Event.h"
+#include "Event.h"
 #include "Valid.h"
-//#include "FileHandler.h"
-//more includes when files added
+#include "FileHandler.h"
 
 class Executive
 {
@@ -62,10 +61,9 @@ private:
 	*/
 	void getEventList();
 	bool twelveHourMode;
-	//std::vector<Event*> calendar;
-	//FileHandler fileHandle;
+	std::vector<Event*> calendar;
+	FileHandler* fileHandle;
 	Valid* talid;
 };
 
-// #include "Executive.cpp"
 #endif

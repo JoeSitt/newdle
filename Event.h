@@ -6,7 +6,7 @@
 #include <vector>
 using namespace std;
 
-#include "timeslot.h"
+#include "TimeSlot.h"
 
 class Event
 {

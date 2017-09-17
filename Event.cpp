@@ -4,7 +4,7 @@
 #include <math>
 using namespace std;
 
-#include "event.h"
+#include "Event.h"
 
 Event::Event(string name, string creator, string start_time, string end_time, string date) : e_name(name), e_creator(creator), e_start_time(start_time), e_end_time(end_time), e_date(date)
 {

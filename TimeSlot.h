@@ -2,8 +2,10 @@
 #define TIME_SLOT_H
 
 #include <iostream>
+#include <string>
 #include <vector>
-
+#include <math>
+#include <algorithm>
 using namespace std;
 
 class TimeSlot

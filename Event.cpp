@@ -15,14 +15,14 @@ Event::Event(string name, string creator, string start_time, string end_time, st
   e_number_of_timeslots = (e_digi_end - e_digi_start)/0.5;
   e_attendees->push_back(creator);
 
-  for(i=0; i<e_number_of_timeslots; i++){
+  for(int i=0; i<e_number_of_timeslots; i++){
     e_timeslots->push_back(new TimeSlot(creator));
   }
 }
 
 Event::~Event()
 {
-  for(int i=0; i< e_timeslots->size(); i++){
+  for(int i=0; i < e_timeslots->size(); i++){
     delete e_timeslots->at(i);
   }
 
@@ -39,7 +39,7 @@ void Event::addAttendee(string name, string arrival_time, string leave_time)
 
   int start_index = (digi_arrival - e_digi_start)/0.5;
 
-  for(i=0; i < num_slots; i++){
+  for(int i=0; i < num_slots; i++){
     e_timeslots->at(start_index)->addPerson(name);
     start_index++;
   }

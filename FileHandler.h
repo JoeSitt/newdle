@@ -8,17 +8,19 @@
 #ifndef FILEHANDLER_H
 #define FILEHANDLER_H
 
-#include "FileHandler.cpp"
-#include "Event.h"
 #include <string.h>
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include "rapidxml-1.13/rapidxml.hpp"
 #include <sys/stat.h>
 #include <unistd.h>
 #include <string>
+
+#include "FileHandler.cpp"
+#include "Event.h"
+#include "rapidxml-1.13/rapidxml.hpp"
+
 
 using namespace rapidxml;
 using namespace std;
@@ -55,7 +57,5 @@ class FileHandler
 		void parseXML(vector<*Event> &calendar_param);
 
 };
-
-#include "FileHandler.hpp"
 
 #endif

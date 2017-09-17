@@ -4,16 +4,12 @@
 *	@date
 *	@brief
 */
-// #include "Event.h"
+
 #include "FileHandler.h"
 
-FileHandler::FileHandler(){
+FileHandler::FileHandler(){}
 
-}
-
-FileHandler::~FileHandler(){
-
-}
+FileHandler::~FileHandler(){}
 
 bool FileHandler::openFile(vector<*Event> &calendar_param){
   // calendar = new std::vector<Event>();
@@ -30,11 +26,11 @@ bool FileHandler::saveFile(vector<*Event> &calendar_param){
   myfile.open ("schedule.xml");
   myfile << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n<Calendar>\n";
   for(int i = 0; i<calendar_param.size(); i++){
-    string eventName = calendar_param.getEventName();
-    string eventCreator = calendar_param.getEventCreator();
-    string event_startTime = calendar_param.getEventStartTime();
-    string event_endTime = calendar_param.getEventEndTime();
-    string date = calendar_param.getEventDate();
+    string eventName = calendar_param[i]->getEventName();
+    string eventCreator = calendar_param[i]->getEventCreator();
+    string event_startTime = calendar_param[i]->getEventStartTime();
+    string event_endTime = calendar_param[i]->getEventEndTime();
+    string date = calendar_param[i]->getEventDate();
 
     myfile << "\t<Event eventName=\"" + eventName + "\" "
     + "eventCreator=\"" + eventCreator + "\" "
@@ -44,15 +40,26 @@ bool FileHandler::saveFile(vector<*Event> &calendar_param){
 
   // Interate over the attendees
   // TODO get number of unique attendees
-    for(each Attendee){
-      string name = "Jeff";
+  vector<vector<string>> attendees = calendar_param[i]->getAttendees();
+    for(int j = 0; j<attendees.size(); j++){
+      vector<string> individual_attendee = attendees[j];
+      string name = individual_attendee[0];
       myfile << "\t\t<Attendee name=\"" + name + "\">\n";
       // TODO get number of seperate time slots per unique attendee
-      for(each attendee_time_slot)
+      for(int k = 1; k<individual_attendee.size(); k++)
       {
-        string attendee_startTime = attendeeTime_node->first_attribute("startTime")->value();
-        string attendee_stopTime = attendeeTime_node->first_attribute("stopTime")->value();
-        myfile << "\t\t\t<Time startTime=\"" + attendee_startTime + "\" stopTime=\"" + attendee_stopTime + "\"></Time>\n";
+        // 0 index is name 1++ start times and add the 30 minutes
+        string attendeeString_startTime = individual_attendee[k];
+        int attendee_startTime = stoi(attendeeString_startTime);
+        int attendee_stopTime = attendee_startTime;
+        if(attendee_startTime%100>0){
+          attendee_stopTime+=70;
+        }
+        else{
+          attendee_stopTime+=30;
+        }
+        myfile << "\t\t\t<Time startTime=\"" + to_string(attendee_startTime) + "\" stopTime=\""
+          + to_string(attendee_stopTime) + "\"></Time>\n";
       }
     myfile << "\t\t</Attendee>";
     }
@@ -120,7 +127,6 @@ void FileHandler::parseXML(vector<*Event> &calendar_param){
 				string attendee_arriveTime = attendeeTime_node->first_attribute("arriveTime")->value();
 				string attendee_leaveTime = attendeeTime_node->first_attribute("leaveTime")->value();
 
-        // TODO add addAttendee call
 				calendar_param[size].addAttendee(attendeeName,attendee_arriveTime,attendee_leaveTime);
 			}
 		}

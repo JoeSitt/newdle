@@ -20,23 +20,24 @@ class Event
     string getEventEndTime();
     string getEventDate();
     int getAttendance(string start_time);
+    vector<vector<string>> getAttendees();
 
     vector<*TimeSlot> *e_timeslots;
+    vector<string> *e_attendees;
 
 
   private:
     string e_name;
     string e_creator;
+    string e_start_time;
+    stringS e_end_time;
     string e_date;
-    int e_start_time;
-    int e_end_time;
     int e_number_of_attendees;
-    int convert_time(string atime);
-    int e_digi_start;
-    int e_digi_end;
+    double convert_time(string atime);
+    string convert_to_string(double atime);
+    double e_digi_start;
+    double e_digi_end;
     int e_number_of_timeslots;
 };
-
-#include "event.hpp"
 
 #endif

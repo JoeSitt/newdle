@@ -13,6 +13,7 @@ class TimeSlot
     ~TimeSlot();
     int getNumberOfAttendees();
     void addPerson(string name);
+    bool doesAttend(string name);
 
 
   private:
@@ -20,7 +21,5 @@ class TimeSlot
     int t_number_of_attendees;
 
 };
-
-#include "timeslot.hpp"
 
 #endif

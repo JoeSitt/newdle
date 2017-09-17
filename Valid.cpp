@@ -94,7 +94,44 @@ bool Valid::isValidTime(std::string start) {
 }
 
 bool Valid::isValidTime12Hour(std::string start) {
-	
+	if(start.size() < 6 || start.size() > 7) {
+		return false;
+	}
+	else if(start.substr(start.size()-2) == "AM") {
+		if(start.size()==6) {
+			//SIZE = 6
+			if(isdigit(start.at(0)) && (start.at(0) != '0') && (start.at(1) == ':') && ((start.substr(2,2) == "00") || (start.substr(2,2) == "30"))) {
+				//checks that the first digit is a nonzero number followed by a ':' followed by "00" or "30"
+				return true;
+			}
+			return false;
+		}
+		else {
+			//SIZE = 7
+			if((start.at(0) == '1') && (start.at(1) == '0' || start.at(1) == '1' || start.at(1) == '2') && start.at(2) == ':' && ((start.substr(3,2) == "00") || (start.substr(3,2) == "30"))) {
+				return true;
+			}
+			return false;
+		}
+	}
+	else if(start.substr(start.size()-2) == "PM") {
+		if(start.size()==6) {
+			//SIZE = 6
+			if(isdigit(start.at(0)) && (start.at(0) != '0') && (start.at(1) == ':') && ((start.substr(2,2) == "00") || (start.substr(2,2) == "30"))) {
+				//checks that the first digit is a nonzero number followed by a ':' followed by "00" or "30"
+				return true;
+			}
+			return false;
+		}
+		else {
+			//SIZE = 7
+			if((start.at(0) == '1') && (start.at(1) == '0' || start.at(1) == '1' || start.at(1) == '2') && start.at(2) == ':' && ((start.substr(3,2) == "00") || (start.substr(3,2) == "30"))) {
+				return true;
+			}
+			return false;
+		}
+	}
+	return false;
 }
 
 /*
@@ -110,11 +147,16 @@ bool Valid::isValidTimeSlots(std::string start, std::string end) {
 	}
 	return false;
 }
-
+/*
+assumes variable start is valid
+*/
 bool Valid::isValidTimeSlots12Hour(std::string start, std::string end) {
-	/* TODO
-	write the method
-	*/
+	if(isValidTime12Hour(end)) {
+		std::string time24start = changeTo24Hour(start);
+		std::string time24end = changeTo24Hour(end);
+		return isValidTimeSlots(time24start, time24end);
+	}
+	return false;
 }
 
 /*
@@ -167,11 +209,50 @@ std::string Valid::changeTo12Hour(std::string time) {
 	return "0";
 }
 
-
+//assumes variable time is a valid 12hour time
 std::string Valid::changeTo24Hour(std::string time) {
-	/* TODO
-	write the method
-	*/
+	std::string returner = "";
+	if(time.substr(time.size()-2) == "AM") {
+		if(time.size()==6) {
+			returner += "0";
+			returner += time.at(0);
+			returner += time.substr(2,2);
+			return returner;
+		}
+		else if (time == "12:00AM") {
+			return "0000";
+		}
+		else if (time == "12:30AM") {
+			return "0030";
+		}
+		else {
+			returner += time.substr(0,2);
+			returner += time.substr(3,2);
+			return returner;
+		}
+	}
+	else {
+		if(time.size()==6) {
+			int temp = stoi(time.substr(0,1));
+			temp += 12;
+			returner += to_string(temp);
+			returner += time.substr(2,2);
+			return returner;
+		}
+		else if(time == "12:00PM") {
+			return "1200";
+		}
+		else if(time == "12:30PM") {
+			return "1230";
+		}
+		else {
+			int temp = stoi(time.substr(0,2));
+			temp += 12;
+			returner += to_string(temp);
+			returner += time.substr(3,2);
+			return returner;
+		}
+	}
 	return "0";
 }
 

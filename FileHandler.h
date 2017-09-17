@@ -17,7 +17,6 @@
 #include <unistd.h>
 #include <string>
 
-#include "FileHandler.cpp"
 #include "Event.h"
 #include "rapidxml-1.13/rapidxml.hpp"
 
@@ -44,17 +43,17 @@ class FileHandler
 		// @param
 		// @Pre
 		// @Post
-    bool openFile(vector<*Event> &calendar_param);
+    bool openFile(vector<Event*> &calendar_param);
 
 		// @param
 		// @Pre
 		// @Post
-    bool saveFile(vector<*Event> &calendar_param);
+    bool saveFile(vector<Event*> &calendar_param);
 
 	private:
 		bool checkFile();
 
-		void parseXML(vector<*Event> &calendar_param);
+		void parseXML(vector<Event*> &calendar_param);
 
 };
 

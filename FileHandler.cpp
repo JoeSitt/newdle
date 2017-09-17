@@ -11,7 +11,7 @@ FileHandler::FileHandler(){}
 
 FileHandler::~FileHandler(){}
 
-bool FileHandler::openFile(vector<*Event> &calendar_param){
+bool FileHandler::openFile(vector<Event*> &calendar_param){
   // calendar = new std::vector<Event>();
   if(checkFile()){
     parseXML(calendar_param);
@@ -21,7 +21,7 @@ bool FileHandler::openFile(vector<*Event> &calendar_param){
 }
 
 // TODO finish attendee iteration printing
-bool FileHandler::saveFile(vector<*Event> &calendar_param){
+bool FileHandler::saveFile(vector<Event*> &calendar_param){
   ofstream myfile;
   myfile.open ("schedule.xml");
   myfile << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n<Calendar>\n";
@@ -88,7 +88,7 @@ bool FileHandler::checkFile(){
   return true;
 }
 
-void FileHandler::parseXML(vector<*Event> &calendar_param){
+void FileHandler::parseXML(vector<Event*> &calendar_param){
   xml_document<> doc;
 	xml_node<> * root_node;
 	// Read the xml file into a vector

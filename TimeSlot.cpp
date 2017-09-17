@@ -4,7 +4,7 @@
 #include <algorithm>
 using namespace std;
 
-#include "timeslot.h"
+#include "TimeSlot.h"
 
 TimeSlot::TimeSlot(string creator) : t_number_of_attendees(1)
 {

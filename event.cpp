@@ -103,7 +103,7 @@ int Event::getAttendance(string start_time)
   return(num);
 }
 
-vector<vector<string>> getAttendees()
+vector<vector<string>> Event::getAttendees()
 {
   vector<vector<string>> output;
 

@@ -19,6 +19,16 @@ Event::Event(string name, string creator, string start_time, string end_time, st
   }
 }
 
+Event::~Event()
+{
+  for(int i=0; i< e_timeslots->size(); i++){
+    delete e_timeslots->at(i);
+  }
+
+  delete e_timeslots;
+  delete e_attendees;
+}
+
 void Event::addAttendee(string name, string arrival_time, string leave_time)
 {
   e_attendees->push_back(name);

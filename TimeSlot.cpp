@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <math>
+#include <math.h>
 #include <algorithm>
 using namespace std;
 

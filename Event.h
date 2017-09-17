@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <math>
+#include <math.h>
 using namespace std;
 
 #include "TimeSlot.h"
@@ -24,7 +24,7 @@ class Event
     int getAttendance(string start_time);
     vector<vector<string>> getAttendees();
 
-    vector<*TimeSlot> *e_timeslots;
+    vector<TimeSlot*> *e_timeslots;
     vector<string> *e_attendees;
 
 
@@ -32,7 +32,7 @@ class Event
     string e_name;
     string e_creator;
     string e_start_time;
-    stringS e_end_time;
+    string e_end_time;
     string e_date;
     int e_number_of_attendees;
     double convert_time(string atime);

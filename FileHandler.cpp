@@ -42,6 +42,7 @@ bool FileHandler::saveFile(vector<Event*> &calendar_param){
   // TODO get number of unique attendees
   vector<vector<string>> attendees = calendar_param[i]->getAttendees();
     for(int j = 0; j<attendees.size(); j++){
+      cout << "attendees size: " << attendees.size() << endl;
       vector<string> individual_attendee = attendees[j];
       string name = individual_attendee[0];
       myfile << "\n\t\t<Attendee attendeeName=\"" + name + "\">\n";

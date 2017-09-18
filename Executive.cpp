@@ -297,7 +297,9 @@ void Executive::addEvent()
   } while(looper == true);
   cout << "What is your name so we can add you as an attendee?\n";
   getline (cin,eventCreator);
-  calendar.emplace_back(eventName, eventCreator, startTime, endTime, date);
+  Event* toAdd =  new Event(eventName, eventCreator, startTime, endTime, date);
+  // calendar.emplace_back(eventName, eventCreator, startTime, endTime, date);
+  calendar.push_back(toAdd);
   cout << "Event has been created.\n";
 }
 

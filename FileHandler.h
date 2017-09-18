@@ -27,32 +27,42 @@ using namespace std;
 class FileHandler
 {
 	public:
-		// equals - are the 2 lists equal?
-		// @param rhs = List to compare to this list (right hand side of equality)
-		// @Pre TRUE
-		// @Post return TRUE if lists match in size and values of all
-		//   component elements; otherwise return FALSE
+		/** @pre none.
+		*   @post none.
+		*   @return none.
+		*/
 		FileHandler();
 
-		// @param
-		// @Pre
-		// @Post
+		/** @pre none.
+		*   @post none.
+		*   @return none.
+		*/
 		~FileHandler();
 
 
-		// @param
-		// @Pre
-		// @Post
+		/** @pre file can be made or opened by checkfile
+		*   @post all attendees for that time slot displayed.
+		*   @return true if event/time valid, false if invalid.
+		*/
     bool openFile(vector<Event*> &calendar_param);
 
-		// @param
-		// @Pre
-		// @Post
+		/** @pre calendar_param is passed by reference
+		*   @post file saved as well formatted
+		*   @return none. bool for successfully opening file
+		*/
     bool saveFile(vector<Event*> &calendar_param);
 
 	private:
+		/** @pre none.
+		*   @post file opened or created
+		*   @return bool for file created or successfully opened
+		*/
 		bool checkFile();
 
+		/** @pre none.
+		*   @post xml is loaded and events created
+		*   @return none.
+		*/
 		void parseXML(vector<Event*> &calendar_param);
 
 };

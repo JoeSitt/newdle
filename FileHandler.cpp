@@ -31,7 +31,7 @@ bool FileHandler::saveFile(vector<Event*> &calendar_param){
     string event_startTime = calendar_param[i]->getEventStartTime();
     string event_endTime = calendar_param[i]->getEventEndTime();
     string date = calendar_param[i]->getEventDate();
-
+    // write to file
     myfile << "\t<Event eventName=\"" + eventName + "\" "
     + "eventCreator=\"" + eventCreator + "\" "
     + "eventStartTime=\"" + event_startTime + "\" "
@@ -39,11 +39,12 @@ bool FileHandler::saveFile(vector<Event*> &calendar_param){
     + "date=\"" + date + "\"> ";
 
   // Interate over the attendees
-  // TODO get number of unique attendees
   vector<vector<string>> attendees = calendar_param[i]->getAttendees();
     for(int j = 0; j<attendees.size(); j++){
-      cout << "attendees size: " << attendees.size() << endl;
+    // for(int j = 0; j<2; j++){
+      // cout << "attendees size: " << attendees.size() << endl;
       vector<string> individual_attendee = attendees[j];
+      // cout << "individual_attendee node 1: " << individual_attendee[2] << endl;
       string name = individual_attendee[0];
       myfile << "\n\t\t<Attendee attendeeName=\"" + name + "\">\n";
       // TODO get number of seperate time slots per unique attendee
@@ -102,10 +103,8 @@ void FileHandler::parseXML(vector<Event*> &calendar_param){
 	root_node = doc.first_node("Calendar");
 	// Iterate over the events
   int size = 0;
-	for (xml_node<> * event_node = root_node->first_node("Event");
-		event_node;
-		event_node = event_node->next_sibling())
-	{
+	for (xml_node<> * event_node = root_node->first_node("Event");event_node;event_node = event_node->next_sibling())
+	{cout << "\nevents" << endl;
 		string eventName = event_node->first_attribute("eventName")->value();
 		string eventCreator = event_node->first_attribute("eventCreator")->value();
     string startTime = event_node->first_attribute("eventStartTime")->value();
@@ -114,9 +113,7 @@ void FileHandler::parseXML(vector<Event*> &calendar_param){
     Event* toAdd =  new Event(eventName, eventCreator, startTime, endTime, date);
     calendar_param.push_back(toAdd);
 		// Interate over the attendees
-		for(xml_node<> * attendee_node = event_node->first_node("Attendee");
-			attendee_node;
-			attendee_node = attendee_node->next_sibling())
+		for(xml_node<> * attendee_node = event_node->first_node("Attendee");attendee_node;attendee_node = attendee_node->next_sibling())
 		{
 			string attendeeName = attendee_node->first_attribute("attendeeName")->value();
 			for(xml_node<> * attendeeTime_node = attendee_node->first_node("Time");
@@ -130,4 +127,5 @@ void FileHandler::parseXML(vector<Event*> &calendar_param){
 		}
     size++;
 	}
+
 }

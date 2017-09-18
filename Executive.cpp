@@ -14,14 +14,14 @@ Executive::Executive()
    fileHandle = new FileHandler();
   //creates vector of events
   //calls filehandler to remake calendar from file
-  fileHandle->openFile(calendar);
+  // fileHandle->openFile(calendar);
 }
 
 
 Executive::~Executive()
 {
   //calls filehandler to write to file
-  fileHandle->saveFile(calendar);
+  // fileHandle->saveFile(calendar);
   for( int i = 0 ; i < calendar.size(); i++)
    delete calendar[i];
 }
@@ -241,7 +241,7 @@ void Executive::addEvent()
     looper = false;
     if(twelveHourMode == true)
     {
-      cout << "What time would you like the event to start?(format as 12 hour time. Exeample, 2:00PM)\n";
+      cout << "What time would you like the event to start?(format as 12 hour time. Examplemple, 2:00PM)\n";
       cin >> startTime;
       if(talid->isValidTime12Hour(startTime))
       {
@@ -260,7 +260,7 @@ void Executive::addEvent()
     }
     else
     {
-      cout << "What time would you like the event to start?(format as military time. Exeample, 2:00PM would be 1400)\n";
+      cout << "What time would you like the event to start?(format as military time. Example, 2:00PM would be 1400)\n";
       cin >> startTime;
       if(!talid->isValidTime(startTime))
       {
@@ -273,7 +273,7 @@ void Executive::addEvent()
     looper = false;
     if(twelveHourMode == true)
     {
-      cout << "What time would you like the event to end?(format as 12 hour time. Exeample, 2:00PM)\n";
+      cout << "What time would you like the event to end?(format as 12 hour time. Example, 2:00PM)\n";
       cin >> endTime;
       if(talid->isValidTimeSlots12Hour(talid->changeTo12Hour(startTime),endTime))
       {
@@ -287,7 +287,7 @@ void Executive::addEvent()
     }
     else
     {
-      cout << "What time would you like the event to end?(format as military time. Exeample, 2:00PM would be 1400)\n";
+      cout << "What time would you like the event to end?(format as military time. Example, 2:00PM would be 1400)\n";
       cin >> endTime;
       if(!talid->isValidTimeSlots(startTime,endTime))
       {
@@ -334,7 +334,7 @@ void Executive::checkAttendance()
         if(twelveHourMode == true)
         {
           cout << calendar[eventChoice - 1]->getEventName() << " takes place between " << talid->changeTo12Hour(calendar[eventChoice - 1]->getEventStartTime()) << " and " << talid->changeTo12Hour(calendar[eventChoice - 1]->getEventEndTime());
-          cout << ". What time would you like to check the attendance for?(Intervals are 30 mins, please format as 12 hour time. Exeample, 2:00PM)\n";
+          cout << ". What time would you like to check the attendance for?(Intervals are 30 mins, please format as 12 hour time. Example, 2:00PM)\n";
           cin >> checkTime;
           if(talid->isValidTime12Hour(checkTime))
           {

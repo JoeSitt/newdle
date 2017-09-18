@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <Calendar>
-	<Event eventName="Poop" eventCreator="Johnson" eventStartTime="2200" eventEndTime="2300" date="AUG 12 2017">
+	<Event eventName="Poop" eventCreator="Johnson" eventStartTime="2200" eventEndTime="2330" date="AUG 12 2017">
 		<Attendee attendeeName="Johnson">
 			<Time arriveTime="2200" leaveTime="2230"></Time>
 			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
 		</Attendee>
-	</Event>
-	<Event eventName="Booger" eventCreator="Josh" eventStartTime="1900" eventEndTime="2000" date="AUG 12 2017"> 
-		<Attendee attendeeName="Josh">
-			<Time arriveTime="1900" leaveTime="1930"></Time>
-			<Time arriveTime="1930" leaveTime="2000"></Time>
+    <Attendee attendeeName="poop">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
 		</Attendee>
 	</Event>
 </Calendar>

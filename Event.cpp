@@ -10,14 +10,17 @@ using namespace std;
 Event::Event(string name, string creator, string start_time, string end_time, string date) : e_name(name), e_creator(creator), e_start_time(start_time), e_end_time(end_time), e_date(date)
 {cout << "Event.cpp line 11\n" << endl;
   e_timeslots = new vector<TimeSlot*>();
+  e_attendees = new vector<string>();
   cout << "Convert start\n";
-  e_digi_start = convert_time(start_time);
+  e_digi_start = convert_time(e_start_time);
   cout << "Convert end\n";
-  e_digi_end = convert_time(end_time);
+  e_digi_end = convert_time(e_end_time);
   e_number_of_timeslots = (e_digi_end - e_digi_start)/0.5;
-  e_attendees->push_back(creator);
+  cout << "Will push\n";
+  e_attendees->push_back(e_creator);
+  cout << "pushed";
 
-
+  cout << "loop to start\n";
   for(int i=0; i<e_number_of_timeslots; i++){
     cout << "=== The timeslot creator loop ===";
     e_timeslots->push_back(new TimeSlot(creator));
@@ -25,7 +28,7 @@ Event::Event(string name, string creator, string start_time, string end_time, st
 }
 
 Event::~Event()
-{cout << "even.cpp line 24" << endl;
+{cout << "event.cpp line 24" << endl;
   for(int i=0; i < e_timeslots->size(); i++){
     delete e_timeslots->at(i);
   }
@@ -51,7 +54,8 @@ void Event::addAttendee(string name, string arrival_time, string leave_time)
 
 double Event::convert_time(string atime)
 {cout << "event.cpp line 49" << endl;
-  double tmp2 = stoi(atime);cout << "event.cpp line 50" << endl;
+  int tmp = stoi(atime);cout << "event.cpp line 50" << endl;
+  double tmp2 = tmp;
   tmp2 = tmp2/100;cout << "event.cpp line 51" << endl;
   double tmp3 = round(tmp2);cout << "event.cpp line 51.5" << endl;
   if(tmp2>tmp3){cout << "event.cpp line 52" << endl;

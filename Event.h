@@ -24,8 +24,8 @@ class Event
     int getAttendance(string start_time);
     vector<vector<string>> getAttendees();
 
-    vector<TimeSlot*> *e_timeslots;
-    vector<string> *e_attendees;
+    vector<TimeSlot*>* e_timeslots;
+    vector<string>* e_attendees;
 
 
   private:

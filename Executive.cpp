@@ -13,7 +13,6 @@ Executive::Executive()
    talid = new Valid();
    fileHandle = new FileHandler();
   //creates vector of events
-  // calendar = new vector<Event>();
   //calls filehandler to remake calendar from file
   // fileHandle->openFile(calendar);
 }
@@ -300,8 +299,10 @@ void Executive::addEvent()
   cout << "What is your name so we can add you as an attendee?\n";
   cin >> eventCreator;
   // getline (cin,eventCreator);
+  cout << "Event creation";
   Event* toAdd =  new Event(eventName, eventCreator, startTime, endTime, date);
   // calendar.emplace_back(eventName, eventCreator, startTime, endTime, date);
+  cout << "Event created";
   calendar.push_back(toAdd);
   cout << "Event has been created.\n";
 }

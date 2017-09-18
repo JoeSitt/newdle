@@ -14,14 +14,14 @@ Executive::Executive()
    fileHandle = new FileHandler();
   //creates vector of events
   //calls filehandler to remake calendar from file
-  // fileHandle->openFile(calendar);
+  fileHandle->openFile(calendar);
 }
 
 
 Executive::~Executive()
 {
   //calls filehandler to write to file
-  // fileHandle->saveFile(calendar);
+  fileHandle->saveFile(calendar);
   for( int i = 0 ; i < calendar.size(); i++)
    delete calendar[i];
 }

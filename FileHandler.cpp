@@ -34,17 +34,18 @@ bool FileHandler::saveFile(vector<Event*> &calendar_param){
 
     myfile << "\t<Event eventName=\"" + eventName + "\" "
     + "eventCreator=\"" + eventCreator + "\" "
-    + "starTime=\"" + event_startTime + "\" "
-    + "endTime=\"" + event_endTime +"\" "
-    + "date=\"" + date + "\">\n ";
+    + "eventStartTime=\"" + event_startTime + "\" "
+    + "eventEndTime=\"" + event_endTime +"\" "
+    + "date=\"" + date + "\"> ";
 
   // Interate over the attendees
   // TODO get number of unique attendees
   vector<vector<string>> attendees = calendar_param[i]->getAttendees();
     for(int j = 0; j<attendees.size(); j++){
+      cout << "attendees size: " << attendees.size() << endl;
       vector<string> individual_attendee = attendees[j];
       string name = individual_attendee[0];
-      myfile << "\t\t<Attendee name=\"" + name + "\">\n";
+      myfile << "\n\t\t<Attendee attendeeName=\"" + name + "\">\n";
       // TODO get number of seperate time slots per unique attendee
       for(int k = 1; k<individual_attendee.size(); k++)
       {
@@ -58,7 +59,7 @@ bool FileHandler::saveFile(vector<Event*> &calendar_param){
         else{
           attendee_stopTime+=30;
         }
-        myfile << "\t\t\t<Time startTime=\"" + to_string(attendee_startTime) + "\" stopTime=\""
+        myfile << "\t\t\t<Time arriveTime=\"" + to_string(attendee_startTime) + "\" leaveTime=\""
           + to_string(attendee_stopTime) + "\"></Time>\n";
       }
     myfile << "\t\t</Attendee>";
@@ -112,21 +113,18 @@ void FileHandler::parseXML(vector<Event*> &calendar_param){
     string date = event_node->first_attribute("date")->value();
     Event* toAdd =  new Event(eventName, eventCreator, startTime, endTime, date);
     calendar_param.push_back(toAdd);
-
 		// Interate over the attendees
 		for(xml_node<> * attendee_node = event_node->first_node("Attendee");
 			attendee_node;
 			attendee_node = attendee_node->next_sibling())
 		{
 			string attendeeName = attendee_node->first_attribute("attendeeName")->value();
-
 			for(xml_node<> * attendeeTime_node = attendee_node->first_node("Time");
 				attendeeTime_node;
 				attendeeTime_node = attendeeTime_node->next_sibling())
 			{
 				string attendee_arriveTime = attendeeTime_node->first_attribute("arriveTime")->value();
 				string attendee_leaveTime = attendeeTime_node->first_attribute("leaveTime")->value();
-
 				calendar_param[size]->addAttendee(attendeeName,attendee_arriveTime,attendee_leaveTime);
 			}
 		}

@@ -121,7 +121,7 @@ void Executive::attendeeMode()
     {
       cout << "There is no event with that number, please try again:\n";
     }
-    if(eventChoice == 0)
+    else if(eventChoice == 0)
     {
       cout << "Exiting Attendee Mode:\n";
       looper = false;
@@ -322,7 +322,7 @@ void Executive::checkAttendance()
       looper = true;
       cout << "That event is not currently in our calendar, please try another event:\n";
     }
-     if(eventChoice == 0)
+     else if(eventChoice == 0)
     {
       cout << "Exiting Attendance Check.\n";
       looper = false;

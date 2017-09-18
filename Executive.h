@@ -15,6 +15,7 @@
 #include "Event.h"
 #include "Valid.h"
 #include "FileHandler.h"
+using namespace std;
 
 class Executive
 {
@@ -61,7 +62,7 @@ private:
 	*/
 	void getEventList();
 	bool twelveHourMode;
-	std::vector<Event*> calendar;
+	vector<Event*> calendar;
 	FileHandler* fileHandle;
 	Valid* talid;
 };

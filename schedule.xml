@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <Calendar>
 	<Event eventName="Party" eventCreator="Joe" eventStartTime="800" eventEndTime="1200" date="SEP 8 2017">
- 		<Attendee name="Jeff">
-			<Time startTime="800" stopTime="830"></Time>
-			<Time startTime="830" stopTime="900"></Time>
+ 		<Attendee attendeeName="Jeff">
+			<Time arriveTime="800" leaveTime="830"></Time>
+			<Time arriveTime="830" leaveTime="900"></Time>
 		</Attendee>
 	</Event>
 </Calendar>

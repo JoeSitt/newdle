@@ -14,7 +14,7 @@ Executive::Executive()
    fileHandle = new FileHandler();
   //creates vector of events
   //calls filehandler to remake calendar from file
-  // fileHandle->openFile(calendar);
+  fileHandle->openFile(calendar);
 }
 
 

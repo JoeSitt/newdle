@@ -112,21 +112,18 @@ void FileHandler::parseXML(vector<Event*> &calendar_param){
     string date = event_node->first_attribute("date")->value();
     Event* toAdd =  new Event(eventName, eventCreator, startTime, endTime, date);
     calendar_param.push_back(toAdd);
-
 		// Interate over the attendees
 		for(xml_node<> * attendee_node = event_node->first_node("Attendee");
 			attendee_node;
 			attendee_node = attendee_node->next_sibling())
 		{
 			string attendeeName = attendee_node->first_attribute("attendeeName")->value();
-
 			for(xml_node<> * attendeeTime_node = attendee_node->first_node("Time");
 				attendeeTime_node;
 				attendeeTime_node = attendeeTime_node->next_sibling())
 			{
 				string attendee_arriveTime = attendeeTime_node->first_attribute("arriveTime")->value();
 				string attendee_leaveTime = attendeeTime_node->first_attribute("leaveTime")->value();
-
 				calendar_param[size]->addAttendee(attendeeName,attendee_arriveTime,attendee_leaveTime);
 			}
 		}

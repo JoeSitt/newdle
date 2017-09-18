@@ -1,0 +1,325 @@
+\hypertarget{class_event}{}\section{Event Class Reference}
+\label{class_event}\index{Event@{Event}}
+
+
+{\ttfamily \#include $<$Event.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_event_ac53d5eea0fae7018bfc240544c99bec0}{Event} (string name, string creator, string start\+\_\+time, string end\+\_\+time, string date)
+\item 
+\hyperlink{class_event_a7704ec01ce91e673885792054214b3d2}{$\sim$\+Event} ()
+\item 
+void \hyperlink{class_event_a88bba1204c92cc12830981c04a8c3a51}{add\+Attendee} (string name, string arrival\+\_\+time, string leave\+\_\+time)
+\item 
+string \hyperlink{class_event_ab13410739cd27089f2f9f56b60f18836}{get\+Event\+Name} ()
+\item 
+string \hyperlink{class_event_adc4d66c8a57d4e94b483ba39bbf0cf6c}{get\+Event\+Creator} ()
+\item 
+string \hyperlink{class_event_a9c77702f7c3d0246379b89f90f175774}{get\+Event\+Start\+Time} ()
+\item 
+string \hyperlink{class_event_a2d87965673185f8b5be533b67ac41deb}{get\+Event\+End\+Time} ()
+\item 
+string \hyperlink{class_event_a91ec497b9aad58f22638b673a90f6cb9}{get\+Event\+Date} ()
+\item 
+int \hyperlink{class_event_a3e79358d2835bfd9dc83da17110ef69b}{get\+Attendance} (string start\+\_\+time)
+\item 
+vector$<$ vector$<$ string $>$ $>$ \hyperlink{class_event_aa2e514e796817604909d189f16d12cec}{get\+Attendees} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \hyperlink{class_time_slot}{Time\+Slot} $\ast$ $>$ $\ast$ \hyperlink{class_event_a1d8d11d893c1149b3518aa332172b26e}{e\+\_\+timeslots}
+\item 
+vector$<$ string $>$ $\ast$ \hyperlink{class_event_a2c3f28f20c869c6dcc70d863fcf302ef}{e\+\_\+attendees}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{class_event_a9446b101ed9d3fc30517e6d49784f0e8}{convert\+\_\+time} (string atime)
+\item 
+string \hyperlink{class_event_a8b44e4b7aabb33750c46fe75c1f667d7}{convert\+\_\+to\+\_\+string} (double atime)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{class_event_a1a14f0254ecf8a9b047ef3a6fdbd7c5c}{e\+\_\+name}
+\item 
+string \hyperlink{class_event_ae3987340f5890193cba3e2d5b3a5d795}{e\+\_\+creator}
+\item 
+string \hyperlink{class_event_a95f673d61a2a65a3a596cac4fbeb1f83}{e\+\_\+start\+\_\+time}
+\item 
+string \hyperlink{class_event_aa4d3cc50d5c3c67c689af507af1f9cad}{e\+\_\+end\+\_\+time}
+\item 
+string \hyperlink{class_event_ad561caba64fcce6c406af8ac40845b5b}{e\+\_\+date}
+\item 
+int \hyperlink{class_event_a7322a346321deb08645ab2152b1fc2ab}{e\+\_\+number\+\_\+of\+\_\+attendees}
+\item 
+double \hyperlink{class_event_a44032054621d2aa43329ac6b40d85733}{e\+\_\+digi\+\_\+start}
+\item 
+double \hyperlink{class_event_a9abcd7ce82863c2fb15395b6923dd4ea}{e\+\_\+digi\+\_\+end}
+\item 
+int \hyperlink{class_event_a6784c7edd91dc873c16b420c00799f0b}{e\+\_\+number\+\_\+of\+\_\+timeslots}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_event_ac53d5eea0fae7018bfc240544c99bec0}\label{class_event_ac53d5eea0fae7018bfc240544c99bec0}} 
+\index{Event@{Event}!Event@{Event}}
+\index{Event@{Event}!Event@{Event}}
+\subsubsection{\texorpdfstring{Event()}{Event()}}
+{\footnotesize\ttfamily Event\+::\+Event (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{creator,  }\item[{string}]{start\+\_\+time,  }\item[{string}]{end\+\_\+time,  }\item[{string}]{date }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+Receives event name, creator, start\+\_\+time, end\+\_\+time, date all as strings. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+creates the event object timelots, assigns the parameters to member variables. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_event_a7704ec01ce91e673885792054214b3d2}\label{class_event_a7704ec01ce91e673885792054214b3d2}} 
+\index{Event@{Event}!````~Event@{$\sim$\+Event}}
+\index{````~Event@{$\sim$\+Event}!Event@{Event}}
+\subsubsection{\texorpdfstring{$\sim$\+Event()}{~Event()}}
+{\footnotesize\ttfamily Event\+::$\sim$\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+deletes pointers of timeslots, and the member variable pointers. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none. 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_event_a88bba1204c92cc12830981c04a8c3a51}\label{class_event_a88bba1204c92cc12830981c04a8c3a51}} 
+\index{Event@{Event}!add\+Attendee@{add\+Attendee}}
+\index{add\+Attendee@{add\+Attendee}!Event@{Event}}
+\subsubsection{\texorpdfstring{add\+Attendee()}{addAttendee()}}
+{\footnotesize\ttfamily void Event\+::add\+Attendee (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{arrival\+\_\+time,  }\item[{string}]{leave\+\_\+time }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+takes the name of the attendee, arrival time and leave time. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+adds the name of the attendee to all the timeslots they chose. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_event_a9446b101ed9d3fc30517e6d49784f0e8}\label{class_event_a9446b101ed9d3fc30517e6d49784f0e8}} 
+\index{Event@{Event}!convert\+\_\+time@{convert\+\_\+time}}
+\index{convert\+\_\+time@{convert\+\_\+time}!Event@{Event}}
+\subsubsection{\texorpdfstring{convert\+\_\+time()}{convert\_time()}}
+{\footnotesize\ttfamily double Event\+::convert\+\_\+time (\begin{DoxyParamCaption}\item[{string}]{atime }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyPrecond}{Precondition}
+Receives a string of time in 24 hr format (ex\+: 0230) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+computes a double of size 0-\/23.\+5, smallest increment being 0.\+5. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+the calculated double. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_event_a8b44e4b7aabb33750c46fe75c1f667d7}\label{class_event_a8b44e4b7aabb33750c46fe75c1f667d7}} 
+\index{Event@{Event}!convert\+\_\+to\+\_\+string@{convert\+\_\+to\+\_\+string}}
+\index{convert\+\_\+to\+\_\+string@{convert\+\_\+to\+\_\+string}!Event@{Event}}
+\subsubsection{\texorpdfstring{convert\+\_\+to\+\_\+string()}{convert\_to\_string()}}
+{\footnotesize\ttfamily string Event\+::convert\+\_\+to\+\_\+string (\begin{DoxyParamCaption}\item[{double}]{atime }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyPrecond}{Precondition}
+Receives a double of time between 0-\/23.\+5. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+converts the double to a string in 24 hr format. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+the time in string format. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_event_a3e79358d2835bfd9dc83da17110ef69b}\label{class_event_a3e79358d2835bfd9dc83da17110ef69b}} 
+\index{Event@{Event}!get\+Attendance@{get\+Attendance}}
+\index{get\+Attendance@{get\+Attendance}!Event@{Event}}
+\subsubsection{\texorpdfstring{get\+Attendance()}{getAttendance()}}
+{\footnotesize\ttfamily int Event\+::get\+Attendance (\begin{DoxyParamCaption}\item[{string}]{start\+\_\+time }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+the start time of the timeslot being queried. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+counts the attendees for chosen time slot. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+number of attendees for the timeslot. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_event_aa2e514e796817604909d189f16d12cec}\label{class_event_aa2e514e796817604909d189f16d12cec}} 
+\index{Event@{Event}!get\+Attendees@{get\+Attendees}}
+\index{get\+Attendees@{get\+Attendees}!Event@{Event}}
+\subsubsection{\texorpdfstring{get\+Attendees()}{getAttendees()}}
+{\footnotesize\ttfamily vector$<$ vector$<$ string $>$ $>$ Event\+::get\+Attendees (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+finds all the timeslots each person is attending. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+a vector of all the timeslots a person is attending, index 0 being the person\textquotesingle{}s name. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_event_adc4d66c8a57d4e94b483ba39bbf0cf6c}\label{class_event_adc4d66c8a57d4e94b483ba39bbf0cf6c}} 
+\index{Event@{Event}!get\+Event\+Creator@{get\+Event\+Creator}}
+\index{get\+Event\+Creator@{get\+Event\+Creator}!Event@{Event}}
+\subsubsection{\texorpdfstring{get\+Event\+Creator()}{getEventCreator()}}
+{\footnotesize\ttfamily string Event\+::get\+Event\+Creator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+none. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+member varibale event creator. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_event_a91ec497b9aad58f22638b673a90f6cb9}\label{class_event_a91ec497b9aad58f22638b673a90f6cb9}} 
+\index{Event@{Event}!get\+Event\+Date@{get\+Event\+Date}}
+\index{get\+Event\+Date@{get\+Event\+Date}!Event@{Event}}
+\subsubsection{\texorpdfstring{get\+Event\+Date()}{getEventDate()}}
+{\footnotesize\ttfamily string Event\+::get\+Event\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+none. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+member variable event date. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_event_a2d87965673185f8b5be533b67ac41deb}\label{class_event_a2d87965673185f8b5be533b67ac41deb}} 
+\index{Event@{Event}!get\+Event\+End\+Time@{get\+Event\+End\+Time}}
+\index{get\+Event\+End\+Time@{get\+Event\+End\+Time}!Event@{Event}}
+\subsubsection{\texorpdfstring{get\+Event\+End\+Time()}{getEventEndTime()}}
+{\footnotesize\ttfamily string Event\+::get\+Event\+End\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+none. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+member variable end time. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_event_ab13410739cd27089f2f9f56b60f18836}\label{class_event_ab13410739cd27089f2f9f56b60f18836}} 
+\index{Event@{Event}!get\+Event\+Name@{get\+Event\+Name}}
+\index{get\+Event\+Name@{get\+Event\+Name}!Event@{Event}}
+\subsubsection{\texorpdfstring{get\+Event\+Name()}{getEventName()}}
+{\footnotesize\ttfamily string Event\+::get\+Event\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+none. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+member variable event name. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_event_a9c77702f7c3d0246379b89f90f175774}\label{class_event_a9c77702f7c3d0246379b89f90f175774}} 
+\index{Event@{Event}!get\+Event\+Start\+Time@{get\+Event\+Start\+Time}}
+\index{get\+Event\+Start\+Time@{get\+Event\+Start\+Time}!Event@{Event}}
+\subsubsection{\texorpdfstring{get\+Event\+Start\+Time()}{getEventStartTime()}}
+{\footnotesize\ttfamily string Event\+::get\+Event\+Start\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+none. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+member variable start time. 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_event_a2c3f28f20c869c6dcc70d863fcf302ef}\label{class_event_a2c3f28f20c869c6dcc70d863fcf302ef}} 
+\index{Event@{Event}!e\+\_\+attendees@{e\+\_\+attendees}}
+\index{e\+\_\+attendees@{e\+\_\+attendees}!Event@{Event}}
+\subsubsection{\texorpdfstring{e\+\_\+attendees}{e\_attendees}}
+{\footnotesize\ttfamily vector$<$string$>$$\ast$ Event\+::e\+\_\+attendees}
+
+\mbox{\Hypertarget{class_event_ae3987340f5890193cba3e2d5b3a5d795}\label{class_event_ae3987340f5890193cba3e2d5b3a5d795}} 
+\index{Event@{Event}!e\+\_\+creator@{e\+\_\+creator}}
+\index{e\+\_\+creator@{e\+\_\+creator}!Event@{Event}}
+\subsubsection{\texorpdfstring{e\+\_\+creator}{e\_creator}}
+{\footnotesize\ttfamily string Event\+::e\+\_\+creator\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_event_ad561caba64fcce6c406af8ac40845b5b}\label{class_event_ad561caba64fcce6c406af8ac40845b5b}} 
+\index{Event@{Event}!e\+\_\+date@{e\+\_\+date}}
+\index{e\+\_\+date@{e\+\_\+date}!Event@{Event}}
+\subsubsection{\texorpdfstring{e\+\_\+date}{e\_date}}
+{\footnotesize\ttfamily string Event\+::e\+\_\+date\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_event_a9abcd7ce82863c2fb15395b6923dd4ea}\label{class_event_a9abcd7ce82863c2fb15395b6923dd4ea}} 
+\index{Event@{Event}!e\+\_\+digi\+\_\+end@{e\+\_\+digi\+\_\+end}}
+\index{e\+\_\+digi\+\_\+end@{e\+\_\+digi\+\_\+end}!Event@{Event}}
+\subsubsection{\texorpdfstring{e\+\_\+digi\+\_\+end}{e\_digi\_end}}
+{\footnotesize\ttfamily double Event\+::e\+\_\+digi\+\_\+end\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_event_a44032054621d2aa43329ac6b40d85733}\label{class_event_a44032054621d2aa43329ac6b40d85733}} 
+\index{Event@{Event}!e\+\_\+digi\+\_\+start@{e\+\_\+digi\+\_\+start}}
+\index{e\+\_\+digi\+\_\+start@{e\+\_\+digi\+\_\+start}!Event@{Event}}
+\subsubsection{\texorpdfstring{e\+\_\+digi\+\_\+start}{e\_digi\_start}}
+{\footnotesize\ttfamily double Event\+::e\+\_\+digi\+\_\+start\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_event_aa4d3cc50d5c3c67c689af507af1f9cad}\label{class_event_aa4d3cc50d5c3c67c689af507af1f9cad}} 
+\index{Event@{Event}!e\+\_\+end\+\_\+time@{e\+\_\+end\+\_\+time}}
+\index{e\+\_\+end\+\_\+time@{e\+\_\+end\+\_\+time}!Event@{Event}}
+\subsubsection{\texorpdfstring{e\+\_\+end\+\_\+time}{e\_end\_time}}
+{\footnotesize\ttfamily string Event\+::e\+\_\+end\+\_\+time\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_event_a1a14f0254ecf8a9b047ef3a6fdbd7c5c}\label{class_event_a1a14f0254ecf8a9b047ef3a6fdbd7c5c}} 
+\index{Event@{Event}!e\+\_\+name@{e\+\_\+name}}
+\index{e\+\_\+name@{e\+\_\+name}!Event@{Event}}
+\subsubsection{\texorpdfstring{e\+\_\+name}{e\_name}}
+{\footnotesize\ttfamily string Event\+::e\+\_\+name\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_event_a7322a346321deb08645ab2152b1fc2ab}\label{class_event_a7322a346321deb08645ab2152b1fc2ab}} 
+\index{Event@{Event}!e\+\_\+number\+\_\+of\+\_\+attendees@{e\+\_\+number\+\_\+of\+\_\+attendees}}
+\index{e\+\_\+number\+\_\+of\+\_\+attendees@{e\+\_\+number\+\_\+of\+\_\+attendees}!Event@{Event}}
+\subsubsection{\texorpdfstring{e\+\_\+number\+\_\+of\+\_\+attendees}{e\_number\_of\_attendees}}
+{\footnotesize\ttfamily int Event\+::e\+\_\+number\+\_\+of\+\_\+attendees\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_event_a6784c7edd91dc873c16b420c00799f0b}\label{class_event_a6784c7edd91dc873c16b420c00799f0b}} 
+\index{Event@{Event}!e\+\_\+number\+\_\+of\+\_\+timeslots@{e\+\_\+number\+\_\+of\+\_\+timeslots}}
+\index{e\+\_\+number\+\_\+of\+\_\+timeslots@{e\+\_\+number\+\_\+of\+\_\+timeslots}!Event@{Event}}
+\subsubsection{\texorpdfstring{e\+\_\+number\+\_\+of\+\_\+timeslots}{e\_number\_of\_timeslots}}
+{\footnotesize\ttfamily int Event\+::e\+\_\+number\+\_\+of\+\_\+timeslots\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_event_a95f673d61a2a65a3a596cac4fbeb1f83}\label{class_event_a95f673d61a2a65a3a596cac4fbeb1f83}} 
+\index{Event@{Event}!e\+\_\+start\+\_\+time@{e\+\_\+start\+\_\+time}}
+\index{e\+\_\+start\+\_\+time@{e\+\_\+start\+\_\+time}!Event@{Event}}
+\subsubsection{\texorpdfstring{e\+\_\+start\+\_\+time}{e\_start\_time}}
+{\footnotesize\ttfamily string Event\+::e\+\_\+start\+\_\+time\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_event_a1d8d11d893c1149b3518aa332172b26e}\label{class_event_a1d8d11d893c1149b3518aa332172b26e}} 
+\index{Event@{Event}!e\+\_\+timeslots@{e\+\_\+timeslots}}
+\index{e\+\_\+timeslots@{e\+\_\+timeslots}!Event@{Event}}
+\subsubsection{\texorpdfstring{e\+\_\+timeslots}{e\_timeslots}}
+{\footnotesize\ttfamily vector$<$\hyperlink{class_time_slot}{Time\+Slot}$\ast$$>$$\ast$ Event\+::e\+\_\+timeslots}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_event_8h}{Event.\+h}\item 
+\hyperlink{_event_8cpp}{Event.\+cpp}\end{DoxyCompactItemize}

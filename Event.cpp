@@ -68,7 +68,6 @@ double Event::convert_time(string atime)
     tmp2 = tmp3 + 0.5;
   }
 
-  cout << "return";
   return(tmp2);
 }
 

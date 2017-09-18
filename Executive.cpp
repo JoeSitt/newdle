@@ -20,12 +20,8 @@ Executive::Executive()
 Executive::~Executive()
 {
   //calls filehandler to write to file
-<<<<<<< HEAD
-  // fileHandle->saveFile(calendar);
-=======
   fileHandle->saveFile(calendar);
   //cleans up calendar
->>>>>>> 88f64fbdcff8b122036829251c992bcc31602733
   for( int i = 0 ; i < calendar.size(); i++)
    delete calendar[i];
 }
@@ -209,7 +205,6 @@ void Executive::attendeeMode()
   } while(looper == true);
 }
 
-
 void Executive::addEvent()
 {
   string eventName = "";
@@ -243,7 +238,7 @@ void Executive::addEvent()
     looper = false;
     if(twelveHourMode == true)
     {
-      cout << "What time would you like the event to start?(format as 12 hour time. Examplemple, 2:00PM)\n";
+      cout << "What time would you like the event to start?(format as 12 hour time. Exeample, 2:00PM)\n";
       cin >> startTime;
       if(talid->isValidTime12Hour(startTime))
       {
@@ -261,13 +256,8 @@ void Executive::addEvent()
       }
     }
     else
-<<<<<<< HEAD
-    {
-      cout << "What time would you like the event to start?(format as military time. Example, 2:00PM would be 1400)\n";
-=======
     {//only enters if in 24 hour clock mode
       cout << "What time would you like the event to start?(format as military time. Exeample, 2:00PM would be 1400)\n";
->>>>>>> 88f64fbdcff8b122036829251c992bcc31602733
       cin >> startTime;
       if(!talid->isValidTime(startTime))
       {
@@ -280,7 +270,7 @@ void Executive::addEvent()
     looper = false;
     if(twelveHourMode == true)
     {
-      cout << "What time would you like the event to end?(format as 12 hour time. Example, 2:00PM)\n";
+      cout << "What time would you like the event to end?(format as 12 hour time. Exeample, 2:00PM)\n";
       cin >> endTime;
       if(talid->isValidTimeSlots12Hour(talid->changeTo12Hour(startTime),endTime))
       {
@@ -293,13 +283,8 @@ void Executive::addEvent()
       }
     }
     else
-<<<<<<< HEAD
-    {
-      cout << "What time would you like the event to end?(format as military time. Example, 2:00PM would be 1400)\n";
-=======
     {//takes in end time for event
       cout << "What time would you like the event to end?(format as military time. Exeample, 2:00PM would be 1400)\n";
->>>>>>> 88f64fbdcff8b122036829251c992bcc31602733
       cin >> endTime;
       if(!talid->isValidTimeSlots(startTime,endTime))
       {

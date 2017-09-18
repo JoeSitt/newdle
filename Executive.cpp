@@ -205,7 +205,6 @@ void Executive::attendeeMode()
   } while(looper == true);
 }
 
-
 void Executive::addEvent()
 {
   string eventName = "";
@@ -331,7 +330,7 @@ void Executive::checkAttendance()
         if(twelveHourMode == true)
         {
           cout << calendar[eventChoice - 1]->getEventName() << " takes place between " << talid->changeTo12Hour(calendar[eventChoice - 1]->getEventStartTime()) << " and " << talid->changeTo12Hour(calendar[eventChoice - 1]->getEventEndTime());
-          cout << ". What time would you like to check the attendance for?(Intervals are 30 mins, please format as 12 hour time. Exeample, 2:00PM)\n";
+          cout << ". What time would you like to check the attendance for?(Intervals are 30 mins, please format as 12 hour time. Example, 2:00PM)\n";
           cin >> checkTime;
           if(talid->isValidTime12Hour(checkTime))
           {

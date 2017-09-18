@@ -22,10 +22,12 @@ bool FileHandler::openFile(vector<Event*> &calendar_param){
 
 // TODO finish attendee iteration printing
 bool FileHandler::saveFile(vector<Event*> &calendar_param){
+  cout << "calendar events number: " << calendar_param.size() << endl;
   ofstream myfile;
   myfile.open ("schedule.xml");
   myfile << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n<Calendar>\n";
   for(int i = 0; i<calendar_param.size(); i++){
+    // cout << "Attendees number: " << calendar_param[i].size() << endl;
     string eventName = calendar_param[i]->getEventName();
     string eventCreator = calendar_param[i]->getEventCreator();
     string event_startTime = calendar_param[i]->getEventStartTime();
@@ -38,18 +40,18 @@ bool FileHandler::saveFile(vector<Event*> &calendar_param){
     + "eventEndTime=\"" + event_endTime +"\" "
     + "date=\"" + date + "\"> ";
 
-  // Interate over the attendees
-  vector<vector<string>> attendees = calendar_param[i]->getAttendees();
+    // Interate over the attendees
+    vector<vector<string>> attendees = calendar_param[i]->getAttendees();
     for(int j = 0; j<attendees.size(); j++){
-    // for(int j = 0; j<2; j++){
       // cout << "attendees size: " << attendees.size() << endl;
       vector<string> individual_attendee = attendees[j];
+      cout << "attendees " << attendees[j].size() << endl;
       // cout << "individual_attendee node 1: " << individual_attendee[2] << endl;
       string name = individual_attendee[0];
       myfile << "\n\t\t<Attendee attendeeName=\"" + name + "\">\n";
       // TODO get number of seperate time slots per unique attendee
-      for(int k = 1; k<individual_attendee.size(); k++)
-      {
+
+      for(int k = 1; k<individual_attendee.size(); k++){
         // 0 index is name 1++ start times and add the 30 minutes
         string attendeeString_startTime = individual_attendee[k];
         int attendee_startTime = stoi(attendeeString_startTime);
@@ -61,9 +63,9 @@ bool FileHandler::saveFile(vector<Event*> &calendar_param){
           attendee_stopTime+=30;
         }
         myfile << "\t\t\t<Time arriveTime=\"" + to_string(attendee_startTime) + "\" leaveTime=\""
-          + to_string(attendee_stopTime) + "\"></Time>\n";
+        + to_string(attendee_stopTime) + "\"></Time>\n";
       }
-    myfile << "\t\t</Attendee>";
+      myfile << "\t\t</Attendee>";
     }
     myfile << "\n\t</Event>\n";
   }

@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <Calendar>
-	<Event eventName="poop" eventCreator="Johnson" eventStartTime="2000" eventEndTime="2200" date="AUG 12 2017">
-		<Attendee attendeeName="Johnson">
+	<Event eventName="Fun" eventCreator="Def Def" eventStartTime="1500" eventEndTime="2300" date="JUL 02 2018">
+		<Attendee attendeeName="Def Def">
+			<Time arriveTime="1500" leaveTime="1530"></Time>
+			<Time arriveTime="1530" leaveTime="1600"></Time>
+			<Time arriveTime="1600" leaveTime="1630"></Time>
+			<Time arriveTime="1630" leaveTime="1700"></Time>
+			<Time arriveTime="1700" leaveTime="1730"></Time>
+			<Time arriveTime="1730" leaveTime="1800"></Time>
+			<Time arriveTime="1800" leaveTime="1830"></Time>
+			<Time arriveTime="1830" leaveTime="1900"></Time>
+			<Time arriveTime="1900" leaveTime="1930"></Time>
+			<Time arriveTime="1930" leaveTime="2000"></Time>
 			<Time arriveTime="2000" leaveTime="2030"></Time>
 			<Time arriveTime="2030" leaveTime="2100"></Time>
 			<Time arriveTime="2100" leaveTime="2130"></Time>
 			<Time arriveTime="2130" leaveTime="2200"></Time>
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
 		</Attendee>
-		<Attendee attendeeName="Johnson">
-			<Time arriveTime="2000" leaveTime="2030"></Time>
-			<Time arriveTime="2030" leaveTime="2100"></Time>
-			<Time arriveTime="2100" leaveTime="2130"></Time>
-			<Time arriveTime="2130" leaveTime="2200"></Time>
+		<Attendee attendeeName="LO LO">
+			<Time arriveTime="1600" leaveTime="1630"></Time>
 		</Attendee>
 	</Event>
 </Calendar>

@@ -121,7 +121,7 @@ void Executive::attendeeMode()
     {
       cout << "There is no event with that number, please try again:\n";
     }
-    if(eventChoice == 0)
+    else if(eventChoice == 0)
     {
       cout << "Exiting Attendee Mode:\n";
       looper = false;
@@ -199,8 +199,8 @@ void Executive::attendeeMode()
         }
       } while(looper2 == true);
       cout << "What is the name you would like to RSVP with?\n";
-      cin >> attendeeName;
-      // getline (cin,attendeeName);
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      getline (cin,attendeeName);
       calendar[eventChoice - 1]->addAttendee(attendeeName, arriveTime, leaveTime);
       cout << "You have been added as an attendee to the event.\n";
     }
@@ -217,8 +217,8 @@ void Executive::addEvent()
   string eventCreator = "";
   bool looper = false;
   cout << "What would you like to name the event?\n";
-  cin >> eventName;
-  // getline (cin,eventName);
+  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+  getline (cin,eventName);
   do {//takes in and checks date
     string temp = "";
     looper = false;
@@ -297,8 +297,8 @@ void Executive::addEvent()
     }
   } while(looper == true);
   cout << "What is your name so we can add you as an attendee?\n";
-  cin >> eventCreator;
-  // getline (cin,eventCreator);
+  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+  getline (cin,eventCreator);
   cout << "Event creation";
   Event* toAdd =  new Event(eventName, eventCreator, startTime, endTime, date);
   // calendar.emplace_back(eventName, eventCreator, startTime, endTime, date);
@@ -322,7 +322,7 @@ void Executive::checkAttendance()
       looper = true;
       cout << "That event is not currently in our calendar, please try another event:\n";
     }
-     if(eventChoice == 0)
+    else if(eventChoice == 0)
     {
       cout << "Exiting Attendance Check.\n";
       looper = false;

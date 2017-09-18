@@ -29,8 +29,8 @@ bool Valid::isValidDate(string date) {
 		char yearC3 = m_year.at(2);
 		char yearC4 = m_year.at(3);
 		if(isdigit(dayC1) && isdigit(dayC2) && isdigit(yearC1) && isdigit(yearC2) && isdigit(yearC3) && isdigit(yearC4)) {
-			mi_day = stoi (m_day);
-			mi_year = stoi (m_year);
+			mi_day = stoi(m_day);
+			mi_year = stoi(m_year);
 			if(m_month == "JAN") {
 				mi_month = 1;
 			}

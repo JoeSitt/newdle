@@ -17,6 +17,7 @@ TimeSlot.o : TimeSlot.cpp TimeSlot.h
 	g++ -Wall -c -g -std=c++11 TimeSlot.cpp
 
 Valid.o : Valid.cpp Valid.h
+	g++ -Wall -c -g -std=c++11 Valid.cpp
 
 clean :
 	\rm *.o *~ calendar

@@ -26,7 +26,7 @@ void TimeSlot::addPerson(string name)
 
 bool TimeSlot::doesAttend(string name)
 {
-  if(find(t_attendees->begin(), t_attendees->end(), name) != t_attendees.end() ){
+  if(find(t_attendees->begin(), t_attendees->end(), name) != t_attendees->end() ){
     return(true);
   }
   else{

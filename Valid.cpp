@@ -1,24 +1,24 @@
 //Valid.cpp
 
 #include "Valid.h"
-#include <string>
-#include <fstream>
-#include <iostream>
-#include <stdlib.h>
-#include <cctype>
+// #include <string>
+// #include <fstream>
+// #include <iostream>
+// #include <stdlib.h>
+// #include <cctype>
 
-using namespace std;
+// using namespace std;
 
 Valid::Valid(){}
 
-bool Valid::isValidDate(std::string date) {
+bool Valid::isValidDate(string date) {
 	if(date.size() != 11) {
 		return false;
 	}
 	else {
-		std::string m_month = date.substr(0,3);
-		std::string m_day = date.substr(4,2);
-		std::string m_year = date.substr(7);
+		string m_month = date.substr(0,3);
+		string m_day = date.substr(4,2);
+		string m_year = date.substr(7);
 		int mi_day;
 		int mi_year;
 		int mi_month;
@@ -76,7 +76,7 @@ bool Valid::isValidDate(std::string date) {
 	return false;
 }
 
-bool Valid::isValidTime(std::string start) {
+bool Valid::isValidTime(string start) {
 	if(start.size() == 4) {
 		if(start.at(0) == '0') {
 			return (isdigit(start.at(1)) && check0030(start));
@@ -93,7 +93,7 @@ bool Valid::isValidTime(std::string start) {
 	return false;
 }
 
-bool Valid::isValidTime12Hour(std::string start) {
+bool Valid::isValidTime12Hour(string start) {
 	if(start.size() < 6 || start.size() > 7) {
 		return false;
 	}
@@ -137,7 +137,7 @@ bool Valid::isValidTime12Hour(std::string start) {
 /*
 assumes variable start is valid
 */
-bool Valid::isValidTimeSlots(std::string start, std::string end) {
+bool Valid::isValidTimeSlots(string start, string end) {
 	if(isValidTime(end)) {
 		int i_start = stoi(start);
 		int i_end = stoi(end);
@@ -150,10 +150,10 @@ bool Valid::isValidTimeSlots(std::string start, std::string end) {
 /*
 assumes variable start is valid
 */
-bool Valid::isValidTimeSlots12Hour(std::string start, std::string end) {
+bool Valid::isValidTimeSlots12Hour(string start, string end) {
 	if(isValidTime12Hour(end)) {
-		std::string time24start = changeTo24Hour(start);
-		std::string time24end = changeTo24Hour(end);
+		string time24start = changeTo24Hour(start);
+		string time24end = changeTo24Hour(end);
 		return isValidTimeSlots(time24start, time24end);
 	}
 	return false;
@@ -162,8 +162,8 @@ bool Valid::isValidTimeSlots12Hour(std::string start, std::string end) {
 /*
 assumes variable time is valid
 */
-std::string Valid::changeTo12Hour(std::string time) {
-	std::string returner = "";
+string Valid::changeTo12Hour(string time) {
+	string returner = "";
 	int i_time = stoi(time);
 	if((i_time >= 0) && (i_time <= 2330)) {
 		if(i_time == 0) {
@@ -210,8 +210,8 @@ std::string Valid::changeTo12Hour(std::string time) {
 }
 
 //assumes variable time is a valid 12hour time
-std::string Valid::changeTo24Hour(std::string time) {
-	std::string returner = "";
+string Valid::changeTo24Hour(string time) {
+	string returner = "";
 	if(time.substr(time.size()-2) == "AM") {
 		if(time.size()==6) {
 			returner += "0";
@@ -306,7 +306,7 @@ bool Valid::isValidDay(int month, int day, int year) {
 	return false;
 }
 
-bool Valid::check0030(std::string time) {
+bool Valid::check0030(string time) {
 	if(time.substr(2) == "00" || time.substr(2) == "30") {
 		return true;
 	}

@@ -129,7 +129,7 @@ void FileHandler::parseXML(vector<Event*> &calendar_param){
 				string attendee_arriveTime = attendeeTime_node->first_attribute("arriveTime")->value();
 				string attendee_leaveTime = attendeeTime_node->first_attribute("leaveTime")->value();
 
-				calendar_param[size].addAttendee(attendeeName,attendee_arriveTime,attendee_leaveTime);
+				calendar_param[size]->addAttendee(attendeeName,attendee_arriveTime,attendee_leaveTime);
 			}
 		}
     size++;

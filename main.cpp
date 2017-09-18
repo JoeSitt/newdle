@@ -11,6 +11,7 @@
 
 int main()
 {
+  cout << "===Main opens===\n";
   Executive exec;
   exec.run();
   return 0;

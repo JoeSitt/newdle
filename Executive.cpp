@@ -15,14 +15,14 @@ Executive::Executive()
   //creates vector of events
   // calendar = new vector<Event>();
   //calls filehandler to remake calendar from file
-  fileHandle->openFile(calendar);
+  // fileHandle->openFile(calendar);
 }
 
 
 Executive::~Executive()
 {
   //calls filehandler to write to file
-  fileHandle->saveFile(calendar);
+  // fileHandle->saveFile(calendar);
   for( int i = 0 ; i < calendar.size(); i++)
    delete calendar[i];
 }
@@ -200,7 +200,8 @@ void Executive::attendeeMode()
         }
       } while(looper2 == true);
       cout << "What is the name you would like to RSVP with?\n";
-      getline (cin,attendeeName);
+      cin >> attendeeName;
+      // getline (cin,attendeeName);
       calendar[eventChoice - 1]->addAttendee(attendeeName, arriveTime, leaveTime);
       cout << "You have been added as an attendee to the event.\n";
     }
@@ -217,7 +218,8 @@ void Executive::addEvent()
   string eventCreator = "";
   bool looper = false;
   cout << "What would you like to name the event?\n";
-  getline (cin,eventName);
+  cin >> eventName;
+  // getline (cin,eventName);
   do {//takes in and checks date
     string temp = "";
     looper = false;
@@ -296,7 +298,8 @@ void Executive::addEvent()
     }
   } while(looper == true);
   cout << "What is your name so we can add you as an attendee?\n";
-  getline (cin,eventCreator);
+  cin >> eventCreator;
+  // getline (cin,eventCreator);
   Event* toAdd =  new Event(eventName, eventCreator, startTime, endTime, date);
   // calendar.emplace_back(eventName, eventCreator, startTime, endTime, date);
   calendar.push_back(toAdd);

@@ -8,14 +8,18 @@ using namespace std;
 #include "Event.h"
 
 Event::Event(string name, string creator, string start_time, string end_time, string date) : e_name(name), e_creator(creator), e_start_time(start_time), e_end_time(end_time), e_date(date)
-{cout << "Event.cpp line 11" << endl;
+{cout << "Event.cpp line 11\n" << endl;
   e_timeslots = new vector<TimeSlot*>();
+  cout << "Convert start\n";
   e_digi_start = convert_time(start_time);
+  cout << "Convert end\n";
   e_digi_end = convert_time(end_time);
   e_number_of_timeslots = (e_digi_end - e_digi_start)/0.5;
   e_attendees->push_back(creator);
 
+
   for(int i=0; i<e_number_of_timeslots; i++){
+    cout << "=== The timeslot creator loop ===";
     e_timeslots->push_back(new TimeSlot(creator));
   }
 }
@@ -54,6 +58,7 @@ double Event::convert_time(string atime)
     tmp2 = tmp3 + 0.5;cout << "event.cpp line 53" << endl;
   }
 
+  cout << "return";
   return(tmp2);
 }
 

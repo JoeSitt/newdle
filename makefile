@@ -1,5 +1,3 @@
-all : calendar clean
-
 calendar : main.o Event.o Executive.o FileHandler.o TimeSlot.o Valid.o
 	g++ -Wall -g -std=c++11 main.o Event.o Executive.o FileHandler.o TimeSlot.o Valid.o -o calendar
 

@@ -13,7 +13,7 @@ Executive::Executive()
    talid = new Valid();
    fileHandle = new FileHandler();
   //calls filehandler to remake calendar from file
-  // fileHandle->openFile(calendar);
+  fileHandle->openFile(calendar);
 }
 
 

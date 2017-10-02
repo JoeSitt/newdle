@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Calendar>
+	<Event eventName="POOOP" eventCreator="Harold" eventStartTime="2200" eventEndTime="2330" date="AUG 12 2017">
+		<Attendee attendeeName="Harold">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Joe">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Josh">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Barfmagee">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+	</Event>
+</Calendar>

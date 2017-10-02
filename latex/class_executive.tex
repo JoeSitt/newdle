@@ -1,0 +1,192 @@
+\hypertarget{class_executive}{}\section{Executive Class Reference}
+\label{class_executive}\index{Executive@{Executive}}
+
+
+{\ttfamily \#include $<$Executive.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_executive_ad870c1d741f1f313eb0c5a8336f8af6b}{Executive} ()
+\item 
+\hyperlink{class_executive_a4ce80c499f7640b1770ade77cf56d965}{$\sim$\+Executive} ()
+\item 
+void \hyperlink{class_executive_adef7cad3387e8fc79d92ffd418f45258}{run} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_executive_af662ff9fa35251d64e4fe7cdfea14baf}{admin\+Mode} ()
+\item 
+void \hyperlink{class_executive_a56c8e76b140c48b0cc561619f1d4167c}{attendee\+Mode} ()
+\item 
+void \hyperlink{class_executive_a4040f7cecef181324a0dcbb5546faf47}{add\+Event} ()
+\item 
+void \hyperlink{class_executive_a9a557e6a6c0e9aa26f2af645a9a2b253}{check\+Attendance} ()
+\item 
+void \hyperlink{class_executive_ac98b519b4d5bc9f1354640fa5720a27d}{get\+Event\+List} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_executive_a0d8c5ac39b849ace6ba439edbec23d26}{twelve\+Hour\+Mode}
+\item 
+vector$<$ \hyperlink{class_event}{Event} $\ast$ $>$ \hyperlink{class_executive_a408db6c2dc536dc7f53688da5a19a649}{calendar}
+\item 
+\hyperlink{class_file_handler}{File\+Handler} $\ast$ \hyperlink{class_executive_afdbcae01934f40960cf4955756e33950}{file\+Handle}
+\item 
+\hyperlink{class_valid}{Valid} $\ast$ \hyperlink{class_executive_a3c993d24ee13203a97736756e357f31d}{talid}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_executive_ad870c1d741f1f313eb0c5a8336f8af6b}\label{class_executive_ad870c1d741f1f313eb0c5a8336f8af6b}} 
+\index{Executive@{Executive}!Executive@{Executive}}
+\index{Executive@{Executive}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{Executive()}{Executive()}}
+{\footnotesize\ttfamily Executive\+::\+Executive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The saved list of events is imported. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_executive_a4ce80c499f7640b1770ade77cf56d965}\label{class_executive_a4ce80c499f7640b1770ade77cf56d965}} 
+\index{Executive@{Executive}!````~Executive@{$\sim$\+Executive}}
+\index{````~Executive@{$\sim$\+Executive}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{$\sim$\+Executive()}{~Executive()}}
+{\footnotesize\ttfamily Executive\+::$\sim$\+Executive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+None. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The list of events is saved and. 
+\end{DoxyPostcond}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_executive_a4040f7cecef181324a0dcbb5546faf47}\label{class_executive_a4040f7cecef181324a0dcbb5546faf47}} 
+\index{Executive@{Executive}!add\+Event@{add\+Event}}
+\index{add\+Event@{add\+Event}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{add\+Event()}{addEvent()}}
+{\footnotesize\ttfamily void Executive\+::add\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyPrecond}{Precondition}
+none. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+new event in calendar vector created. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true if created, false if error occured. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_executive_af662ff9fa35251d64e4fe7cdfea14baf}\label{class_executive_af662ff9fa35251d64e4fe7cdfea14baf}} 
+\index{Executive@{Executive}!admin\+Mode@{admin\+Mode}}
+\index{admin\+Mode@{admin\+Mode}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{admin\+Mode()}{adminMode()}}
+{\footnotesize\ttfamily void Executive\+::admin\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyPrecond}{Precondition}
+none. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+User is in admin mode. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_executive_a56c8e76b140c48b0cc561619f1d4167c}\label{class_executive_a56c8e76b140c48b0cc561619f1d4167c}} 
+\index{Executive@{Executive}!attendee\+Mode@{attendee\+Mode}}
+\index{attendee\+Mode@{attendee\+Mode}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{attendee\+Mode()}{attendeeMode()}}
+{\footnotesize\ttfamily void Executive\+::attendee\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyPrecond}{Precondition}
+none. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+User is in attendee mode. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_executive_a9a557e6a6c0e9aa26f2af645a9a2b253}\label{class_executive_a9a557e6a6c0e9aa26f2af645a9a2b253}} 
+\index{Executive@{Executive}!check\+Attendance@{check\+Attendance}}
+\index{check\+Attendance@{check\+Attendance}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{check\+Attendance()}{checkAttendance()}}
+{\footnotesize\ttfamily void Executive\+::check\+Attendance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyPrecond}{Precondition}
+event name, time. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+all attendees for that time slot displayed. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true if event/time valid, false if invalid. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_executive_ac98b519b4d5bc9f1354640fa5720a27d}\label{class_executive_ac98b519b4d5bc9f1354640fa5720a27d}} 
+\index{Executive@{Executive}!get\+Event\+List@{get\+Event\+List}}
+\index{get\+Event\+List@{get\+Event\+List}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{get\+Event\+List()}{getEventList()}}
+{\footnotesize\ttfamily void Executive\+::get\+Event\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyPrecond}{Precondition}
+none. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+displays events. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_executive_adef7cad3387e8fc79d92ffd418f45258}\label{class_executive_adef7cad3387e8fc79d92ffd418f45258}} 
+\index{Executive@{Executive}!run@{run}}
+\index{run@{run}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Executive\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+will ask which mode and send user to that mode. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none. 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_executive_a408db6c2dc536dc7f53688da5a19a649}\label{class_executive_a408db6c2dc536dc7f53688da5a19a649}} 
+\index{Executive@{Executive}!calendar@{calendar}}
+\index{calendar@{calendar}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{calendar}{calendar}}
+{\footnotesize\ttfamily vector$<$\hyperlink{class_event}{Event}$\ast$$>$ Executive\+::calendar\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_executive_afdbcae01934f40960cf4955756e33950}\label{class_executive_afdbcae01934f40960cf4955756e33950}} 
+\index{Executive@{Executive}!file\+Handle@{file\+Handle}}
+\index{file\+Handle@{file\+Handle}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{file\+Handle}{fileHandle}}
+{\footnotesize\ttfamily \hyperlink{class_file_handler}{File\+Handler}$\ast$ Executive\+::file\+Handle\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_executive_a3c993d24ee13203a97736756e357f31d}\label{class_executive_a3c993d24ee13203a97736756e357f31d}} 
+\index{Executive@{Executive}!talid@{talid}}
+\index{talid@{talid}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{talid}{talid}}
+{\footnotesize\ttfamily \hyperlink{class_valid}{Valid}$\ast$ Executive\+::talid\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_executive_a0d8c5ac39b849ace6ba439edbec23d26}\label{class_executive_a0d8c5ac39b849ace6ba439edbec23d26}} 
+\index{Executive@{Executive}!twelve\+Hour\+Mode@{twelve\+Hour\+Mode}}
+\index{twelve\+Hour\+Mode@{twelve\+Hour\+Mode}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{twelve\+Hour\+Mode}{twelveHourMode}}
+{\footnotesize\ttfamily bool Executive\+::twelve\+Hour\+Mode\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_executive_8h}{Executive.\+h}\item 
+\hyperlink{_executive_8cpp}{Executive.\+cpp}\end{DoxyCompactItemize}

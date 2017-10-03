@@ -21,3 +21,7 @@ Valid.o : Valid.cpp Valid.h
 
 clean :
 	\rm *.o *~ calendar
+
+clean2 :
+	del calendar.exe
+	del *.o

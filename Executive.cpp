@@ -157,6 +157,7 @@ void Executive::attendeeMode()
     }
     else
     {
+      clean();
       string arriveTime;
       string arriveTime12;
       string leaveTime;
@@ -264,7 +265,7 @@ void Executive::addEvent()
   do {//takes in and checks date
     string temp = "";
     looper = false;
-    cout << "What month would you like the event?(format as the three letter abreviation in all caps)\n";
+    cout << "What month would you like the event?(format as the three letter abreviation in all caps)\n"<<"Example January = \"JAN\"";
     cin >> date;
     transform(date.begin(), date.end(), date.begin(), ::toupper); //makes all letters upper case
     cout << "What day of the month would you like the event?(format as two digits)\n";
@@ -283,7 +284,7 @@ void Executive::addEvent()
     looper = false;
     if(twelveHourMode == true)
     {
-      cout << "What time would you like the event to start?(format as 12 hour time. Exeample, 2:00PM)\n";
+      cout << "What time would you like the event to start?(format as 12 hour time. Example, 2:00PM)\n";
       cin >> startTime;
       if(talid->isValidTime12Hour(startTime))
       {
@@ -303,8 +304,11 @@ void Executive::addEvent()
     }
     else
     {//only enters if in 24 hour clock mode
-      cout << "What time would you like the event to start?(format as military time. Exeample, 2:00PM would be 1400)\n";
+      cout << "What time would you like the event to start?(format as military time. Example, 2:00PM would be 1400)\n";
       cin >> startTime;
+      if (startTime.size()==3) {
+        startTime='0'+startTime;
+      }
       if(!talid->isValidTime(startTime))
       {
         looper = true;
@@ -316,7 +320,7 @@ void Executive::addEvent()
     looper = false;
     if(twelveHourMode == true)
     {
-      cout << "What time would you like the event to end?(format as 12 hour time. Exeample, 2:00PM)\n";
+      cout << "What time would you like the event to end?(format as 12 hour time. Example, 2:00PM)\n";
       cin >> endTime;
       if(talid->isValidTimeSlots12Hour(talid->changeTo12Hour(startTime),endTime))
       {
@@ -331,8 +335,11 @@ void Executive::addEvent()
     }
     else
     {//takes in end time for event
-      cout << "What time would you like the event to end?(format as military time. Exeample, 2:00PM would be 1400)\n";
+      cout << "What time would you like the event to end?(format as military time. Example, 2:00PM would be 1400)\n";
       cin >> endTime;
+      if (endTime.size()==3) {
+        endTime='0'+endTime;
+      }
       if(!talid->isValidTimeSlots(startTime,endTime))
       {
         looper = true;
@@ -345,12 +352,13 @@ void Executive::addEvent()
   getline (cin,eventCreator);
   cout << "Event creation";
   Event* toAdd =  new Event(eventName, eventCreator, startTime, endTime, date);
-  cout << "Event created";
+  cout << "Event: "<<eventName<<" created";
   calendar.push_back(toAdd); //adds event to back of calendar vector
   cout << "Event has been created.\n";
 }
 
 
+// TODO: show all of the attendiess and times, then give the option to search?-Js
 void Executive::checkAttendance()
 {
   bool looper = true;
@@ -401,6 +409,9 @@ void Executive::checkAttendance()
           cout << calendar[eventChoice - 1]->getEventName() << " takes place between " << calendar[eventChoice - 1]->getEventStartTime() << " and " << calendar[eventChoice - 1]->getEventEndTime();
           cout << ". What time would you like to check the attendance for?(Intervals are 30 mins, please use military time)\n";
           cin >> checkTime;
+          if (checkTime.size()==3) {
+            checkTime='0'+checkTime;
+          }
           if(checkTime < calendar[eventChoice - 1]->getEventStartTime() || checkTime >  calendar[eventChoice - 1]->getEventEndTime() || !talid->isValidTime(checkTime))
           {
             cout << "Invalid time, please try a different time:\n";
@@ -408,7 +419,11 @@ void Executive::checkAttendance()
           }
         }
       } while(looper2 == true);
+      if (calendar[eventChoice - 1]->getAttendance(checkTime)==1) {
+        cout << calendar[eventChoice - 1]->getAttendance(checkTime) << " person is attending at the given time.\n";
+      }else{
       cout << calendar[eventChoice - 1]->getAttendance(checkTime) << " people are attending at the given time.\n"; //displayes attendance for that time
+      }
     }
   } while(looper == true);
 }

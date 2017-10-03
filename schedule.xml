@@ -1,7 +1,107 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <Calendar>
-	<Event eventName="POOOP" eventCreator="Harold" eventStartTime="2200" eventEndTime="2330" date="AUG 12 2017">
+	<Event eventName="POOOP" eventCreator="Harold" eventStartTime="2200" eventEndTime="2330" date="AUG 12 2017"> 
 		<Attendee attendeeName="Harold">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Harold">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Harold">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Harold">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Harold">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Harold">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Harold">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Harold">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Harold">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Harold">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Harold">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Harold">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Harold">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Joe">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Joe">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Joe">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Joe">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Joe">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Joe">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Joe">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Joe">
 			<Time arriveTime="2200" leaveTime="2230"></Time>
 			<Time arriveTime="2230" leaveTime="2300"></Time>
 			<Time arriveTime="2300" leaveTime="2330"></Time>
@@ -16,10 +116,190 @@
 			<Time arriveTime="2230" leaveTime="2300"></Time>
 			<Time arriveTime="2300" leaveTime="2330"></Time>
 		</Attendee>
+		<Attendee attendeeName="Josh">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Josh">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Josh">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Josh">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Josh">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Josh">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Josh">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Josh">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
 		<Attendee attendeeName="Barfmagee">
 			<Time arriveTime="2200" leaveTime="2230"></Time>
 			<Time arriveTime="2230" leaveTime="2300"></Time>
 			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Barfmagee">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Barfmagee">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Barfmagee">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Barfmagee">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Barfmagee">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Barfmagee">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Barfmagee">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+		<Attendee attendeeName="Barfmagee">
+			<Time arriveTime="2200" leaveTime="2230"></Time>
+			<Time arriveTime="2230" leaveTime="2300"></Time>
+			<Time arriveTime="2300" leaveTime="2330"></Time>
+		</Attendee>
+	</Event>
+	<Event eventName="this is a really long name of a really awesome avent you should attend." eventCreator="Krampus" eventStartTime="0300" eventEndTime="0700" date="DEC 07 1962"> 
+		<Attendee attendeeName="Krampus">
+			<Time arriveTime="300" leaveTime="330"></Time>
+			<Time arriveTime="330" leaveTime="400"></Time>
+			<Time arriveTime="400" leaveTime="430"></Time>
+			<Time arriveTime="430" leaveTime="500"></Time>
+			<Time arriveTime="500" leaveTime="530"></Time>
+			<Time arriveTime="530" leaveTime="600"></Time>
+			<Time arriveTime="600" leaveTime="630"></Time>
+			<Time arriveTime="630" leaveTime="700"></Time>
+		</Attendee>
+		<Attendee attendeeName="Krampus">
+			<Time arriveTime="300" leaveTime="330"></Time>
+			<Time arriveTime="330" leaveTime="400"></Time>
+			<Time arriveTime="400" leaveTime="430"></Time>
+			<Time arriveTime="430" leaveTime="500"></Time>
+			<Time arriveTime="500" leaveTime="530"></Time>
+			<Time arriveTime="530" leaveTime="600"></Time>
+			<Time arriveTime="600" leaveTime="630"></Time>
+			<Time arriveTime="630" leaveTime="700"></Time>
+		</Attendee>
+		<Attendee attendeeName="Krampus">
+			<Time arriveTime="300" leaveTime="330"></Time>
+			<Time arriveTime="330" leaveTime="400"></Time>
+			<Time arriveTime="400" leaveTime="430"></Time>
+			<Time arriveTime="430" leaveTime="500"></Time>
+			<Time arriveTime="500" leaveTime="530"></Time>
+			<Time arriveTime="530" leaveTime="600"></Time>
+			<Time arriveTime="600" leaveTime="630"></Time>
+			<Time arriveTime="630" leaveTime="700"></Time>
+		</Attendee>
+		<Attendee attendeeName="Krampus">
+			<Time arriveTime="300" leaveTime="330"></Time>
+			<Time arriveTime="330" leaveTime="400"></Time>
+			<Time arriveTime="400" leaveTime="430"></Time>
+			<Time arriveTime="430" leaveTime="500"></Time>
+			<Time arriveTime="500" leaveTime="530"></Time>
+			<Time arriveTime="530" leaveTime="600"></Time>
+			<Time arriveTime="600" leaveTime="630"></Time>
+			<Time arriveTime="630" leaveTime="700"></Time>
+		</Attendee>
+		<Attendee attendeeName="Krampus">
+			<Time arriveTime="300" leaveTime="330"></Time>
+			<Time arriveTime="330" leaveTime="400"></Time>
+			<Time arriveTime="400" leaveTime="430"></Time>
+			<Time arriveTime="430" leaveTime="500"></Time>
+			<Time arriveTime="500" leaveTime="530"></Time>
+			<Time arriveTime="530" leaveTime="600"></Time>
+			<Time arriveTime="600" leaveTime="630"></Time>
+			<Time arriveTime="630" leaveTime="700"></Time>
+		</Attendee>
+		<Attendee attendeeName="Krampus">
+			<Time arriveTime="300" leaveTime="330"></Time>
+			<Time arriveTime="330" leaveTime="400"></Time>
+			<Time arriveTime="400" leaveTime="430"></Time>
+			<Time arriveTime="430" leaveTime="500"></Time>
+			<Time arriveTime="500" leaveTime="530"></Time>
+			<Time arriveTime="530" leaveTime="600"></Time>
+			<Time arriveTime="600" leaveTime="630"></Time>
+			<Time arriveTime="630" leaveTime="700"></Time>
+		</Attendee>
+		<Attendee attendeeName="Krampus">
+			<Time arriveTime="300" leaveTime="330"></Time>
+			<Time arriveTime="330" leaveTime="400"></Time>
+			<Time arriveTime="400" leaveTime="430"></Time>
+			<Time arriveTime="430" leaveTime="500"></Time>
+			<Time arriveTime="500" leaveTime="530"></Time>
+			<Time arriveTime="530" leaveTime="600"></Time>
+			<Time arriveTime="600" leaveTime="630"></Time>
+			<Time arriveTime="630" leaveTime="700"></Time>
+		</Attendee>
+		<Attendee attendeeName="Krampus">
+			<Time arriveTime="300" leaveTime="330"></Time>
+			<Time arriveTime="330" leaveTime="400"></Time>
+			<Time arriveTime="400" leaveTime="430"></Time>
+			<Time arriveTime="430" leaveTime="500"></Time>
+			<Time arriveTime="500" leaveTime="530"></Time>
+			<Time arriveTime="530" leaveTime="600"></Time>
+			<Time arriveTime="600" leaveTime="630"></Time>
+			<Time arriveTime="630" leaveTime="700"></Time>
+		</Attendee>
+		<Attendee attendeeName="Krampus">
+			<Time arriveTime="300" leaveTime="330"></Time>
+			<Time arriveTime="330" leaveTime="400"></Time>
+			<Time arriveTime="400" leaveTime="430"></Time>
+			<Time arriveTime="430" leaveTime="500"></Time>
+			<Time arriveTime="500" leaveTime="530"></Time>
+			<Time arriveTime="530" leaveTime="600"></Time>
+			<Time arriveTime="600" leaveTime="630"></Time>
+			<Time arriveTime="630" leaveTime="700"></Time>
+		</Attendee>
+		<Attendee attendeeName="Little Boy Timmy">
+			<Time arriveTime="300" leaveTime="330"></Time>
+			<Time arriveTime="330" leaveTime="400"></Time>
+		</Attendee>
+		<Attendee attendeeName="Little Boy Timmy">
+			<Time arriveTime="300" leaveTime="330"></Time>
+			<Time arriveTime="330" leaveTime="400"></Time>
 		</Attendee>
 	</Event>
 </Calendar>

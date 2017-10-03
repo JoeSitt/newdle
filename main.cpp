@@ -12,7 +12,8 @@
 int main()
 {
   // cout << "===Main opens===\n";
+  //TODO: fix error of duplicating attendees not sure what causes it.-Js
   Executive exec;
   exec.run();
-  return 0; 
+  return 0;
 }

@@ -16,6 +16,7 @@
 using namespace std;
 
 #include "TimeSlot.h"
+#include "Task.h" //modified
 
 class Event
 {

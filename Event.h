@@ -34,7 +34,7 @@ class Event
     *   @post adds the name of the attendee to all the timeslots they chose.
     *   @return none.
     */
-    void addAttendee(string name, string arrival_time, string leave_time);
+    void addAttendee(string name, string arrival_time, string leave_time, Task accepted_Task); //modified
     /** @pre none.
     *   @post none.
     *   @return member variable event name.
@@ -73,7 +73,14 @@ class Event
 
     vector<TimeSlot*>* e_timeslots;
     vector<string>* e_attendees;
-
+    
+    vector<string> eventTask; //Stores list of event Tasks 	
+  
+    vector<Task> acceptedTask; //Stores	
+  
+    void addTasks(string taskName); //allows admin to add list of Tasks to eventTask		
+  
+    void getTasks() const; //returns eventTask
 
   private:
     string e_name;

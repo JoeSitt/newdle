@@ -4,7 +4,7 @@ calendar : main.o Event.o Executive.o FileHandler.o TimeSlot.o Valid.o
 main.o : main.cpp Executive.h
 	g++ -Wall -c -g -std=c++11 main.cpp
 
-Event.o : Event.cpp Event.h TimeSlot.h
+Event.o : Event.cpp Event.h TimeSlot.h Task.h
 	g++ -Wall -c -g -std=c++11 Event.cpp
 
 Executive.o : Executive.h Executive.cpp Event.h Valid.h FileHandler.h

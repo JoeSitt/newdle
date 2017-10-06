@@ -96,6 +96,14 @@ bool Valid::isValidTime(string start) {
 bool Valid::isValidTime12Hour(string start) {
 	if(start.size() < 6 || start.size() > 7) {
 		return false;
+	}else if(start.substr(start.size()-2) == "Am"){
+		start[start.size()-1] = 'M';
+		return isValidTime12Hour(start);
+	}
+	else if(start.substr(start.size()-2) == "am"){
+		start[start.size()-1] = 'M';
+		start[start.size()-2] = 'A';
+		return isValidTime12Hour(start);
 	}
 	else if(start.substr(start.size()-2) == "AM") {
 		if(start.size()==6) {
@@ -113,6 +121,14 @@ bool Valid::isValidTime12Hour(string start) {
 			}
 			return false;
 		}
+	}
+	else if(start.substr(start.size()-2) == "pm"){
+		start[start.size()-1] = 'M';
+		start[start.size()-2] = 'P';
+		return isValidTime12Hour(start);
+	}else if(start.substr(start.size()-2) == "Pm"){
+		start[start.size()-1] = 'M';
+		return isValidTime12Hour(start);
 	}
 	else if(start.substr(start.size()-2) == "PM") {
 		if(start.size()==6) {
@@ -134,6 +150,26 @@ bool Valid::isValidTime12Hour(string start) {
 	return false;
 }
 
+string Valid::fix12Hr(string start){
+	if(start.substr(start.size()-2) == "Am"){
+		start[start.size()-1] = 'M';
+		return start;
+	}
+	else if(start.substr(start.size()-2) == "am"){
+		start[start.size()-1] = 'M';
+		start[start.size()-2] = 'A';
+		return start;
+	}else if(start.substr(start.size()-2) == "pm"){
+		start[start.size()-1] = 'M';
+		start[start.size()-2] = 'P';
+		return start;
+	}else if(start.substr(start.size()-2) == "Pm"){
+		start[start.size()-1] = 'M';
+		return start;
+	}
+	return start;
+}
+
 /*
 assumes variable start is valid
 */
@@ -152,6 +188,7 @@ assumes variable start is valid
 */
 bool Valid::isValidTimeSlots12Hour(string start, string end) {
 	if(isValidTime12Hour(end)) {
+		end= fix12Hr(end);
 		string time24start = changeTo24Hour(start);
 		string time24end = changeTo24Hour(end);
 		return isValidTimeSlots(time24start, time24end);

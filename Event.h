@@ -15,11 +15,36 @@
 #include <math.h>
 using namespace std;
 
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/text_iarchive.hpp>
+#include <boost/serialization/vector.hpp>
+
 #include "TimeSlot.h"
 
 class Event
 {
-  public:
+public:
+    friend class boost::serialization::access;
+    // When the class Archive corresponds to an output archive, the
+    // & operator is defined similar to <<.  Likewise, when the class Archive
+    // is a type of input archive the & operator is defined similar to >>.
+    template<class Archive>
+    void serialize(Archive & ar, const unsigned int version)
+    {
+        ar & e_timeslots;
+        ar & e_attendees;
+        ar & e_name;
+        ar & e_creator;
+        ar & e_start_time;
+        ar & e_end_time;
+        ar & e_date;
+        ar & e_number_of_attendees;
+        ar & e_digi_start;
+        ar & e_digi_end;
+        ar & e_number_of_timeslots;
+    }
+
+    Event();
     /** @pre Receives event name, creator, start_time, end_time, date all as strings.
     *   @post creates the event object timelots, assigns the parameters to member variables.
     *   @return none.
@@ -75,7 +100,7 @@ class Event
     vector<string>* e_attendees;
 
 
-  private:
+private:
     string e_name;
     string e_creator;
     string e_start_time;

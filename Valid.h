@@ -54,6 +54,13 @@ class Valid {
 		bool isValidTimeSlots12Hour(string start, string end);
 
 		/*
+		@pre assumes start has already been checked by isValidTime12Hour
+		@param start as a valid 12hour time, end as any string in 12 hour form
+		@post returns string of the 12hr time with AM or PM
+		*/
+		string fix12Hr(string start);
+
+		/*
 		@pre passing in a valid 24 hour time
 		@param time as string in valid 24 hour
 		@post returns string in 12 hour

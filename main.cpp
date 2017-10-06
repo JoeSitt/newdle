@@ -1,18 +1,13 @@
-/**
-*	@file main.cpp
-*	@author Ferocious Hammerheads
-*	@date
-*	@brief Main file that calls Executive
-*/
+#include <fstream>
 
-#include <iostream>
+// include headers that implement a archive in simple text format
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/text_iarchive.hpp>
+#include <boost/serialization/vector.hpp>
+
 #include "Executive.h"
-// #include "Valid.h"
 
-int main()
-{
-  // cout << "===Main opens===\n";
-  Executive exec;
-  exec.run();
-  return 0;
+int main() {
+    Executive exec;
+    exec.run();
 }

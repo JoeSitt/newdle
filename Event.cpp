@@ -14,6 +14,8 @@ using namespace std;
 
 #include "Event.h"
 
+Event::Event() {}
+
 Event::Event(string name, string creator, string start_time, string end_time, string date) : e_name(name), e_creator(creator), e_start_time(start_time), e_end_time(end_time), e_date(date)
 {
   //initialize the vector pointers
@@ -51,6 +53,13 @@ void Event::addAttendee(string name, string arrival_time, string leave_time)
   int num_slots = (digi_leave - digi_arrival)/0.5;
 
   int start_index = (digi_arrival - e_digi_start)/0.5;
+
+  // TEMP
+  cout << "e_digi_start: " << e_digi_start << endl;
+  cout << "digi_arrival: " << digi_arrival << endl;
+  cout << "digi_leave: " << digi_leave << endl;
+  cout << "num_slots: " << num_slots << endl;
+  cout << "start_index: " << start_index << endl;
 
   for(int i=0; i < num_slots; i++){
     e_timeslots->at(start_index)->addPerson(name);

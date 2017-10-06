@@ -14,16 +14,19 @@
 #include <algorithm>
 #include "Event.h"
 #include "Valid.h"
-#include "FileHandler.h"
+// #include "FileHandler.h"
+#include "Manager.h"
 using namespace std;
 
 class Executive
 {
-	public:
+public:
+
 	/** @pre None.
 	*   @post The saved list of events is imported.
 	*/
 	Executive();
+
 	/** @pre None.
 	*   @post The list of events is saved and.
 	*/
@@ -33,6 +36,12 @@ class Executive
 	*   @return none.
 	*/
 	void run();
+
+	/** @pre none.
+	*   @post will clear the terminal window.
+	*   @return none.
+	*/
+	void clean();
 
 
 private:
@@ -63,7 +72,7 @@ private:
 	void getEventList();
 	bool twelveHourMode;
 	vector<Event*> calendar;
-	FileHandler* fileHandle;
+	Manager m;
 	Valid* talid;
 };
 

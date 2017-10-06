@@ -7,6 +7,8 @@ using namespace std;
 
 #include "TimeSlot.h"
 
+TimeSlot::TimeSlot() {}
+
 TimeSlot::TimeSlot(string creator) : t_number_of_attendees(1)
 {
   t_attendees = new vector<string>();

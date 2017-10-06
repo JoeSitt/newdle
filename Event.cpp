@@ -10,6 +10,7 @@
 #include <vector>
 #include <algorithm>
 #include <math.h>
+
 using namespace std;
 
 #include "Event.h"
@@ -142,6 +143,7 @@ vector<vector<string>> Event::getAttendees()
   for(int i=0; i < e_attendees->size(); i++){
     //for each attendee
     string name = e_attendees->at(i);
+    std::cout << name<<" is attending" << '\n';
     vector<string> list;
     //attendee name is index 0 for each vector
     list.push_back(name);

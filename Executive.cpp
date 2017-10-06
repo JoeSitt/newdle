@@ -382,9 +382,29 @@ void Executive::checkAttendance()
     else
     {
       bool looper2 = false;
+      for(int i=0; i < calendar[eventChoice - 1]->e_attendees->size(); i++){
+        //for each attendee
+        string name = calendar[eventChoice - 1]->e_attendees->at(i);
+        std::cout << name<<" is attending" << '\n';
+        vector<string> list;
+        //attendee name is index 0 for each vector
+        list.push_back(name);
+      }
       do {//take in and check time
+        looper2 = false;
         if(twelveHourMode == true)
         {
+        //  calendar[eventChoice - 1]->getAttendees();
+
+          for(int i=0; i < calendar[eventChoice - 1]->e_attendees->size(); i++){
+            //for each attendee
+            string name = calendar[eventChoice - 1]->e_attendees->at(i);
+            std::cout << name<<" is attending" << '\n';
+            vector<string> list;
+            //attendee name is index 0 for each vector
+            list.push_back(name);
+          }
+
           cout << calendar[eventChoice - 1]->getEventName() << " takes place between " << talid->changeTo12Hour(calendar[eventChoice - 1]->getEventStartTime()) << " and " << talid->changeTo12Hour(calendar[eventChoice - 1]->getEventEndTime());
           cout << ". What time would you like to check the attendance for?(Intervals are 30 mins, please format as 12 hour time. Example, 2:00PM)\n";
           cin >> checkTime;
@@ -392,7 +412,7 @@ void Executive::checkAttendance()
           {
             checkTime=talid->fix12Hr(checkTime);
             checkTime = talid->changeTo12Hour(checkTime);
-            if(checkTime < calendar[eventChoice - 1]->getEventStartTime() || checkTime >  calendar[eventChoice - 1]->getEventEndTime() || !talid->isValidTime(checkTime))
+            if(checkTime < calendar[eventChoice - 1]->getEventStartTime() || checkTime >=  calendar[eventChoice - 1]->getEventEndTime() || !talid->isValidTime(checkTime))
             {
               cout << "Invalid time, please try a different time:\n";
               looper2 = true;
@@ -406,13 +426,18 @@ void Executive::checkAttendance()
         }
         else
         {
+
+
+
+
+          //calendar[eventChoice - 1]->getAttendees();
           cout << calendar[eventChoice - 1]->getEventName() << " takes place between " << calendar[eventChoice - 1]->getEventStartTime() << " and " << calendar[eventChoice - 1]->getEventEndTime();
           cout << ". What time would you like to check the attendance for?(Intervals are 30 mins, please use military time)\n";
           cin >> checkTime;
           if (checkTime.size()==3) {
             checkTime='0'+checkTime;
           }
-          if(checkTime < calendar[eventChoice - 1]->getEventStartTime() || checkTime >  calendar[eventChoice - 1]->getEventEndTime() || !talid->isValidTime(checkTime))
+          if(checkTime < calendar[eventChoice - 1]->getEventStartTime() || checkTime >=  calendar[eventChoice - 1]->getEventEndTime() || !talid->isValidTime(checkTime))
           {
             cout << "Invalid time, please try a different time:\n";
             looper2 = true;

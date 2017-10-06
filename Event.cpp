@@ -16,6 +16,26 @@ using namespace std;
 
 Event::Event() {}
 
+Event::Event(string name, string creator, string start_time, string end_time, string date, vector<string> tasks) : e_name(name), e_creator(creator), e_start_time(start_time), e_end_time(end_time), e_date(date), eventTask(tasks) //modified
+{
+  //initialize the vector pointers
+  e_timeslots = new vector<TimeSlot*>();
+  e_attendees = new vector<string>();
+  taskTaken = eventTask; //modified
+
+  //convert times to digital double from string format
+  e_digi_start = convert_time(e_start_time);
+  e_digi_end = convert_time(e_end_time);
+
+  //calculate no. of timeslots
+  e_number_of_timeslots = (e_digi_end - e_digi_start)/0.5;
+  e_attendees->push_back(e_creator);
+  for(int i=0; i<e_number_of_timeslots; i++){
+    //for each timeslot, create the timeslot object pointer
+    e_timeslots->push_back(new TimeSlot(creator));
+  }
+}
+
 Event::Event(string name, string creator, string start_time, string end_time, string date) : e_name(name), e_creator(creator), e_start_time(start_time), e_end_time(end_time), e_date(date)
 {
   //initialize the vector pointers
@@ -43,6 +63,24 @@ Event::~Event()
 
   delete e_timeslots;
   delete e_attendees;
+}
+
+
+void Event::addAttendee(string name, string arrival_time, string leave_time, Task accepted_Task) //modified
+{
+  e_attendees->push_back(name);
+  acceptedTask.push_back(accepted_Task); //modified
+
+  double digi_arrival = convert_time(arrival_time);
+  double digi_leave = convert_time(leave_time);
+  int num_slots = (digi_leave - digi_arrival)/0.5;
+
+  int start_index = (digi_arrival - e_digi_start)/0.5;
+
+  for(int i=0; i < num_slots; i++){
+    e_timeslots->at(start_index)->addPerson(name);
+    start_index++;
+  }
 }
 
 void Event::addAttendee(string name, string arrival_time, string leave_time)
@@ -172,4 +210,8 @@ vector<vector<string>> Event::getAttendees()
   }
 
   return(output);
+}
+
+void Event::addTasks(string taskName) { //modified
+	eventTask.push_back(taskName);
 }

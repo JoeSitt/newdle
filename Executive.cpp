@@ -166,6 +166,7 @@ void Executive::attendeeMode()
       string leaveTime;
       string leaveTime12;
       string attendeeName;
+      Task acceptTask; //modified
       bool looper2 = false;
       do {//loops for start time till it is valid
         looper2 = false;
@@ -244,10 +245,58 @@ void Executive::attendeeMode()
       }else{
         cout<<"If your Arival time is "<<arriveTime<<" and you're leaving at "<<leaveTime<<",\n";
       }
+
+      do { //Modified
+          looper2 = false;
+          cout << "Here are the list of tasks for this event." << endl;
+          int numberofTasks = calendar[eventChoice - 1]->taskTaken.size();
+
+      if (numberofTasks == 0){
+       cout << "All the tasks are already taken." << endl;
+      }
+      else {
+          for (int i = 0; i < calendar[eventChoice - 1]->taskTaken.size(); i++) {
+            cout << (i+1) << ". " << calendar[eventChoice - 1]->taskTaken[i] << "  ";
+          }
+          cout << endl;
+          cout << "What task(s) do you want to complete? (To add a task, write the task number and press Enter). (Enter 0 to stop adding task.)" << endl;
+          int start = 1;
+          int task;
+          int countTask = 0;
+      int trackIndex = 0;
+      int index;
+      int x = 1;
+          while (start) {
+       while (!(cin >> task))
+       {
+       cout << "Enter a number." << endl;
+       cin.clear();
+       cin.ignore(numeric_limits<streamsize>::max(), '\n');
+       }
+           if (task == 0) {
+             start = 0;
+           }
+          else if (task > numberofTasks || task < 0) {
+             cout << "Enter the correct task number." << endl;
+          }
+          else {
+         index = task - trackIndex - 1;
+             acceptTask.taskAccepted.push_back(task);
+         calendar[eventChoice - 1]->taskTaken.erase(calendar[eventChoice - 1]->taskTaken.begin() + (index));
+             countTask++;
+         trackIndex++;
+          }
+          if (countTask == numberofTasks) {
+            start = 0;
+          }
+        }
+    }
+      } while(looper2 == true);
+
       cout << "What is the name you would like to RSVP with?\n";
       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
       getline (cin,attendeeName);
-      calendar[eventChoice - 1]->addAttendee(attendeeName, arriveTime, leaveTime); //adds attendee to event
+      calendar[eventChoice - 1]->addAttendee(attendeeName, arriveTime, leaveTime, acceptTask); //adds attendee to event //modified
       clean();
       cout << "You have been added as an attendee to the event.\n\n\n";
     }
@@ -261,6 +310,8 @@ void Executive::addEvent()
   string startTime = "";
   string endTime = "";
   string eventCreator = "";
+  vector<string> eTask; //modified
+
   bool looper = false;
   cout << "What would you like to name the event?\n";
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -350,11 +401,29 @@ void Executive::addEvent()
       }
     }
   } while(looper == true);
+
+  do { //modified
+     looper = false;
+     cout << "What task(s) do you want attendee(s) to complete? (To add a task, write a task and press Enter). (Enter 0 to stop adding task.)" << endl;
+     int start = 1;
+     string task;	//limit the size of string to 32 characters
+     while (start) {
+       do {
+       getline(cin, task, '\n');
+       } while (task == "");
+
+       if (task == "0") {
+         start = 0;	break;
+       }
+       eTask.push_back(task);
+     }
+   } while (looper == true);
+
   cout << "What is your name so we can add you as an attendee?\n";
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
   getline (cin,eventCreator);
   cout << "Event creation";
-  Event* toAdd =  new Event(eventName, eventCreator, startTime, endTime, date);
+  Event* toAdd =  new Event(eventName, eventCreator, startTime, endTime, date, eTask); //modified
   cout << "Event: "<<eventName<<" created";
   calendar.push_back(toAdd); //adds event to back of calendar vector
   cout << "Event has been created.\n";

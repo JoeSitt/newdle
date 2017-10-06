@@ -455,6 +455,7 @@ void Executive::checkAttendance()
     {
       bool looper2 = false;
       do {//take in and check time
+        looper2=false;
         if(twelveHourMode == true)
         {
           cout << calendar[eventChoice - 1]->getEventName() << " takes place between " << talid->changeTo12Hour(calendar[eventChoice - 1]->getEventStartTime()) << " and " << talid->changeTo12Hour(calendar[eventChoice - 1]->getEventEndTime());
@@ -464,7 +465,7 @@ void Executive::checkAttendance()
           {
             checkTime=talid->fix12Hr(checkTime);
             checkTime = talid->changeTo12Hour(checkTime);
-            if(checkTime < calendar[eventChoice - 1]->getEventStartTime() || checkTime >  calendar[eventChoice - 1]->getEventEndTime() || !talid->isValidTime(checkTime))
+            if(checkTime < calendar[eventChoice - 1]->getEventStartTime() || checkTime >=  calendar[eventChoice - 1]->getEventEndTime() || !talid->isValidTime(checkTime))
             {
               cout << "Invalid time, please try a different time:\n";
               looper2 = true;
@@ -484,7 +485,7 @@ void Executive::checkAttendance()
           if (checkTime.size()==3) {
             checkTime='0'+checkTime;
           }
-          if(checkTime < calendar[eventChoice - 1]->getEventStartTime() || checkTime >  calendar[eventChoice - 1]->getEventEndTime() || !talid->isValidTime(checkTime))
+          if(checkTime < calendar[eventChoice - 1]->getEventStartTime() || checkTime >=  calendar[eventChoice - 1]->getEventEndTime() || !talid->isValidTime(checkTime))
           {
             cout << "Invalid time, please try a different time:\n";
             looper2 = true;

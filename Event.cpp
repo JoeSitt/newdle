@@ -24,7 +24,8 @@ std::string Event::getTaskSummary() const {
 bool Event::addAttendee(int day, int month, int year, int hour, int minute, const std::string& attendee) {
     Time this_time(day, month, year, hour, minute);
     std::set<Session> new_sessions;
-
+    acceptTask(attendee); //modified
+	
     for (const Session& s : sessions) {
         Session new_sess(s);
         if (s.contains(this_time)) {

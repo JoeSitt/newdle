@@ -1,10 +1,3 @@
-/**
-*	@file Event.h
-*	@author Bisher Anadani
-*	@date 9/17/2017
-*	@brief Event class
-*/
-
 #ifndef MANAGER_H
 #define MANAGER_H
 
@@ -23,13 +16,21 @@
 
 using namespace std;
 
+/**
+    Contains a collection of un-ordered sessions.
+
+    State of instance can be written and read to and from file via serialization.
+*/
 class Manager
 {
 public:
     friend class boost::serialization::access;
-    // When the class Archive corresponds to an output archive, the
-    // & operator is defined similar to <<.  Likewise, when the class Archive
-    // is a type of input archive the & operator is defined similar to >>.
+
+    /**
+        When the class Archive corresponds to an output archive, the
+        & operator is defined similar to <<.  Likewise, when the class Archive
+        is a type of input archive the & operator is defined similar to >>.
+    */
     template<class Archive>
     void serialize(Archive & ar, const unsigned int version)
     {

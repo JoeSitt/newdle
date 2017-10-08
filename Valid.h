@@ -1,4 +1,3 @@
-//katherine ramge
 #ifndef VALID_H
 #define VALID_H
 #include <string>

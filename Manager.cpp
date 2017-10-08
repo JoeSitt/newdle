@@ -1,10 +1,3 @@
-/**
-*	@file Event.h
-*	@author Bisher Anadani
-*	@date 9/17/2017
-*	@brief Event implementation
-*/
-
 #include <iostream>
 #include <string>
 #include <vector>

@@ -1,10 +1,3 @@
-/**
-*	@file Executive.cpp
-*	@author Ferocious Hammerheads
-*	@date
-*	@brief Executive functions
-*/
-
 #include "Executive.h"
 
 void Executive::clean(){
@@ -55,8 +48,8 @@ void Executive::run()
     a.addAttendee(1, 1, 20, 9, 30, "abigail");
     a.addAttendee(1, 1, 20, 10, 30, "new");
     a.addAttendee(1, 1, 20, 10, 0, "newer");
-    std::cout << a.getAttendees(false) << std::endl;
-    
+    // std::cout << a.getAttendees(false) << std::endl;
+
   // string mode;
   // bool looper = true;
   // string temp;

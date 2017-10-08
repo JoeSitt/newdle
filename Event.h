@@ -1,10 +1,3 @@
-/**
-*	@file Event.h
-*	@author Bisher Anadani
-*	@date 9/17/2017
-*	@brief Event class
-*/
-
 #ifndef EVENT_H
 #define EVENT_H
 
@@ -24,15 +17,24 @@
 
 #include "Task.h"
 #include "Session.h"
-using namespace std; //modified
+using namespace std;
 
+/**
+    Encapsulates an event. Contains an ordered collection of non-overlapping
+    Sessions that can be RSVP'd to at desired times.
+
+    Can have contents serialized.
+*/
 class Event {
 public:
 
     friend class boost::serialization::access;
-    // When the class Archive corresponds to an output archive, the
-    // & operator is defined similar to <<.  Likewise, when the class Archive
-    // is a type of input archive the & operator is defined similar to >>.
+
+    /**
+        When the class Archive corresponds to an output archive, the
+        & operator is defined similar to <<.  Likewise, when the class Archive
+        is a type of input archive the & operator is defined similar to >>.
+    */
     template<class Archive>
     void serialize(Archive & ar, const unsigned int version)
     {
@@ -72,8 +74,8 @@ public:
     vector<Task> acceptedTask; //Stores	list of accepted Tasks by attendes
     vector<string> taskTaken; //Stores list of tasks already taken
 
-    void addTasks(); //modified
-    void acceptTask(string attendee); //attendees accept task from this function. //modified
+    void addTasks();
+    void acceptTask(string attendee); //attendees accept task from this function
 };
 
 #endif

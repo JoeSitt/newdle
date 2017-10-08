@@ -1,7 +1,7 @@
-run : main.o Manager.o Event.o TimeSlot.o Executive.o Valid.o Task.o
-	g++ -Lboost_1_55_0/lib -Wl,-rpath=boost_1_55_0/lib -Wall -g -std=c++11 main.o Event.o Manager.o TimeSlot.o Executive.o Valid.o Task.o -o run -lboost_serialization
+run : main.o Manager.o Event.o TimeSlot.o Executive.o Valid.o Task.o Time.o Session.o
+	g++ -Lboost_1_55_0/lib -Wl,-rpath=boost_1_55_0/lib -Wall -g -std=c++11 main.o Event.o Manager.o TimeSlot.o Executive.o Valid.o Task.o Time.o Session.o -o run -lboost_serialization
  
-main.o : main.cpp Manager.h
+main.o : main.cpp Executive.h
 	g++ -Lboost_1_55_0/lib -Wl,-rpath=boost_1_55_0/lib -lboost_serialization -I boost_1_55_0 -Wall -c -g -std=c++11 main.cpp
 
 Executive.o: Executive.cpp Executive.h Manager.h Valid.h
@@ -13,7 +13,7 @@ Valid.o: Valid.cpp Valid.h
 Manager.o : Manager.cpp Manager.h Event.h
 	g++ -Lboost_1_55_0/lib -Wl,-rpath=boost_1_55_0/lib -lboost_serialization -I boost_1_55_0 -Wall -c -g -std=c++11 Manager.cpp
 
-Event.o : Event.cpp Event.h TimeSlot.h Task.h
+Event.o : Event.cpp Event.h TimeSlot.h Task.h Time.h
 	g++ -Lboost_1_55_0/lib -Wl,-rpath=boost_1_55_0/lib -lboost_serialization -I boost_1_55_0 -Wall -c -g -std=c++11 Event.cpp
 
 TimeSlot.o : TimeSlot.cpp TimeSlot.h
@@ -21,6 +21,12 @@ TimeSlot.o : TimeSlot.cpp TimeSlot.h
 
 Task.o : Task.cpp Task.h
 	g++ -Lboost_1_55_0/lib -Wl,-rpath=boost_1_55_0/lib -lboost_serialization -I boost_1_55_0 -Wall -c -g -std=c++11 Task.cpp
+
+Time.o : Time.cpp Time.h
+	g++ -Lboost_1_55_0/lib -Wl,-rpath=boost_1_55_0/lib -lboost_serialization -I boost_1_55_0 -Wall -c -g -std=c++11 Time.cpp
+
+Session.o : Session.cpp Session.h Time.h
+	g++ -Lboost_1_55_0/lib -Wl,-rpath=boost_1_55_0/lib -lboost_serialization -I boost_1_55_0 -Wall -c -g -std=c++11 Session.cpp
 
 clean :
 	\rm *.o *~ run

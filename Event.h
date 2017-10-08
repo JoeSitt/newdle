@@ -13,18 +13,22 @@
 #include <vector>
 #include <algorithm>
 #include <math.h>
-using namespace std;
 
 #include <boost/archive/text_oarchive.hpp>
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/vector.hpp>
+#include <boost/serialization/set.hpp>
+
+#include <map>
+#include <set>
 
 #include "TimeSlot.h"
 #include "Task.h"
+#include "Session.h"
 
-class Event
-{
+class Event {
 public:
+
     friend class boost::serialization::access;
     // When the class Archive corresponds to an output archive, the
     // & operator is defined similar to <<.  Likewise, when the class Archive
@@ -32,124 +36,43 @@ public:
     template<class Archive>
     void serialize(Archive & ar, const unsigned int version)
     {
-        ar & e_timeslots;
-        ar & e_attendees;
-        ar & e_name;
-        ar & e_creator;
-        ar & e_start_time;
-        ar & e_end_time;
-        ar & e_date;
-        ar & e_number_of_attendees;
-        ar & e_digi_start;
-        ar & e_digi_end;
-        ar & e_number_of_timeslots;
-
+        ar & sessions;
+        ar & name;
         ar & eventTask;
         ar & acceptedTask;
         ar & taskTaken;
     }
-    /** @pre Receives event name, creator, start_time, end_time, date all as strings.
-    *   @post creates the event object timelots, assigns the parameters to member variables.
-    *   @return none.
-    */
-    Event(string name, string creator, string start_time, string end_time, string date, vector<string> tasks);
 
-    Event();
-    /** @pre Receives event name, creator, start_time, end_time, date all as strings.
-    *   @post creates the event object timelots, assigns the parameters to member variables.
-    *   @return none.
-    */
-    Event(string name, string creator, string start_time, string end_time, string date);
-    /** @pre none.
-    *   @post deletes pointers of timeslots, and the member variable pointers.
-    *   @return none.
-    */
-    ~Event();
+    Event(std::string name);
 
-    void addAttendee(string name, string arrival_time, string leave_time, Task accepted_Task); //modified
-
-    /** @pre takes the name of the attendee, arrival time and leave time.
-    *   @post adds the name of the attendee to all the timeslots they chose.
-    *   @return none.
+    /**
+        TODO:
+        Provide summary of the tasks that have/should be completed.
     */
-    void addAttendee(string name, string arrival_time, string leave_time);
+    std::string getTaskSummary() const;
 
-    /** @pre none.
-    *   @post none.
-    *   @return member variable event name.
-    */
-    string getEventName();
+    // Add attendee at the requested date and time. Returns true if addition was successful.
+    bool addAttendee(int day, int month, int year, int hour, int minute, const std::string& attendee);
 
-    /** @pre none.
-    *   @post none.
-    *   @return member varibale event creator.
-    */
-    string getEventCreator();
+    // Returns a summary of the sessions
+    std::string getSessions(bool useMil) const;
 
-    /** @pre none.
-    *   @post none.
-    *   @return member variable start time.
-    */
-    string getEventStartTime();
+    // Returns a summary of the sessions, times, and attendees
+    std::string getAttendees(bool useMil) const;
 
-    /** @pre none.
-    *   @post none.
-    *   @return member variable end time.
-    */
-    string getEventEndTime();
+    // Add new Session to Event. Returns true if addition was successful.
+    bool addSession(int startDay, int startMonth, int startYear, int startHour, int startMinute, int endDay, int endMonth, int endYear, int endHour, int endMinute);
 
-    /** @pre none.
-    *   @post none.
-    *   @return member variable event date.
-    */
-    string getEventDate();
+    std::set<Session> sessions;
+    std::string name;
 
-    /** @pre the start time of the timeslot being queried.
-    *   @post counts the attendees for chosen time slot.
-    *   @return number of attendees for the timeslot.
-    */
-    int getAttendance(string start_time);
-
-    /** @pre none.
-    *   @post finds all the timeslots each person is attending.
-    *   @return a vector of all the timeslots a person is attending, index 0 being the person's name.
-    */
-    vector<vector<string>> getAttendees();
-
-    vector<TimeSlot*>* e_timeslots;
-    vector<string>* e_attendees;
+    Event() {}
 
     vector<string> eventTask; //Stores list of event Tasks
-
     vector<Task> acceptedTask; //Stores	list of accepted Tasks by attendes
-
     vector<string> taskTaken; //Stores list of tasks already taken
 
-    void addTasks(string taskName); //allows admin to add list of Tasks to eventTask
-
-
-private:
-    string e_name;
-    string e_creator;
-    string e_start_time;
-    string e_end_time;
-    string e_date;
-    int e_number_of_attendees;
-
-    /** @pre Receives a string of time in 24 hr format (ex: 0230)
-    *   @post computes a double of size 0-23.5, smallest increment being 0.5.
-    *   @return the calculated double.
-    */
-    double convert_time(string atime);
-
-    /** @pre Receives a double of time between 0-23.5.
-    *   @post converts the double to a string in 24 hr format.
-    *   @return the time in string format.
-    */
-    string convert_to_string(double atime);
-    double e_digi_start;
-    double e_digi_end;
-    int e_number_of_timeslots;
+    void addTasks(string taskName);
 };
 
 #endif

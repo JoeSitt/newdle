@@ -93,7 +93,29 @@ bool Event::addSession(int startDay, int startMonth, int startYear, int startHou
     return true;
 }
 
-void Event::addTasks(string taskName){
+void Event::addTasks() { //modified
+    
+    bool looper = false;
+    do { //modified
+        looper = false;
+        cout << "What task(s) do you want attendee(s) to complete? (To add a task, write a task and press Enter). (Enter 0 to stop adding task.)" << endl;
+        int start = 1;
+        string task;	//limit the size of string to 32 characters
+        while (start) {
+            do {
+                getline(cin, task, '\n');
+            } while (task == "");
+  
+            if (task == "0") {
+                start = 0;	break;
+            }
+            eventTask.push_back(task);
+	        taskTaken.push_back(task);
+        }
+    } while (looper == true);
+}
+
+void Event::acceptTask(string attendee) { //modified
     eventTask.push_back(taskName);
 }
 

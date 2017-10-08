@@ -22,7 +22,6 @@
 #include <map>
 #include <set>
 
-#include "TimeSlot.h"
 #include "Task.h"
 #include "Session.h"
 

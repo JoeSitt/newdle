@@ -94,29 +94,74 @@ bool Event::addSession(int startDay, int startMonth, int startYear, int startHou
 }
 
 void Event::addTasks() { //modified
-    
     bool looper = false;
     do { //modified
         looper = false;
         cout << "What task(s) do you want attendee(s) to complete? (To add a task, write a task and press Enter). (Enter 0 to stop adding task.)" << endl;
         int start = 1;
-        string task;	//limit the size of string to 32 characters
+        string task;
         while (start) {
             do {
                 getline(cin, task, '\n');
             } while (task == "");
   
             if (task == "0") {
-                start = 0;	break;
+                start = 0; break;
             }
             eventTask.push_back(task);
-	        taskTaken.push_back(task);
+	    taskTaken.push_back(task);
         }
     } while (looper == true);
 }
 
 void Event::acceptTask(string attendee) { //modified
-    eventTask.push_back(taskName);
+    Task acceptTask; 
+    bool looper2 = false;
+    acceptTask.guestName = attende;
+    do { 
+        looper2 = false;
+        cout << "Here are the list of tasks for this event." << endl;
+        int numberofTasks = taskTaken.size();
+        if (numberofTasks == 0){
+        	cout << "All the tasks are already taken." << endl;
+       	}
+       else {
+           	for (int i = 0; i < taskTaken.size(); i++) {
+             		cout << (i+1) << ". " << taskTaken[i] << "  ";
+      	}
+       	cout << endl;
+       	cout << "What task(s) do you want to complete? (To add a task, write the task number and press Enter). (Enter 0 to stop adding task.)" << endl;
+        int start = 1;
+        int task;
+        int countTask = 0;
+       	int trackIndex = 0;
+       	int index;
+       	while (start) {
+       		while (!(cin >> task)) {
+        		cout << "Enter a number." << endl;
+        		cin.clear();
+        		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        	}
+            	if (task == 0) {
+              		start = 0;
+            	}
+           	else if (task > numberofTasks || task < 0) {
+             		cout << "Enter the correct task number." << endl;
+           	}
+           	else {
+          		index = task - trackIndex - 1;
+              		acceptTask.taskAccepted.push_back(task);
+          		taskTaken.erase(taskTaken.begin() + (index));
+              		countTask++;
+          		trackIndex++;
+           	}
+           	if (countTask == numberofTasks) {
+             		start = 0;
+           	}
+         	}
+     	}
+ } while(looper2 == true);
+ acceptedTask.push_back(acceptTask);
 }
 
 // Event::Event() {}

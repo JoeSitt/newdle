@@ -118,7 +118,7 @@ void Event::addTasks() { //modified
 void Event::acceptTask(string attendee) { //modified
     Task acceptTask; 
     bool looper2 = false;
-    acceptTask.guestName = attende;
+    acceptTask.guestName = attendee;
     do { 
         looper2 = false;
         cout << "Here are the list of tasks for this event." << endl;

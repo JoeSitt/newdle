@@ -23,8 +23,8 @@ class Task
       {
           ar & taskAccepted;
       }
-      
-	  vector<int> taskAccepted; //when listing attendes and the task they accepted, iterate through the taskList first to show the list of tasks.
+      string guestName; //name of the guest
+      vector<int> taskAccepted; //when listing attendes and the task they accepted, iterate through the taskList first to show the list of tasks.
 };
 
 #endif

@@ -50,16 +50,16 @@ public:
     */
     std::string getTaskSummary() const;
 
-    // Add attendee at the requested date and time. Returns true if addition was successful.
+    /** Add attendee at the requested date and time. Returns true if addition was successful. */
     bool addAttendee(int day, int month, int year, int hour, int minute, const std::string& attendee);
 
-    // Returns a summary of the sessions
+    /** Returns a summary of the sessions */
     std::string getSessions(bool useMil) const;
 
-    // Returns a summary of the sessions, times, and attendees
+    /** Returns a summary of the sessions, times, and attendees */
     std::string getAttendees(bool useMil) const;
 
-    // Add new Session to Event. Returns true if addition was successful.
+    /** Add new Session to Event. Returns true if addition was successful. */
     bool addSession(int startDay, int startMonth, int startYear, int startHour, int startMinute, int endDay, int endMonth, int endYear, int endHour, int endMinute);
 
     std::set<Session> sessions;

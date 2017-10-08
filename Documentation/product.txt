@@ -1,0 +1,9 @@
+Re-implementation of backend: 10 hours
+Previous event storage did not provide ability to support 
+non-contiguous sessions over multiple days, so this was 
+re implemented.
+
+Re-implementation of storage mechanism: 3 hours
+XML storage was specific to the implementation of the Event class.
+Data serialization library was used so that backend implementation
+could change without a need to update saving mechanism.

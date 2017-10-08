@@ -1,0 +1,20 @@
+Saturday 10/7/2017 11:30AM
+Joe and Carter discussed how the backend would 
+be changed to accommodate new feature requirements.
+
+Friday 10/6/2017 2:00PM
+Amrite demonstrated task functionality. 
+Joe Cleaned UI. 
+Carter Showed use of Boost library.
+
+Friday 10/6/2017 11:30AM
+Carter discussed hiccup in boost library file reading.
+
+Wedndesday 10/4/2017 11:30AM
+Joe pointed out problem with XML file reading in current state of project.
+Amrite described task reading.
+
+Monday 10/2/2017 11:30AM
+Amrite was tasked with adding task functionality.
+Joe discussed cleanups to the UI.
+Carter discussed file serialization as a replacment to XML.

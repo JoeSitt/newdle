@@ -24,6 +24,7 @@
 
 #include "Task.h"
 #include "Session.h"
+using namespace std; //modified
 
 class Event {
 public:
@@ -71,7 +72,8 @@ public:
     vector<Task> acceptedTask; //Stores	list of accepted Tasks by attendes
     vector<string> taskTaken; //Stores list of tasks already taken
 
-    void addTasks(string taskName);
+    void addTasks(); //modified
+    void acceptTask(string attendee); //attendees accept task from this function. //modified
 };
 
 #endif

@@ -5,3 +5,5 @@ Vector, Set, and Map libraries in std
 http://www.cplusplus.com/reference/vector/vector/
 http://www.cplusplus.com/reference/set/set/
 http://www.cplusplus.com/reference/map/map/
+
+Ferocious Hammerheads original Code base

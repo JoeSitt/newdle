@@ -7,3 +7,10 @@ Re-implementation of storage mechanism: 5 hours
 - XML storage was specific to the implementation of the Event class.
 - Data serialization library was used so that backend implementation
   could change without a need to update saving mechanism.
+
+Implementation of Task features: 16 hours
+- The creator of an event should be able able to add a task list to an event (e.g. bring soda, bring salad, OR prepare slides, contact so-and-so)
+- All event attendees should be able to sign up for zero or more tasks
+- Event attendees should still be able to list all times they are available, and now can sign up to handle tasks
+- An attendee can sign up for multiple tasks
+- Multiple attendees cannot sign up for the same task

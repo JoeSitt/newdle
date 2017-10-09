@@ -24,8 +24,7 @@ std::string Event::getTaskSummary() const {
 bool Event::addAttendee(int day, int month, int year, int hour, int minute, const std::string& attendee) {
     Time this_time(day, month, year, hour, minute);
     std::set<Session> new_sessions;
-    acceptTask(attendee); //modified
-	
+
     for (const Session& s : sessions) {
         Session new_sess(s);
         if (s.contains(this_time)) {
@@ -74,23 +73,27 @@ std::string Event::getAttendees(bool useMil) const {
 
 // Add new Session to Event. Returns true if addition was successful.
 bool Event::addSession(int startDay, int startMonth, int startYear, int startHour, int startMinute, int endDay, int endMonth, int endYear, int endHour, int endMinute) {
+    //std::cout << "made it to 1" << '\n';
     Time start(startDay, startMonth, startYear, startHour, startMinute);
     Time end(endDay, endMonth, endYear, endHour, endMinute);
     Session newSession(start, end);
-
+    //std::cout << "made it to 2" << '\n';
     // New session must have valid (non overlapping) times
     if (!(start < end)) {
+                std::cout << "died here" << '\n';
         return false;
     }
 
     // New session cannot impede on old
     for (const Session& s : sessions) {
         if (s.overlaps(newSession)) {
+          std::cout << "died here1" << '\n';
             return false;
         }
     }
-
+//std::cout << "made it to 3" << '\n';
     sessions.insert(newSession);
+    //std::cout << "made it out" << '\n';
     return true;
 }
 
@@ -105,7 +108,7 @@ void Event::addTasks() { //modified
             do {
                 getline(cin, task, '\n');
             } while (task == "");
-  
+
             if (task == "0") {
                 start = 0; break;
             }
@@ -116,10 +119,10 @@ void Event::addTasks() { //modified
 }
 
 void Event::acceptTask(string attendee) { //modified
-    Task acceptTask; 
+    Task acceptTask;
     bool looper2 = false;
     acceptTask.guestName = attendee;
-    do { 
+    do {
         looper2 = false;
         cout << "Here are the list of tasks for this event." << endl;
         int numberofTasks = taskTaken.size();
@@ -164,6 +167,7 @@ void Event::acceptTask(string attendee) { //modified
  } while(looper2 == true);
  acceptedTask.push_back(acceptTask);
 }
+
 
 // Event::Event() {}
 //

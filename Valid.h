@@ -1,3 +1,4 @@
+//katherine ramge
 #ifndef VALID_H
 #define VALID_H
 #include <string>
@@ -73,7 +74,12 @@ class Valid {
 		*/
 		string changeTo24Hour(string time);
 
-	private:
+		/**
+		@pre pass in a string
+		@param
+		@post
+		*/
+		int monthtoint(string month);
 
 		/*
 		@pre
@@ -81,6 +87,10 @@ class Valid {
 		@post returns true if the year passed is a leap year
 		*/
 		bool isLeapYear(int year);
+
+	private:
+
+
 
 		/*
 		@pre

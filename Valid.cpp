@@ -349,3 +349,47 @@ bool Valid::check0030(string time) {
 	}
 	return false;
 }
+
+int Valid::monthtoint(string m_month){
+  int mi_month;
+  if(m_month == "JAN") {
+    mi_month = 1;
+  }
+  else if(m_month == "FEB") {
+    mi_month = 2;
+  }
+  else if(m_month == "MAR") {
+    mi_month = 3;
+  }
+  else if(m_month == "APR") {
+    mi_month = 4;
+  }
+  else if(m_month == "MAY") {
+    mi_month = 5;
+  }
+  else if(m_month == "JUN") {
+    mi_month = 6;
+  }
+  else if(m_month == "JUL") {
+    mi_month = 7;
+  }
+  else if(m_month == "AUG") {
+    mi_month = 8;
+  }
+  else if(m_month == "SEP") {
+    mi_month = 9;
+  }
+  else if(m_month == "OCT") {
+    mi_month = 10;
+  }
+  else if(m_month == "NOV") {
+    mi_month = 11;
+  }
+  else if(m_month == "DEC") {
+    mi_month = 12;
+  }
+  else {
+    return 0;
+  }
+  return mi_month;
+}

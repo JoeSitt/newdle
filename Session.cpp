@@ -29,8 +29,9 @@ std::string Session::getAttendeeSummary(bool useMil) const {
 
         for (std::string attendee : attendees) {
             outStr += attendee;
-            outStr += " ";
+            outStr += ", ";
         }
+        outStr[outStr.size()-2]=' ';
         outStr += "\n";
     }
 

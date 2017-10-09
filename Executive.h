@@ -43,6 +43,8 @@ public:
 	*/
 	void clean();
 
+	Time uptime(Time t1);
+
 
 private:
 	/** @pre none.
@@ -74,6 +76,8 @@ private:
 	vector<Event*> calendar;
 	Manager m;
 	Valid* talid;
+
+	Event addSession(Event A);
 };
 
 #endif

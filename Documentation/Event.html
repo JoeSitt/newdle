@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Event Class </title>
+<h1> Event Class </h1>
+</head>
+<body>
+
+<p>
+/**
+        When the class Archive corresponds to an output archive, the
+        & operator is defined similar to <<.  Likewise, when the class Archive
+        is a type of input archive the & operator is defined similar to >>.
+*/</p>
+<p>
+void serialize(Archive & ar, const unsigned int version);
+</p>
+
+<p>
+/** Event class constructor.
+</p>
+<p>
+Event(std::string name);
+</p>
+
+<p>
+/** Provides summary of the tasks that have/should be completed.
+</p>
+<p>
+ std::string getTaskSummary() const;
+</p>
+
+<p>
+/** Add attendee at the requested date and time. Returns true if addition was successful. */
+</p>
+<p>
+bool addAttendee(int day, int month, int year, int hour, int minute, const std::string& attendee);
+</p>
+
+<p>
+/** Returns a summary of the sessions */
+</p>
+<p>
+std::string getSessions(bool useMil) const;
+</p>
+
+<p>
+/** Returns a summary of the sessions, times, and attendees */
+</p>
+<p>
+std::string getAttendees(bool useMil) const;
+</p>
+
+<p>
+/** Add new Session to Event. Returns true if addition was successful. */
+</p>
+<p>
+bool addSession(int startDay, int startMonth, int startYear, int startHour, int startMinute, int endDay, int endMonth, int endYear, int endHour, int endMinute);
+</p>
+
+<p>
+/** Method that allows Event class to add list of tasks the admin wants.
+</p>
+<p>
+void addTasks();
+</p>
+
+<p>
+/** Function that takes in attendee name and allows them to accept tasks from an event.
+</p>
+<p>
+void acceptTask(string attendee); 
+</p>
+
+
+</body>
+</html>
+

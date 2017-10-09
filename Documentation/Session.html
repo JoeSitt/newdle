@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Session Class </title>
+<h1> Session Class </h1>
+</head>
+<body>
+
+<p>
+/**
+        When the class Archive corresponds to an output archive, the
+        & operator is defined similar to <<.  Likewise, when the class Archive
+        is a type of input archive the & operator is defined similar to >>.
+*/
+</p>
+
+<p>
+void serialize(Archive & ar, const unsigned int version);
+</p>
+
+<p>
+/** Returns string summary of the start and end time */
+</p>
+
+<p>
+ std::string getSummary(bool useMil) const;
+</p>
+
+<p>
+/** Returns string summary of who is going and when */
+</p>
+
+<p>
+ std::string getAttendeeSummary(bool useMil) const;
+</p>
+
+<p>
+/** Initialize Session with start and end times */
+</p>
+
+<p>
+Session(const Time& start, const Time &end);
+</p>
+
+<p>
+/** Add User to requested time slot. Returns true if addition was successful. */
+</p>
+
+<p>
+bool RSVP(const Time& desired_time, const std::string &name);
+</p>
+
+<p>
+/** Returns whether or not the time passed occurs during the session. */
+</p>
+
+<p>
+bool contains(const Time& t) const;
+</p>
+
+<p>
+/** Returns true of passed session overlaps */
+</p>
+
+<p>
+bool overlaps(const Session &s) const;
+</p>
+
+<p>
+/**
+        Allows for sessions to be compared.
+        Comparison is done with respect to time in which session starts
+*/
+</p>
+
+<p>
+bool operator< (const Session &otherSession) const;
+</p>
+
+
+</body>
+</html>
+

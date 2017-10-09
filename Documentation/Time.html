@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Time Class </title>
+<h1> Time Class </h1>
+</head>
+<body>
+
+<p>
+/**
+        When the class Archive corresponds to an output archive, the
+        & operator is defined similar to <<.  Likewise, when the class Archive
+        is a type of input archive the & operator is defined similar to >>.
+*/
+</p>
+
+<p>
+void serialize(Archive & ar, const unsigned int version);
+</p>
+
+<p>
+/** Initialize a time object */
+</p>
+
+<p>
+Time(int day, int month, int year, int hour, int minute);
+</p>
+
+<p>
+/** Provide string representation of the represented time */
+</p>
+
+<p>
+std::string toString(bool useMil) const;
+</p>
+
+<p>
+/**
+        Formats hour/minute component of time.
+        NOTE:
+        Hours and minutes are not checked to correspond to realistic times.
+        Use with caution.
+*/
+</p>
+
+<p>
+std::string getTime(bool useMil) const;
+</p>
+
+<p>
+/** Comparision with preference to year, then month, etc. */
+</p>
+
+<p>
+bool operator< (const Time &otherTime) const ;
+</p>
+
+</body>
+</html>
+

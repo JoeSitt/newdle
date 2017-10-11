@@ -61,7 +61,7 @@ bool Session::RSVP(const Time& desired_time, const std::string &name) {
         tSlots.insert(std::pair<Time, std::set<std::string>>(desired_time, time_set));
     }
 
-    return true;  // TEMP
+    return true;
 }
 
 // Returns whether or not the time passed occurs during the session.

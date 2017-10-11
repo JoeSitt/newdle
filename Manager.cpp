@@ -25,6 +25,7 @@ Manager* Manager::getManager(std::string fileName) {
     } catch(std::exception e) {
        return nullptr;
     }
+    std::cout << "Loaded Manager!" << std::endl;
     return new Manager(m);
 }
 

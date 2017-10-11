@@ -37,18 +37,15 @@ public:
     {
         ar & sessions;
         ar & name;
-        ar & eventTask;
-        ar & acceptedTask;
-        ar & taskTaken;
+        ar & tasks;
     }
 
     Event(std::string name);
 
-    /**
-        TODO:
-        Provide summary of the tasks that have/should be completed.
-    */
     std::string getTaskSummary() const;
+
+    // Add attendee at the requested date and time. Returns true if addition was successful.
+    bool addAttendee(const Time& this_time, const std::string& attendee);
 
     // Add attendee at the requested date and time. Returns true if addition was successful.
     bool addAttendee(int day, int month, int year, int hour, int minute, const std::string& attendee);
@@ -60,6 +57,9 @@ public:
     std::string getAttendees(bool useMil) const;
 
     // Add new Session to Event. Returns true if addition was successful.
+    bool addSession(const Time& start, const Time& end);
+
+    // Add new Session to Event. Returns true if addition was successful.
     bool addSession(int startDay, int startMonth, int startYear, int startHour, int startMinute, int endDay, int endMonth, int endYear, int endHour, int endMinute);
 
     std::set<Session> sessions;
@@ -67,14 +67,7 @@ public:
 
     Event() {}
 
-    vector<string> eventTask; //Stores list of event Tasks
-    vector<Task> acceptedTask; //Stores	list of accepted Tasks by attendes
-    vector<string> taskTaken; //Stores list of tasks already taken
-
-    void acceptTask(string attendee);
-
-
-    void addTasks();
+    vector<Task> tasks;
 };
 
 #endif

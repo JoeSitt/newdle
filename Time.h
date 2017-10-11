@@ -44,7 +44,7 @@ public:
 
     std::string getTime(bool useMil) const;
 
-    bool operator< (const Time &otherTime) const ;
+    bool operator< (const Time &otherTime) const;
 };
 
 #endif

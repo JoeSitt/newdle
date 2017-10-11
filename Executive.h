@@ -72,12 +72,47 @@ private:
 	*   @return none.
 	*/
 	void getEventList();
-	bool twelveHourMode;
+	bool useMilTime;
 	vector<Event*> calendar;
 	Manager m;
 	Valid* talid;
 
-	Event addSession(Event A);
+	void completeTask();
+
+	void addEventMode();
+
+	void checkAttendanceMode();
+
+	void addAttendeeMode();
+
+	void checkTasksMode();
+
+	// Read from user which tasks an event should have
+	void readAddTasks(Event* e);
+
+	// Read from user which task they would like to complete
+    void readCompleteTask(Event* e, std::string name);
+
+	// Read Int from user
+	int readInt(string requestMessage, string failMessage);
+
+	// Read raw string from user (cannot contain spaces)
+	std::string readString(std::string requestMessage);
+
+	// Read time from user
+	Time readTime(bool useMil);
+
+	// Read and add a new session from the user
+	bool readNewSession(Event* event, bool useMil);
+
+	// Read new Event from user
+	Event* readEvent(bool useMil);
+
+	// Allow user to select an event
+	Event* readEventSelection(std::vector<Event*> event_list);
+
+	// Read a new RSVP-er from the user
+	bool readNewAttendee(Event* event, bool useMil);
 };
 
 #endif

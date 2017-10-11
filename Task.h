@@ -21,10 +21,11 @@ class Task
       template<class Archive>
       void serialize(Archive & ar, const unsigned int version)
       {
-          ar & taskAccepted;
+          ar & guestName;
+    	  ar & description;
       }
-      string guestName; //name of the guest
-	  vector<int> taskAccepted; //when listing attendes and the task they accepted, iterate through the taskList first to show the list of tasks.
+      string guestName = "Unassigned";
+	  string description;
 };
 
 #endif

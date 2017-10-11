@@ -91,8 +91,6 @@ void Executive::run()
     } while(looper == true);
 }
 
-// TODO
-// - Change admin language
 void Executive::attendeeMode() {
     string userChoice;
     bool looper = true;
@@ -344,7 +342,6 @@ bool Executive::readNewSession(Event* event, bool useMil) {
 }
 
 // Read new Event from user
-// TODO display whether or not event was successfully added
 Event* Executive::readEvent(bool useMil) {
     // Get event name
     std::string name = readString("What would you like to name the event? (Please no spaces): ");
